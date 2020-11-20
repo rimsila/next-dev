@@ -1,0 +1,35 @@
+{
+  "compilerOptions": {
+    "baseUrl": "./",
+    "target": "esnext",
+    "moduleResolution": "node",
+    "jsx": "preserve",
+    "esModuleInterop": true,
+    "experimentalDecorators": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "noImplicitReturns": false,
+    "suppressImplicitAnyIndexErrors": true,
+    "declaration": true,
+    "skipLibCheck": true,
+    "noImplicitAny": false,
+    "paths": {
+      "@wetrial/core": ["./packages/core/src/index.tsx"],
+      "@wetrial/component": ["./packages/component/src/index.tsx"],
+      "@wetrial/hooks": ["./packages/hooks/src/index.tsx"],
+      "@wetrial/form-designer": ["./packages/form-designer/src/index.tsx"],
+      "@wetrial/editor": ["./packages/editor/src/index.tsx"]
+    }
+  },
+  "include": [
+    "**/src",
+    "**/docs",
+    "scripts",
+    "**/demos",
+    ".eslintrc.js",
+    "tests",
+    "jest.config.js",
+    "**/fixtures",
+    "typings.d.ts"
+  ]
+}
