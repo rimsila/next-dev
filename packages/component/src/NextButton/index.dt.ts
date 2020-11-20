@@ -1,7 +1,11 @@
 import { ButtonProps } from 'antd/lib/button';
 import * as CSS from 'csstype';
 
-export interface AntButtonProps extends ButtonProps {
+export type btnType = 'warning';
+
+export interface NextButtonProps extends ButtonProps {
+  next?: btnType;
+  children?: React.ReactNode;
   btnDisplay?: 'flex' | 'block';
   btnJustify?: CSS.Property.AlignContent;
   btnCls?: any;
@@ -10,10 +14,4 @@ export interface AntButtonProps extends ButtonProps {
     textColor?: CSS.Property.Color;
     backgroundColor?: CSS.Property.BackgroundColor;
   };
-}
-
-type btnType = 'default' | 'warning';
-export interface NextButtonProps extends AntButtonProps {
-  next?: btnType;
-  children?: React.ReactNode;
 }

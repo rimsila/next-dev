@@ -97,6 +97,36 @@ export default () => {
       ),
       copyCode: ` <NextButton type="ghost" danger> ghost danger</NextButton>`,
     },
+    {
+      item: (
+        <NextButton type="link" next="warning">
+          link warning
+        </NextButton>
+      ),
+      copyCode: `   <NextButton type="link" next="warning">
+      link warning
+    </NextButton>`,
+    },
+    {
+      item: (
+        <NextButton type="primary" next="warning">
+          btn warning
+        </NextButton>
+      ),
+      copyCode: `   <NextButton type="link" next="warning">
+      link warning
+    </NextButton>`,
+    },
+    {
+      item: (
+        <NextButton type="dashed" next="warning">
+          dashed warning
+        </NextButton>
+      ),
+      copyCode: `   <NextButton type="dashed" next="warning">
+      dashed warning
+    </NextButton>`,
+    },
   ];
 
   return (

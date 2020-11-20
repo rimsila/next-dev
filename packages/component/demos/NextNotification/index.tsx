@@ -58,10 +58,10 @@ export default () => {
           next="warning"
           onClick={() => nextNotification({ type: 'warning', message: 'custom warning' })}
         >
-          warning
+          custom warning
         </NextButton>
       ),
-      copyCode: `nextNotification({ type: 'error', message: 'custom message' })
+      copyCode: `nextNotification({ type: 'warning', message: 'custom warning' })
       `,
     },
   ];

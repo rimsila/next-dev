@@ -1,10 +1,54 @@
 // https://github.com/ant-design/ant-design/blob/master/components/style/themes/default.less
 @import '~antd/lib/style/themes/default.less';
+
+.default_warning {
+  border-color: @warning-color;
+  color: @warning-color;
+  &:hover,
+  :active,
+  :focus {
+    color: @warning-color;
+    border-color: @warning-color;
+  }
+}
+.clear {
+  border: 0;
+  color: initial;
+  &:hover,
+  :active,
+  :focus {
+    color: initial;
+    border-color: initial;
+  }
+}
 .warning {
   :global {
+    .ant-btn {
+      .default_warning();
+    }
     .ant-btn-primary {
+      color: @white;
       background-color: @warning-color;
       border-color: @warning-color;
+      &:hover,
+      :active,
+      :focus {
+        border-color: @warning-color;
+        color: @white;
+      }
+    }
+    .ant-btn-ghost {
+      .default_warning();
+    }
+    .ant-btn-dashed {
+      .default_warning();
+    }
+    .ant-btn-link {
+      .default_warning();
+      border: 0;
+    }
+    .ant-btn-text {
+      .clear();
     }
   }
 }

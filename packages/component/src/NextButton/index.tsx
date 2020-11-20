@@ -1,20 +1,23 @@
 import React, { FC } from 'react';
 import { Button } from 'antd';
-import { NextButtonProps, AntButtonProps } from './NextButton.types';
+import { NextButtonProps } from './index.dt';
 import css from './styles.less';
 
-console.log('css', css);
-
-const AntButton: FC<AntButtonProps> = ({
+export const NextButton: FC<NextButtonProps> = ({
   btnDisplay = 'flex',
   btnJustify = 'center',
   children = 'Button',
   customStyle,
   btnCls,
+  disabled,
+  next,
   ...rest
 }) => {
   return (
-    <span style={{ display: btnDisplay, justifyContent: btnJustify }} className={btnCls}>
+    <span
+      style={{ display: btnDisplay, justifyContent: btnJustify }}
+      className={(!disabled && next && css[`${next}`]) || ''}
+    >
       <Button
         style={{
           color: customStyle?.textColor,
@@ -27,22 +30,6 @@ const AntButton: FC<AntButtonProps> = ({
       </Button>
     </span>
   );
-};
-
-export const NextButton: FC<NextButtonProps> = ({ disabled, children, next, ...rest }) => {
-  const renderSwitch = () => {
-    switch (next) {
-      case 'warning':
-        return (
-          <AntButton {...{ type: 'primary', btnCls: !disabled && css.warning, disabled, ...rest }}>
-            {children}
-          </AntButton>
-        );
-      default:
-        return <AntButton {...rest}>{children}</AntButton>;
-    }
-  };
-  return <>{renderSwitch()}</>;
 };
 
 export default NextButton;

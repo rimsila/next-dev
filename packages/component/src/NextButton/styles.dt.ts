@@ -1,7 +1,4 @@
 declare module '*.less' {
-  interface IBtn {
-    warning: string;
-  }
-  const classes: IBtn;
+  const classes: any;
   export = classes;
 }
