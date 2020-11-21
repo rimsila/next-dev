@@ -100,11 +100,8 @@
    .@{clsName}@{index}{
       /*Here are our properties that get adjusted with the index*/
       margin-left: if(@isMl, ( @index * @space-unit),0) !important;  
-      // margin-bottom: ( @index * @space-unit);
-      // margin-top: ( @index * @space-unit); 
+      margin-bottom: if(@isMb, ( @index * @space-unit),0) !important;  
       margin-right: if(@isMr, ( @index * @space-unit),0) !important;
-      
-      
    }
    /*Here we increment our loop*/
    .loopingClass(@index + 1 , @clsName);

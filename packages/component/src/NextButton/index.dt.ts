@@ -29,6 +29,7 @@ export interface NextButtonProps extends ButtonProps {
   btnCls?: any;
   mr?: number;
   ml?: number;
+  mb?: number;
   customStyle?: {
     textColor?: CSS.Property.Color;
     backgroundColor?: CSS.Property.BackgroundColor;

@@ -3,11 +3,11 @@ title: IconFont - Font icon
 order: 40
 nav:
   title: Component
-  order: 1
+  order: 2
   path: /component
 group:
   title: Universal
-  order: 1
+  order: 2
   path: /common
 ---
 

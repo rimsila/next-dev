@@ -5,16 +5,18 @@ import css from './styles.less';
 import classnames from 'classnames';
 
 export const NextButton: FC<NextButtonProps> = ({
+  next,
   btnDisplay = 'flex',
   btnJustify = 'center',
-  children = 'Button',
   customStyle,
   btnCls,
-  disabled,
-  next,
   style,
   mr,
   ml,
+  mb,
+  children,
+  disabled,
+
   ...rest
 }) => {
   return (
@@ -27,6 +29,7 @@ export const NextButton: FC<NextButtonProps> = ({
         (!disabled && next && css[`${next}`]) || '',
         mr && css[`mr${mr}`],
         ml && css[`ml${ml}`],
+        mb && css[`mb${mb}`],
       )}
     >
       <Button
