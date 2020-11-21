@@ -1,16 +1,53 @@
 // https://github.com/ant-design/ant-design/blob/master/components/style/themes/default.less
 @import '~antd/lib/style/themes/default.less';
 
-.default_warning {
-  border-color: @warning-color;
-  color: @warning-color;
+//* -------------- btn_default mixin --------------
+.btn_default(@btnColor: @warning-color) {
+  border-color: @btnColor;
+  color: @btnColor;
   &:hover,
   :active,
   :focus {
-    color: @warning-color;
-    border-color: @warning-color;
+    color: @btnColor;
+    border-color: @btnColor;
   }
 }
+
+//* -------------- btn_custom mixin  --------------
+
+.btn_custom(@btnColor:@warning-color) {
+  :global {
+    .ant-btn {
+      .btn_default(@btnColor);
+    }
+    .ant-btn-primary {
+      color: @white;
+      background-color: @btnColor;
+      border-color: @btnColor;
+      &:hover,
+      :active,
+      :focus {
+        border-color: @btnColor;
+        color: @white;
+      }
+    }
+    .ant-btn-ghost {
+      .btn_default(@btnColor);
+    }
+    .ant-btn-dashed {
+      .btn_default(@btnColor);
+    }
+    .ant-btn-link {
+      .btn_default(@btnColor);
+      border: 0;
+    }
+    .ant-btn-text {
+      border: 0;
+    }
+  }
+}
+
+//* -------------- clear  --------------
 .clear {
   border: 0;
   color: initial;
@@ -21,34 +58,61 @@
     border-color: initial;
   }
 }
+
+//* -------------- warning  --------------
 .warning {
-  :global {
-    .ant-btn {
-      .default_warning();
-    }
-    .ant-btn-primary {
-      color: @white;
-      background-color: @warning-color;
-      border-color: @warning-color;
-      &:hover,
-      :active,
-      :focus {
-        border-color: @warning-color;
-        color: @white;
-      }
-    }
-    .ant-btn-ghost {
-      .default_warning();
-    }
-    .ant-btn-dashed {
-      .default_warning();
-    }
-    .ant-btn-link {
-      .default_warning();
-      border: 0;
-    }
-    .ant-btn-text {
-      .clear();
-    }
-  }
+  .btn_custom();
 }
+
+//* -------------- success  --------------
+.success {
+  .btn_custom(@success-color);
+}
+
+//* -------------- black  --------------
+.black {
+  .btn_custom(@black);
+}
+
+//* -------------- error  --------------
+.error {
+  .btn_custom(@error-color);
+}
+
+//* -------------- highlight  --------------
+.cyan_base {
+  .btn_custom(@cyan-base);
+}
+
+//* -------------- spacing  --------------
+
+/*Total number of passport inserts*/
+@numInserts: 30;
+@space-unit: 0.5rem;
+
+/*The faux loop the doesn't end up in the final css
+@index is the counter
+@numInserts is the total number of loops*/
+.loopingClass (@index: null,@clsName:null , @isMl: false ,@isMr: false ,@isMb: false  ) when (@index <= @numInserts){
+   /*This is the created ID with the index appended to it
+   You can also do this with classes such as if 
+   we had had ".insert@{index}"*/
+   .@{clsName}@{index}{
+      /*Here are our properties that get adjusted with the index*/
+      margin-left: if(@isMl, ( @index * @space-unit),0) !important;  
+      // margin-bottom: ( @index * @space-unit);
+      // margin-top: ( @index * @space-unit); 
+      margin-right: if(@isMr, ( @index * @space-unit),0) !important;
+      
+      
+   }
+   /*Here we increment our loop*/
+   .loopingClass(@index + 1 , @clsName);
+}
+/*This calls the loop and starts it, I started from 1
+since I didn't want to lead a className starting from 0,
+But there is no real reason not to.  Just remember to
+Change your conditional from "<=" to "<"*/
+.loopingClass(@index:1, @clsName: mr ,@isMr: true);
+.loopingClass(@index:1, @clsName: ml ,@isMl: true);
+.loopingClass(@index:1, @clsName: mb ,@isMb: true);

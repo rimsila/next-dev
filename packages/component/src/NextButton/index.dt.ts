@@ -1,15 +1,34 @@
 import { ButtonProps } from 'antd/lib/button';
 import * as CSS from 'csstype';
 
-export type btnType = 'warning';
+export const btnType = {
+  warning: 'warning',
+  success: 'success',
+  black: 'black',
+  error: 'error',
+  cyan_base: 'cyan_base',
+};
+
+function asLiterals<T extends number>(arr: T[]): T[] {
+  return arr;
+}
+const spacing = asLiterals([...Array(10).keys()]);
+type Spacing = { [K in typeof spacing[number]]: string };
+
+export const btnTypeArr = Object.keys(btnType);
+
+export type NewSpacing = keyof Spacing;
+export type BtnType = typeof btnType;
+export type NextBtnType = keyof BtnType;
 
 export interface NextButtonProps extends ButtonProps {
-  next?: btnType;
+  next?: NextBtnType;
   children?: React.ReactNode;
   btnDisplay?: 'flex' | 'block';
   btnJustify?: CSS.Property.AlignContent;
   btnCls?: any;
-
+  mr?: number;
+  ml?: number;
   customStyle?: {
     textColor?: CSS.Property.Color;
     backgroundColor?: CSS.Property.BackgroundColor;

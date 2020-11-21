@@ -2,7 +2,7 @@
 
 > @wetrial/component.
 
-See website [@wetrial/component](https://wetrial.github.io/wetrials/component) for more information.
+See website [@wetrial/component](https://github.com/rimsila/component) for more information.
 
 ## Install
 

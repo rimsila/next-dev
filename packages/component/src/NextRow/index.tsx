@@ -1,11 +1,11 @@
 import React, { FC } from 'react';
 import { Row } from 'antd';
 import { LayoutProps } from './Layout.types';
-import './styles.less';
+import css from './styles.less';
 
-export const NextRow: FC<LayoutProps> = ({ children, gut1 = 15, gut2 = 15 }) => {
+export const NextRow: FC<LayoutProps> = ({ children, gut1 = 10, gut2 = 10 }) => {
   return (
-    <Row className="layout" gutter={[gut1, gut2]}>
+    <Row className={css.layout} gutter={[gut1, gut2]}>
       {children}
     </Row>
   );

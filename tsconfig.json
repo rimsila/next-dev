@@ -6,19 +6,18 @@
     "jsx": "preserve",
     "esModuleInterop": true,
     "experimentalDecorators": true,
-    "strict": true,
+    "strict": false,
     "forceConsistentCasingInFileNames": true,
     "noImplicitReturns": false,
     "suppressImplicitAnyIndexErrors": true,
     "declaration": true,
     "skipLibCheck": true,
     "noImplicitAny": false,
+    "removeComments": true,
     "paths": {
       "@wetrial/core": ["./packages/core/src/index.tsx"],
       "@wetrial/component": ["./packages/component/src/index.tsx"],
-      "@wetrial/hooks": ["./packages/hooks/src/index.tsx"],
-      "@wetrial/form-designer": ["./packages/form-designer/src/index.tsx"],
-      "@wetrial/editor": ["./packages/editor/src/index.tsx"]
+      "@wetrial/hooks": ["./packages/hooks/src/index.tsx"]
     }
   },
   "include": [

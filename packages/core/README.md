@@ -2,7 +2,7 @@
 
 > @wetrial/core.
 
-See website [@wetrial/core](https://wetrial.github.io/wetrials/core) for more information.
+See website [@wetrial/core](https://github.com/rimsila/core) for more information.
 
 ## Install
 

@@ -11,15 +11,15 @@ group:
   path: /common
 ---
 
-# Next Button
-
-## Usage
-
-It is a custom button from antd. import: `import { NextButton } from'@wetrial/component'; `
+## Next Button
 
 ### Demo
 
 <code src="../demos/NextButton/base.tsx" />
+
+## Usage
+
+It is a custom button from antd. import: `import { NextButton } from'@wetrial/component'; `
 
 ## API
 

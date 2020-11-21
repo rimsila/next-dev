@@ -99,6 +99,9 @@ tailPkgs.forEach((pkg) => {
             },
             {
               loader: 'css-loader', // translates CSS into CommonJS
+              options: {
+                modules: true,
+              },
             },
           ],
         },
@@ -114,6 +117,9 @@ tailPkgs.forEach((pkg) => {
             },
             {
               loader: 'css-loader', // translates CSS into CommonJS
+              options: {
+                modules: true,
+              },
             },
             {
               loader: 'less-loader',

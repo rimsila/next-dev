@@ -34,12 +34,12 @@ export default {
   theme: {
     '@c-primary': '#ff652f',
     '@s-content-margin': '40px',
-    '@s-menu-width': '220px',
+    // '@s-menu-width': '220px',
   },
   hash: true,
   // history: 'hash',
-  base: '/wetrials',
-  publicPath: '/wetrials/',
+  base: '/next-dev',
+  publicPath: '/next-dev/',
   exportStatic: {}, // 将所有路由输出为 HTML 目录结构，以免刷新页面时 404
   logo: 'https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg',
   extraBabelPlugins: [
@@ -52,6 +52,10 @@ export default {
       },
     ],
   ],
+
+  cssModulesTypescriptLoader: {
+    mode: 'emit',
+  },
   alias: {
     // Add other modules that are not exported by index alias
     '@wetrial/core/es': join(__dirname, 'packages', 'core/src'),
@@ -64,7 +68,7 @@ export default {
     null,
     {
       title: 'GitHub',
-      path: 'https://github.com/wetrial/wetrials',
+      path: 'https://github.com/rimsila/next-dev',
     },
   ],
 
@@ -75,7 +79,5 @@ export default {
   //   : false,
   hash: true,
   dynamicImport: {},
-  styles: [
-    `${isSite ? 'https://wetrial.github.io' : 'http://localhost:10000'}/wetrials/global.css`,
-  ],
+  styles: [`${isSite ? 'https://rimsila.github.io' : 'http://localhost:4000'}/next-dev/global.css`],
 };

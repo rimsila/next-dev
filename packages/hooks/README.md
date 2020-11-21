@@ -2,7 +2,7 @@
 
 > @wetrial/hooks.
 
-See website [@wetrial/hooks](https://wetrial.github.io/wetrials/hooks) for more information.
+See website [@wetrial/hooks](https://github.com/rimsila/hooks) for more information.
 
 ## Install
 

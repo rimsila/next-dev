@@ -27,14 +27,14 @@ const { yParser } = require('@umijs/utils');
         files: ['lib', 'src', 'dist', 'es'],
         repository: {
           type: 'git',
-          url: 'https://github.com/wetrial/wetrials',
+          url: 'https://github.com/rimsila/next-dev',
         },
         browserslist: ['last 2 versions', 'Firefox ESR', '> 1%', 'ie >= 11'],
         keywords: ['antd', 'admin', 'ant-design', 'wetrial'],
         authors: ['xiexingen <1002275364@qq.com> (https://github.com/xiexingen)'],
         license: 'MIT',
-        bugs: 'https://github.com/wetrial/wetrials/issues',
-        homepage: `https://github.com/wetrial/wetrials/tree/master/packages/${shortName}#readme`,
+        bugs: 'https://github.com/rimsila/next-dev/issues',
+        homepage: `https://github.com/rimsila/next-dev/tree/master/packages/${shortName}#readme`,
         peerDependencies: {
           umi: '3.x',
         },
@@ -72,7 +72,7 @@ const { yParser } = require('@umijs/utils');
 
 > ${json.description}.
 
-See website [${name}](https://wetrial.github.io/wetrials/${shortName}) for more information.
+See website [${name}](https://github.com/rimsila/${shortName}) for more information.
 
 ## Install
 

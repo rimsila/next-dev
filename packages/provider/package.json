@@ -9,11 +9,11 @@
     "ant-design-pro",
     "wetrial"
   ],
-  "homepage": "https://github.com/wetrial/wetrials/tree/master/packages/configProvider#readme",
-  "bugs": "https://github.com/wetrial/wetrials/issues",
+  "homepage": "https://github.com/rimsila/next-dev/tree/master/packages/configProvider#readme",
+  "bugs": "https://github.com/rimsila/next-dev/issues",
   "repository": {
     "type": "git",
-    "url": "https://github.com/wetrial/wetrials"
+    "url": "https://github.com/rimsila/next-dev"
   },
   "license": "MIT",
   "main": "lib/index.js",
