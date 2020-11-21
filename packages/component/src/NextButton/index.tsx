@@ -13,7 +13,8 @@ export const NextButton: FC<NextButtonProps> = ({
   style,
   mr,
   ml,
-  mb,
+  mb = 2,
+  mt,
   children,
   disabled,
 
@@ -26,10 +27,11 @@ export const NextButton: FC<NextButtonProps> = ({
         justifyContent: btnJustify,
       }}
       className={classnames(
-        (!disabled && next && css[`${next}`]) || '',
-        mr && css[`mr${mr}`],
-        ml && css[`ml${ml}`],
-        mb && css[`mb${mb}`],
+        !disabled && next && css[`${next}`],
+        mr && css[`mr-${mr}`],
+        ml && css[`ml-${ml}`],
+        mb && css[`mb-${mb}`],
+        mt && css[`mt-${mt}`],
       )}
     >
       <Button

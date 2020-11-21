@@ -1,6 +1,6 @@
 import { readdirSync } from 'fs';
 import chalk from 'chalk';
-import { join } from 'path';
+import { join, resolve } from 'path';
 const { REACT_APP_ENV } = process.env;
 
 const isSite = REACT_APP_ENV !== 'dev';
@@ -57,6 +57,7 @@ export default {
     // Add other modules that are not exported by index alias
     '@wetrial/core/es': join(__dirname, 'packages', 'core/src'),
     '@wetrial/component/es': join(__dirname, 'packages', 'component/src'),
+    antd: resolve(__dirname, './node_modules/antd'),
     ...alias,
   },
   resolve: { includes: [...tailPkgList, 'docs', 'wetrial-doc'] },

@@ -7,6 +7,9 @@ export const btnType = {
   black: 'black',
   error: 'error',
   cyan_base: 'cyan_base',
+  pink_base: 'pink_base',
+  volcano_base: 'volcano_base',
+  purple_base: 'purple_base',
 };
 
 function asLiterals<T extends number>(arr: T[]): T[] {
@@ -30,6 +33,7 @@ export interface NextButtonProps extends ButtonProps {
   mr?: number;
   ml?: number;
   mb?: number;
+  mt?: number;
   customStyle?: {
     textColor?: CSS.Property.Color;
     backgroundColor?: CSS.Property.BackgroundColor;

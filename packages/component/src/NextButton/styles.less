@@ -1,5 +1,5 @@
-// https://github.com/ant-design/ant-design/blob/master/components/style/themes/default.less
-@import '~antd/lib/style/themes/default.less';
+@import '../style/variable.less';
+@import '../style/index.less';
 
 //* -------------- btn_default mixin --------------
 .btn_default(@btnColor: @warning-color) {
@@ -84,32 +84,19 @@
   .btn_custom(@cyan-base);
 }
 
-//* -------------- spacing  --------------
-
-/*Total number of passport inserts*/
-@numInserts: 30;
-@space-unit: 0.5rem;
-
-/*The faux loop the doesn't end up in the final css
-@index is the counter
-@numInserts is the total number of loops*/
-.loopingClass (@index: null,@clsName:null , @isMl: false ,@isMr: false ,@isMb: false  ) when (@index <= @numInserts){
-   /*This is the created ID with the index appended to it
-   You can also do this with classes such as if 
-   we had had ".insert@{index}"*/
-   .@{clsName}@{index}{
-      /*Here are our properties that get adjusted with the index*/
-      margin-left: if(@isMl, ( @index * @space-unit),0) !important;  
-      margin-bottom: if(@isMb, ( @index * @space-unit),0) !important;  
-      margin-right: if(@isMr, ( @index * @space-unit),0) !important;
-   }
-   /*Here we increment our loop*/
-   .loopingClass(@index + 1 , @clsName);
+//* -------------- pink_base  --------------
+.pink_base {
+  .btn_custom(@pink-base);
 }
-/*This calls the loop and starts it, I started from 1
-since I didn't want to lead a className starting from 0,
-But there is no real reason not to.  Just remember to
-Change your conditional from "<=" to "<"*/
-.loopingClass(@index:1, @clsName: mr ,@isMr: true);
-.loopingClass(@index:1, @clsName: ml ,@isMl: true);
-.loopingClass(@index:1, @clsName: mb ,@isMb: true);
+
+//* -------------- volcano-base --------------
+.volcano-base {
+  .btn_custom(@volcano-base);
+}
+
+//* -------------- purple_base --------------
+.purple_base {
+  .btn_custom(@purple-base);
+}
+
+//* -------------- spacing  --------------

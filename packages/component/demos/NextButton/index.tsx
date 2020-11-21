@@ -4,8 +4,6 @@ import { DownloadOutlined, SearchOutlined } from '@ant-design/icons';
 import { NextBtnType, btnTypeArr } from '../../src/NextButton/index.dt';
 import { Divider } from 'antd';
 
-console.log('btnTypeArr', btnTypeArr);
-
 export default () => {
   const [type, setType] = useState<NextBtnType>('warning');
 
@@ -208,14 +206,13 @@ export default () => {
     <>
       <NextRow>
         <NextButton type="link" size="small" danger>
-          Change Button Color:
+          Change Color:
         </NextButton>
         {btnTypeArr?.map((i: any) => (
           <NextButton
             size="small"
             key={i}
-            mr={1}
-            ml={1}
+            mr={2}
             type="primary"
             next={i}
             shape="round"
