@@ -36,7 +36,7 @@ export default {
     '@s-content-margin': '50px',
   },
   base: '/next-dev',
-  publicPath: '/next-dev',
+  publicPath: '/next-dev/',
   exportStatic: {}, // 将所有路由输出为 HTML 目录结构，以免刷新页面时 404
   logo: 'https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg',
   extraBabelPlugins: [
