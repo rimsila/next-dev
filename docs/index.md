@@ -2,12 +2,12 @@
 title: NextDev Library
 order: 10
 sidebar: false
-hero:
-  title: wetrials
-  desc: 🏆 Use Ant Design like a Pro!
-  actions:
-    - text: Quick start →
-      link: /docs/getting-started-table
+# hero:
+#   title: wetrials
+#   desc: 🏆 Use Ant Design like a Pro!
+#   actions:
+#     - text: Quick start →
+#       link: /docs/getting-started-table
 
 features:
   - icon: https://gw.alipayobjects.com/os/q/cms/images/k9ziitmp/13668549-b393-42a2-97c3-a6365ba87ac2_w96_h96.png

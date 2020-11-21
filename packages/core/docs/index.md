@@ -43,21 +43,9 @@ const result = await get('');
 ## Methods
 
 | 名称 | 描述 | 类型 |
-| --- | --- | --- |
-| get | 发送 get 请求，返回 Promise 类型的泛型 T，[IRequestOption](#irequestoption) | `(opt:IRequestOption | string):Promise<T>` |
-| post | 发送 post 请求，返回 Promise 类型的泛型 T，[IRequestOption](#irequestoption) | `(opt:IRequestOption):Promise<T>` |
-| put | 发送 put 请求，返回 Promise 类型的泛型 T，[IRequestOption](#irequestoption) | `(opt:IRequestOption):Promise<T>` |
-| del | 发送 delete 请求，返回 Promise 类型的泛型 T，[IRequestOption](#irequestoption) | `(opt:IRequestOption):Promise<T>` |
-| patch | 发送 patch 请求，返回 Promise 类型的泛型 T，[IRequestOption](#irequestoption) | `(opt:IRequestOption):Promise<T>` |
-| request | 各类请求的基类，get、post、put、del、patch 都是在该方法的基础上进行扩展的(比如设置 method) | `(opt:IRequestOption):Promise<T>` |
-| instance | axios 的实例 |  |
-| commonRequestInterceptor | 通用请求拦截器，会将 getToken 获取到的值设置到请求头的 Authorization |  |
-| commonResponseInterceptor | 通用响应拦截器，会处理`showTip`、未授权请求、数据转换等 |  |
-| addRequestInterceptor | 添加请求拦截器 |  |
-| ejectRequestInterceptor | 删除请求拦截器 |  |
-| addResponseInterceptor | 添加响应拦截器 |  |
-| ejectResponseInterceptor | 删除响应拦截器 |  |
-| configGlobalHeader | 用于配置全局添加的请求头,一次配置所有请求生效 |  |
+| ---- | ---- | ---- |
+
+| post | 发送 post 请求，返回 Promise 类型的泛型 T，[IRequestOption](#irequestoption) | `(opt:IRequestOption):Promise<T>` | | put | 发送 put 请求，返回 Promise 类型的泛型 T，[IRequestOption](#irequestoption) | `(opt:IRequestOption):Promise<T>` | | del | 发送 delete 请求，返回 Promise 类型的泛型 T，[IRequestOption](#irequestoption) | `(opt:IRequestOption):Promise<T>` | | patch | 发送 patch 请求，返回 Promise 类型的泛型 T，[IRequestOption](#irequestoption) | `(opt:IRequestOption):Promise<T>` | | request | 各类请求的基类，get、post、put、del、patch 都是在该方法的基础上进行扩展的(比如设置 method) | `(opt:IRequestOption):Promise<T>` | | instance | axios 的实例 | | | commonRequestInterceptor | 通用请求拦截器，会将 getToken 获取到的值设置到请求头的 Authorization | | | commonResponseInterceptor | 通用响应拦截器，会处理`showTip`、未授权请求、数据转换等 | | | addRequestInterceptor | 添加请求拦截器 | | | ejectRequestInterceptor | 删除请求拦截器 | | | addResponseInterceptor | 添加响应拦截器 | | | ejectResponseInterceptor | 删除响应拦截器 | | | configGlobalHeader | 用于配置全局添加的请求头,一次配置所有请求生效 | |
 
 ### IRequestOption
 
