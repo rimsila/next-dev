@@ -2,7 +2,6 @@
 // Please do not change this file!
 interface CssExports {
   'black': string;
-  'clear': string;
   'cyan_base': string;
   'error': string;
   'mb-1': string;

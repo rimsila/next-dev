@@ -1,63 +1,4 @@
-@import '../style/variable.less';
 @import '../style/index.less';
-
-//* -------------- btn_default mixin --------------
-.btn_default(@btnColor: @warning-color) {
-  border-color: @btnColor;
-  color: @btnColor;
-  &:hover,
-  :active,
-  :focus {
-    color: @btnColor;
-    border-color: @btnColor;
-  }
-}
-
-//* -------------- btn_custom mixin  --------------
-
-.btn_custom(@btnColor:@warning-color) {
-  :global {
-    .ant-btn {
-      .btn_default(@btnColor);
-    }
-    .ant-btn-primary {
-      color: @white;
-      background-color: @btnColor;
-      border-color: @btnColor;
-      &:hover,
-      :active,
-      :focus {
-        border-color: @btnColor;
-        color: @white;
-      }
-    }
-    .ant-btn-ghost {
-      .btn_default(@btnColor);
-    }
-    .ant-btn-dashed {
-      .btn_default(@btnColor);
-    }
-    .ant-btn-link {
-      .btn_default(@btnColor);
-      border: 0;
-    }
-    .ant-btn-text {
-      border: 0;
-    }
-  }
-}
-
-//* -------------- clear  --------------
-.clear {
-  border: 0;
-  color: initial;
-  &:hover,
-  :active,
-  :focus {
-    color: initial;
-    border-color: initial;
-  }
-}
 
 //* -------------- warning  --------------
 .warning {
@@ -98,5 +39,3 @@
 .purple_base {
   .btn_custom(@purple-base);
 }
-
-//* -------------- spacing  --------------

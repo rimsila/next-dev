@@ -17,10 +17,8 @@
 .loopSpacingMl (@index: 1) when (@index <= @numInserts){
 
    .ml-@{index}{
-      /*Here are our properties that get adjusted with the index*/
      margin-left:  ( @index * @space-unit)
    }
-   /*Here we increment our loop*/
    .loopSpacingMl(@index + 1);
 }
 
@@ -28,10 +26,8 @@
 .loopSpacingMb (@index: 1) when (@index <= @numInserts){
 
    .mb-@{index}{
-      /*Here are our properties that get adjusted with the index*/
      margin-bottom:  ( @index * @space-unit)
    }
-   /*Here we increment our loop*/
    .loopSpacingMb(@index + 1);
 }
 
@@ -39,9 +35,7 @@
 .loopSpacingMt (@index: 1) when (@index <= @numInserts){
 
    .mt-@{index}{
-      /*Here are our properties that get adjusted with the index*/
      margin-top:  ( @index * @space-unit)
    }
-   /*Here we increment our loop*/
    .loopSpacingMt(@index + 1);
 }
