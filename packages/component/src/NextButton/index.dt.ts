@@ -1,4 +1,4 @@
-import { ButtonProps } from 'antd/lib/button';
+import { ButtonProps } from 'antd/es/button';
 import * as CSS from 'csstype';
 
 export const btnType = {

@@ -1,4 +1,4 @@
-import { IconType, NotificationPlacement } from 'antd/lib/notification';
+import { IconType, NotificationPlacement } from 'antd/es/notification';
 
 interface CustomNoti {
   message?: React.ReactNode;
