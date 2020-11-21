@@ -114,10 +114,6 @@
     "write-pkg": "^4.0.0",
     "yorkie": "^2.0.0"
   },
-  "gitHooks": {
-    "pre-commit": "pretty-quick --staged",
-    "commit-msg": "node scripts/verifyCommit.js"
-  },
   "checkFiles": [
     "src/**/*.js*",
     "src/**/*.ts*",
