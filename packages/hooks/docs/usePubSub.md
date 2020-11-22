@@ -1,14 +1,14 @@
 ---
-title: usePubSub-Publish and Subscribe
+title: usePubSub
 order: 80
 nav:
   title: hooks
   order: 2
   path: /hooks
 group:
-  title: hooks
+  title: State
   order: 2
-  path: /advance
+  path: /ui
 ---
 
 # usePubSub-Publish and Subscribe

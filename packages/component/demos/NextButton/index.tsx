@@ -1,15 +1,13 @@
 import React, { useState } from 'react';
 import { NextButton, MapItem, NextRow } from '@wetrial/component';
 import { DownloadOutlined, SearchOutlined } from '@ant-design/icons';
-import { NextBtnType, btnTypeArr } from '../../src/NextButton/index.dt';
-import { Divider } from 'antd';
+import { NextBtnType, btnTypeArr, btnType } from '../../src/NextButton/type';
+import { Divider, Select } from 'antd';
+import classnames from 'classnames';
+import css from '../../src/style/core/custom-background.less';
 
 export default () => {
-  const [type, setType] = useState<NextBtnType>('warning');
-
-  function handleChange(value) {
-    setType(value);
-  }
+  const [type, setType] = useState<NextBtnType>('success');
 
   const data = [
     {
@@ -25,7 +23,7 @@ export default () => {
         </NextButton>
       ),
       copyCode: ` <NextButton type="primary" shape="round">
-      Primary round
+      Primary round 
     </NextButton>`,
     },
     {
@@ -205,23 +203,29 @@ export default () => {
   return (
     <>
       <NextRow>
-        <NextButton type="link" size="small" danger>
+        <NextButton type="link" danger>
           Change Color:
         </NextButton>
-        {btnTypeArr?.map((i: any) => (
-          <NextButton
-            size="small"
-            key={i}
-            mr={2}
-            type="primary"
-            next={i}
-            shape="round"
-            onClick={() => handleChange(i)}
-            style={{ borderLeft: (i === type && '9px solid blue') || '' }}
+        <span>
+          <Select
+            showSearch
+            style={{ width: 140 }}
+            optionFilterProp="children"
+            onChange={(v: NextBtnType) => setType(v)}
+            defaultValue={btnType.success}
           >
-            {i}
-          </NextButton>
-        ))}
+            {btnTypeArr?.map((i) => (
+              <Select.Option
+                value={i}
+                key={i}
+                className={classnames(css[i])}
+                style={{ color: 'black' }}
+              >
+                {i}
+              </Select.Option>
+            ))}
+          </Select>
+        </span>
       </NextRow>
       <Divider />
       <NextRow>

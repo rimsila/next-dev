@@ -1,6 +1,6 @@
-import React, { FC } from 'react';
+import React, { FC, memo } from 'react';
 import { Button } from 'antd';
-import { NextButtonProps } from './index.dt';
+import { NextButtonProps } from './type';
 import css from './styles.less';
 import classnames from 'classnames';
 
@@ -17,7 +17,6 @@ export const NextButton: FC<NextButtonProps> = ({
   mt,
   children,
   disabled,
-
   ...rest
 }) => {
   return (
@@ -49,4 +48,4 @@ export const NextButton: FC<NextButtonProps> = ({
   );
 };
 
-export default NextButton;
+export default memo(NextButton);

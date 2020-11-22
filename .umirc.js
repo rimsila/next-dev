@@ -57,7 +57,7 @@ export default {
     // Add other modules that are not exported by index alias
     '@wetrial/core/es': join(__dirname, 'packages', 'core/src'),
     '@wetrial/component/es': join(__dirname, 'packages', 'component/src'),
-    antd: resolve(__dirname, './node_modules/antd/es'),
+    antd: resolve(__dirname, './node_modules/antd'),
     ...alias,
   },
   resolve: { includes: [...tailPkgList, 'docs', 'wetrial-doc'] },

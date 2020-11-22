@@ -1,6 +1,6 @@
 //* -------------- btn_default_mixin mixin --------------
 
-.btn_default_mixin(@btnColor: @warning-color) {
+.btn_default_mixin(@btnColor) {
   border-color: @btnColor;
   color: @btnColor;
   &:hover,
@@ -13,7 +13,7 @@
 
 //* -------------- btn_custom mixin  --------------
 
-.btn_custom(@btnColor:@warning-color) {
+.btn_custom(@btnColor) {
   :global {
     .ant-btn {
       .btn_default_mixin(@btnColor);

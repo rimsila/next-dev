@@ -1,15 +1,15 @@
-import { configResponsive, useResponsive } from './useResponsive';
+export { configResponsive, useResponsive } from './useResponsive';
 
-import { useSubscribe, PubSub } from './usePubSub';
+export { useSubscribe, PubSub } from './usePubSub';
 
-export { useResponsive, configResponsive, useSubscribe, PubSub };
+export { useSelect } from './useSelect';
 
-interface WetrialHooksProps {
-  /**
-   * 格式化后端返回的数据
-   */
-  formTableResultFormat?: (data: any) => { total: number; list: any[] };
-}
+// interface WetrialHooksProps {
+//   /**
+//    * 格式化后端返回的数据
+//    */
+//   formTableResultFormat?: (data: any) => { total: number; list: any[] };
+// }
 
 export const initHooks = () => {
   // props.formTableResultFormat && configUseFormTableFormatResult(props.formTableResultFormat);

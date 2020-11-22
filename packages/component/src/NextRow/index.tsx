@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React, { FC, memo } from 'react';
 import { Row } from 'antd';
 import { LayoutProps } from './Layout.types';
 import css from './styles.less';
@@ -11,4 +11,4 @@ export const NextRow: FC<LayoutProps> = ({ children, gut1 = 10, gut2 = 10 }) => 
   );
 };
 
-export default NextRow;
+export default memo(NextRow);

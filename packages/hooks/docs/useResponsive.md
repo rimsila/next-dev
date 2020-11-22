@@ -6,7 +6,7 @@ nav:
   order: 2
   path: /hooks
 group:
-  title: hooks
+  title: Dom
   order: 3
   path: /dom
 ---
