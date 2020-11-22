@@ -228,9 +228,7 @@ export default () => {
         </span>
       </NextRow>
       <Divider />
-      <NextRow>
-        <MapItem {...{ data: data.sort((a, b) => b.id - a.id), antSpan: 6 }} />
-      </NextRow>
+      <MapItem {...{ data: data.sort((a, b) => b.id - a.id), antSpan: 6 }} />
     </>
   );
 };

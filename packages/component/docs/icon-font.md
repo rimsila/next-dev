@@ -1,5 +1,5 @@
 ---
-title: IconFont - Font icon
+title: IconFont
 order: 40
 nav:
   title: Component
@@ -11,19 +11,14 @@ group:
   path: /common
 ---
 
-# IconFont - Font icon
-
-IconFont Used to display custom icon library :http://www.iconfont.cn/
-
-## When to use
-
-antd If not in the icon library, add by front-end staff http://www.iconfont.cn
-
-## Code demo
-
-### Basic use
+## IconFont demo
 
 <code src="../demos/icon-font/base.tsx" />
+
+## IconFont
+
+- small icon bundle size by just add icon you want into collection it will include only icons that you add here: http://www.iconfont.cn
+- See the introduction bellow
 
 ## API
 

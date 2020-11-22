@@ -17,5 +17,5 @@ export function configIconUrl(scriptUrl: string | string[]) {
 
 export default (props: IconFontProps) => {
   noteOnce(!!IconFont, 'IconFont is not init');
-  return IconFont ? <IconFont {...props} /> : null;
+  return IconFont ? <IconFont style={{ fontSize: 24 }} {...props} /> : null;
 };

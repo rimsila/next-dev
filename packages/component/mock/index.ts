@@ -1,0 +1,1 @@
+export { iconData } from './icon';
