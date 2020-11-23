@@ -31,14 +31,6 @@ const httpRequest = async (
   //* Request !body it will have default param
   // if (!params) {
   axios.defaults.params = {
-    //   CLIENT_API: "CUSTOM",
-    //   REGISTER_ID: "190e35f7e007f252956",a/
-    //   FCM_ID: "",
-    //   CLIENT_OS: "CUSTOM",
-    //   LAT: 11.5620233,
-    //   LNG: 104.9126117,
-    //   CLIENT_VER: "1.0.20190527",
-    //   CLIENT_BUNDLE: "com.bongtk.bloc",
     // data: { lng: 0, lat: 0, page: 1, ...data },
     ...data,
     // };

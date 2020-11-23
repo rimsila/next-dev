@@ -1,5 +1,5 @@
 ---
-title: 全局异常
+title: Global exception
 order: 16
 nav:
   title: Core library
@@ -10,21 +10,17 @@ group:
   path: /
 ---
 
-# exception - 全局异常
+# exception-global exception
 
-提供基础的异常基类
+Provide basic exception base class
 
-## 使用方式
+## How to use
 
 ```tsx |pure
-import { UnAuthorizedException, UserFriendlyException } from '@wetrial/core/es/exception';
-
-throw new UnAuthorizedException();
+import catchError from '@next-dev/core/es/catchError';
 ```
 
-## Methods
-
-| 名称                  | 描述                                           | 类型 |
-| --------------------- | ---------------------------------------------- | ---- |
-| UnAuthorizedException | 未登录抛出的异常基类，会对此异常类进行全局拦截 | -    |
-| UserFriendlyException | 友好提示异常基类，会对此异常类进行全局拦截     | -    |
+```tsx |pure
+const get = async () => await httpRequest('get', '/users').catch(catchError);
+// catchError Global exception
+```

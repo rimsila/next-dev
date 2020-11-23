@@ -9,7 +9,7 @@ declare module '*.jpeg';
 declare module '*.gif';
 declare module '*.bmp';
 declare module '*.tiff';
-// declare module '*.less' {
-//   const resource: { [key: string]: string };
-//   export = resource;
-// }
+declare module '*.less' {
+  const resource: { [key: string]: string };
+  export = resource;
+}

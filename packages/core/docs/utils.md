@@ -1,5 +1,5 @@
 ---
-title: utils - 辅助方法
+title: Utils
 order: 2
 nav:
   title: Core library
@@ -10,11 +10,11 @@ group:
   path: /
 ---
 
-# utils - 辅助方法
+# utils-auxiliary methods
 
-提供常用辅助方法
+Provide common auxiliary methods
 
-## 使用方式
+## How to use
 
 ```tsx |pure
 import { isPromise } from '@wetrial/core/es/utils';
@@ -28,16 +28,16 @@ const isP = isPromise(()=>{
 
 ## Methods
 
-| 名称 | 描述 | 类型 |
+| Name | Description | Type |
 | --- | --- | --- |
-| urlToList | 将路由转成 list 形式 | `(url?:string)=>string[]` |
-| isPromise | 判断是否是 Promise 对象 | `(obj)=>boolean` |
-| isUrl | 判断是否是一个合法的 url | `(path:string)=>boolean` |
-| getQuery | 获取查询字符串 | `(query?:string)=>Object` |
-| isBrowser | 判断是否是浏览器环境 | `()=>boolean` |
-| listToFlat | 将列表字典转换成对象 | `(any[])=>Object` |
-| getDateString | 日期格式化，采用 moment 的格式 | `({date,format})=>string` |
-| fixedZero | 不足两位补 0 | `(val:number)=>string` |
-| newGuid | 生成一个 guid | `(withSplit?:boolean)=>string` |
-| formatSecuredInfo | 打码显示 | `(text,type,filterNA?)=>string` |
-| mergeCells | 对数据源按 key 进行相邻行合并，返回生成的跨行对象,建议使用 memoizeOne 进行缓存调用 | - |
+| urlToList | Convert routing to list form | `(url?:string)=>string[]` |
+| isPromise | Determine whether it is a Promise object | `(obj)=>boolean` |
+| isUrl | Determine whether it is a legal url | `(path:string)=>boolean` |
+| getQuery | Get query string | `(query?:string)=>Object` |
+| isBrowser | Determine whether it is a browser environment | `()=>boolean` |
+| listToFlat | Convert list dictionary to object | `(any[])=>Object` |
+| getDateString | Date format, in the format of moment | `({date,format})=>string` |
+| fixedZero | Less than two digits complement 0 | `(val:number)=>string` |
+| newGuid | Generate a guid | `(withSplit?:boolean)=>string` |
+| formatSecuredInfo | Code display | `(text,type,filterNA?)=>string` |
+| mergeCells | Merging adjacent rows of the data source by key and returning the generated inter-row objects. It is recommended to use memoizeOne for caching calls | - |

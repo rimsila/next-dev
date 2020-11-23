@@ -1,12 +1,12 @@
 ---
-title: request - AXIO
+title: Http Request
 order: 1
 nav:
   title: Core library
   order: 3
   path: /core
 group:
-  title: 'Core library'
+  title: Async
   path: /
 ---
 

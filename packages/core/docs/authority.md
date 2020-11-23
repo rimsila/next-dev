@@ -1,5 +1,5 @@
 ---
-title: authority - 权限相关
+title: authority/token
 order: 5
 nav:
   title: Core library
@@ -10,11 +10,11 @@ group:
   path: /
 ---
 
-# authority - 权限相关
+# authority
 
-提供获取 token、权限等相关方法
+Provide related methods for obtaining tokens, permissions, etc.
 
-## 使用方式
+## How to use
 
 ```tsx |pure
 import { setToken, getToken } from '@wetrial/core/es/authority';
@@ -24,11 +24,11 @@ const token = getToken();
 
 ## Methods
 
-| 名称 | 描述 | 类型 |
+| Name | Description | Type |
 | --- | --- | --- | --- |
-| setToken | 将 token 保存到客户端，token: 要存储的 `token` 值,`exp`:过期时长(秒) | `(token:string,exp?number)=>void` |
-| getToken | 获取当前 token 值 | `()=>string` |
-| clearToken | 删除当前保存的 token，用于退出登录的场景 | `()=>void` |
-| getPermissions | 获取当前用户权限 | `(permission?:string)=>string[]` |
-| setPermissions | 将权限保存到本地 | `(permissions?:string | string[])=>void` |
-| clearPermissions | 清空当前权限，用于退出登录的场景 | `()=>void` |
+| setToken | Save the token to the client, token: the value of `token` to be stored, `exp`: expiration time (seconds) | `(token:string,exp?number)=>void` |
+| getToken | Get the current token value | `()=>string` |
+| clearToken | Delete the currently saved token, used to log out the scene | `()=>void` |
+| getPermissions | Get current user permissions | `(permission?:string)=>string[]` |
+| setPermissions | Save permissions locally | `(permissions?:string | string[])=>void` |
+| clearPermissions | Clear the current permissions, used to log out the scene | `()=>void` |
