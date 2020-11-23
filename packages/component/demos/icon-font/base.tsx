@@ -1,40 +1,55 @@
-/* eslint-disable no-param-reassign */
-import React from 'react';
-import {
-  IconFont,
-  initComponent,
-  MapItem,
-  iconData,
-  NextRow,
-  NextButton,
-} from '@wetrial/component';
+import React, { useEffect, useState } from 'react';
+import { IconFont, initComponent, MapItem, NextRow, NextButton } from '@wetrial/component';
 import { Select } from 'antd';
-
-initComponent({
-  iconFontUrl: ['//at.alicdn.com/t/font_2221049_e6cscr3k59p.js'],
-});
+import firebase from '../../../../firebase';
 
 export default () => {
-  iconData?.forEach((i: any) => {
-    i.item = <IconFont type={i.type} />;
-    i.copyCode = `<IconFont type="${i.type}" />`;
-  });
-  const [data, setData] = React.useState(iconData);
+  const [schools, setSchools] = useState([]);
+  const [schools1, setSchools1] = useState([]);
 
   const onSearch = (v: any) => {
     if (v) {
-      const newData = iconData?.filter((i) => i.type === v);
-      setData(newData);
+      const newData = schools1?.filter((i) => i.type === v);
+      setSchools1(newData);
     } else {
-      const newData = iconData?.filter((i) => i.type);
-      setData(newData);
+      getSchools();
     }
   };
   const onBlur = () => {
-    const newData = iconData?.filter((i) => i.type);
-    setData(newData);
+    getSchools();
   };
 
+  const refIconScript = firebase.firestore().collection('icon-script');
+  const refIconType = firebase.firestore().collection('icon-type');
+
+  function getSchools() {
+    refIconScript.onSnapshot((querySnapshot) => {
+      const items = [];
+      querySnapshot.forEach((doc) => {
+        items.push(doc.data());
+      });
+      setSchools(items);
+    });
+    refIconType.onSnapshot((querySnapshot) => {
+      const items = [];
+      querySnapshot.forEach((doc) => {
+        items.push(doc.data());
+      });
+      setSchools1(items);
+    });
+  }
+  useEffect(() => {
+    getSchools();
+  }, []);
+
+  initComponent({
+    iconFontUrl: schools[0]?.icon_script,
+  });
+
+  schools1?.forEach((i: any) => {
+    i.item = <IconFont type={i.type} />;
+    i.copyCode = `<IconFont type="${i.type}" />`;
+  });
   return (
     <>
       <NextRow>
@@ -51,18 +66,15 @@ export default () => {
             onChange={onSearch}
             onBlur={onBlur}
           >
-            {data?.map((i: any, key) => (
+            {schools1?.map((i: any, key) => (
               <Select.Option value={i.type} key={String(key)}>
-                {/* <span style={{ display: 'flex', alignItems: 'center' }}>
-                  {i.item}&nbsp; {i.type}
-                </span> */}
                 {i.type}
               </Select.Option>
             ))}
           </Select>
         </span>
       </NextRow>
-      <MapItem {...{ data, antSpan: 2, width: 20 }} />
+      <MapItem {...{ data: schools1, antSpan: 2, width: 20 }} />
     </>
   );
 };

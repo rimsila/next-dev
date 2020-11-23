@@ -29,6 +29,7 @@
     "tests",
     "jest.config.js",
     "**/fixtures",
-    "typings.d.ts"
+    "typings.d.ts",
+    "firebase.ts"
   ]
 }

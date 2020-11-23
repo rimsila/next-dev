@@ -5,6 +5,7 @@ module.exports = {
     'react/jsx-key': ['error'],
     'no-console': 0,
     'jsx-a11y/accessible-emoji': 0,
+    '@typescript-eslint/parser': 0,
     'lines-around-directive': 0,
     'no-path-concat': 0,
     'no-buffer-constructor': 0,
@@ -31,6 +32,7 @@ module.exports = {
     'no-else-return': 0,
     'arrow-body-style': 0,
     'react/no-array-index-key': 0,
+    'no-param-reassign': 0,
     'eol-last': 0,
     'import/no-unresolved': [
       'error',
