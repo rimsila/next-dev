@@ -1,6 +1,6 @@
 import storeWithExp from './store';
 
-let token_name = `WETRIAL.TOKEN`;
+let token_name = `TOKEN`;
 
 export interface ITokenProps {
   /**

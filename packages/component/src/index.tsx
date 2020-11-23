@@ -4,7 +4,7 @@ export { default as IconFont } from './IconFont';
 export { default as NextButton } from './NextButton';
 export { default as MapItem } from './mapItem';
 export { default as NextRow } from './NextRow';
-export { iconData } from '../mock';
+export * as mock from '../mock';
 
 export { nextNotification } from './Notification';
 

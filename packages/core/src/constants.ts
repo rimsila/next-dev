@@ -1,5 +1,3 @@
-import { TablePaginationConfig } from 'antd/lib/table';
-
 /**
  * Single-column layout of form items Responsive configuration (recommended to assign to Form)
  */
@@ -147,17 +145,3 @@ export const DEFAULT_DATE_FORMAT = 'YYYY-MM-DD';
  * Default page number
  */
 export const PAGE_SIZE = 10;
-
-/**
- * General paging property configuration
- */
-export const PAGE_PROPS: TablePaginationConfig = {
-  defaultCurrent: 1,
-  total: 1,
-  pageSize: PAGE_SIZE,
-  defaultPageSize: PAGE_SIZE,
-  // showSizeChanger: true,
-  hideOnSinglePage: true,
-  // showQuickJumper:true,
-  showTotal: (total, [start, end]) => `First${start}-${end} of ${total}Article`,
-};

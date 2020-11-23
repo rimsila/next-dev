@@ -1,4 +1,3 @@
-/* eslint-disable no-bitwise */
 import { reduce } from 'lodash';
 import { parse } from 'querystring';
 import moment, { Moment } from 'moment';
@@ -55,8 +54,6 @@ export function listToFlat<T>(items: T[], key: string | number = 'value', text: 
     items,
     (redu: IKeyValue<keyof T>, item) => {
       const reduKey = item[key];
-      // @ts-ignore
-      // eslint-disable-next-line no-param-reassign
       redu[reduKey] = item[text];
       return redu;
     },

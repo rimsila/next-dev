@@ -1,5 +1,5 @@
 ---
-title: validation - 验证消息
+title: antd default validation
 order: 1
 nav:
   path: /core
@@ -7,17 +7,17 @@ nav:
   title: Core library
 group:
   title: 'Core library'
-  path: /
+  path: /core
 ---
 
-# validation - 验证
+# validation antd form
 
-提供表单验证的通用消息以及 antd form 没有的通用验证规则
+Provide general messages for form validation and general validation rules that antd form does not
 
-> 只需要在入口页面全局使用一次即可
+> Only need to be used once globally on the entry page
 
-## 案例
+## Case
 
-### 基本使用
+### Basic usage
 
 <code src="../demos/validation.tsx" />

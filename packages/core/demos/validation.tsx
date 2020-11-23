@@ -12,12 +12,10 @@ const tailLayout = {
 
 export default () => {
   const onFinish = (values: any) => {
-    // eslint-disable-next-line no-console
     console.log('Success:', values);
   };
 
   const onFinishFailed = (errorInfo: any) => {
-    // eslint-disable-next-line no-console
     console.log('Failed:', errorInfo);
   };
 
@@ -32,7 +30,7 @@ export default () => {
         onFinishFailed={onFinishFailed}
       >
         <Form.Item
-          label="项目编号"
+          label="Project number"
           name="projectNo"
           rules={[{ required: true, whitespace: true, max: 15 }]}
         >
@@ -40,7 +38,7 @@ export default () => {
         </Form.Item>
 
         <Form.Item
-          label="设计例数"
+          label="Number of Design Examples"
           name="designCount"
           rules={[{ type: 'number', required: true, min: 1, max: 1000 }]}
         >
@@ -49,7 +47,7 @@ export default () => {
 
         <Form.Item {...tailLayout}>
           <Button type="primary" htmlType="submit">
-            保存
+            save
           </Button>
         </Form.Item>
       </Form>

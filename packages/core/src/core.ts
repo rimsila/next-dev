@@ -1,26 +1,26 @@
 export type IWithFalse<T> = T | false;
 
 /**
- * Key value简写
+ * Key value abbreviation
  */
 export interface IKeyValue<T = any> {
   [key: string]: T;
 }
 
 /**
- * 加密类型
+ * Encryption type
  */
 export enum CryptoType {
   /**
-   * 传入加密
+   * Incoming encryption
    */
   In = 1,
   /**
-   * 传出加密
+   * Outgoing encryption
    */
   Out = 2,
   /**
-   * 传入+传出 都加密
+   * Incoming + outgoing are encrypted
    */
   Both = 4,
 }

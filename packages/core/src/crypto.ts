@@ -3,8 +3,8 @@ import CryptoJS from 'crypto-js';
 import JSEncrypt from 'jsencrypt';
 
 /**
- * 对内容进行base64处理
- * @param content 要base64的内容
+ * Base64 processing the content
+ * @param content to base64 content
  */
 export function base64(content: string | object): string {
   const type = typeof content;
@@ -19,8 +19,8 @@ export function base64(content: string | object): string {
 }
 
 /**
- * 对内容进行debase64
- * @param content 内容
+ * Debase64 the content
+ * @param content content
  */
 export function debase64(content: string): string {
   if (typeof content === 'string' && content.length > 0) {
@@ -30,17 +30,17 @@ export function debase64(content: string): string {
   return '';
 }
 
-// ---------------------------------------------------CryptoJS加密相关------------------------------------
+// ---------------------------------------------------CryptoJS encryption related------------------------------------
 
 /**
- * 对数据内容进行加密-3des加密
- * @param content 要加密的内容
- * @param key 密钥
- * @returns 返回加密后的内容
+ * Encrypt data content -3des encryption
+ * @param content The content to be encrypted
+ * @param key key
+ * @returns returns the encrypted content
  */
 export function encrypt(content: string | object, key: string): string {
   if (key.length !== 32) {
-    throw Error('密钥长度必须为32位');
+    throw Error('The key length must be 32 bits');
   }
   let body = content;
   if (!body) {
@@ -52,70 +52,39 @@ export function encrypt(content: string | object, key: string): string {
 
   const keys = CryptoJS.enc.Utf8.parse(key.substr(0, 24));
   const cryptoContent = CryptoJS.TripleDES.encrypt(body, keys, {
-    iv: CryptoJS.enc.Utf8.parse(key.substr(24, 8)), // iv偏移量
-    mode: CryptoJS.mode.CBC, // CBC模式
-    // mode: CryptoJS.mode.ECB,  //ECB模式
-    padding: CryptoJS.pad.Pkcs7, // padding处理
+    iv: CryptoJS.enc.Utf8.parse(key.substr(24, 8)), // iv offset
+    mode: CryptoJS.mode.CBC, // CBC mode
+    // mode: CryptoJS.mode.ECB, //ECB mode
+    padding: CryptoJS.pad.Pkcs7, // padding processing
   });
   return cryptoContent.toString();
 }
 
 /**
- * 对数据进行解密-3des解密
- * @param cryptoBody 加密内容
- * @param key 解密密钥
+ * Decrypt the data-3des decrypt
+ * @param cryptoBody encrypted content
+ * @param key decryption key
  */
 export function decrypt(cryptoBody: string, key: string): string {
   const keys = CryptoJS.enc.Utf8.parse(key);
   const decryptContent = CryptoJS.TripleDES.decrypt(cryptoBody, keys, {
-    iv: CryptoJS.enc.Utf8.parse(key.substr(24, 8)), // iv偏移量
+    iv: CryptoJS.enc.Utf8.parse(key.substr(24, 8)), // iv offset
     mode: CryptoJS.mode.CBC,
     // mode: CryptoJS.mode.ECB,
     padding: CryptoJS.pad.Pkcs7,
   });
-  // 解析数据后转为UTF-8
+  // Convert the data to UTF-8 after parsing
   return decryptContent.toString(CryptoJS.enc.Utf8);
 }
 
-// /**
-//  * 解密响应内容 (慎用)
-//  * @param data 要解密的内容
-//  * @param key 解密密钥
-//  */
-// export function decryptResponse(data:string|object,key:string):string{
-//     const type = typeof data;
-//     if (type === 'object') {
-//         const result={
-//             Data:''
-//         }
-//         if (typeof data.Data === 'string') {
-//             result.Data = decrypt(data.Data, key);
-//             result.Data=JSON.parse(result.Data);
-//         }
-//         return result;
-//     }
-//     else if (type === 'string') {
-//         let result= decrypt(data, key);
-//         try {
-//             result = JSON.parse(result);
-//         }
-//         catch (e) { // non-standard
-//             result.Data = data.Data;
-//         }
-//         return result;
-//     }
-//     return data;
-// }
-
 /**
- * 对密钥进行RAS加密
- * @param key 密钥
+ * RAS encryption of the key
+ * @param key key
  */
 export function encryptKey(key: string): string {
   return rsaEncrypt(key);
 }
-
-// -----------------------------------------jsencrypt RSA加密相关------------------------------------
+// -----------------------------------------jsencrypt RSA encryption related------------------------------------
 
 /**
  * RSA key
@@ -128,7 +97,7 @@ let B64MAP = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/';
 const B64PAD = '=';
 
 const jsencrypt = new JSEncrypt();
-// 设置密钥
+// set the key
 jsencrypt.setPublicKey(RSAKEY);
 
 export function configRSAKey(key: string) {
@@ -162,8 +131,8 @@ function hex2b64(h: string) {
 }
 
 /**
- * RSA加密
- * @param input 要加密的内容
+ * RSA encryption
+ * @param input The content to be encrypted
  */
 export function rsaEncrypt(input: string): string {
   let result;
@@ -172,13 +141,12 @@ export function rsaEncrypt(input: string): string {
   } while (result.length !== 256);
   return hex2b64(result);
 }
-
 /**
- * RSA加密 -如果需要加密的字符串比较长，可以分段加密，然后返回以逗号分隔的加密字符串
- * @param input 要加密的内容
- */
+  // * RSA encryption-If the string to be encrypted is relatively long, you can encrypt in segments, and then return the encrypted string separated by commas
+  * @param input The content to be encrypted
+  */
 export function encryptSection(input: string): string {
-  const len = 117; // 最大长度为117
+  const len = 117; // The maximum length is 117
   const sectionLen = input.length / len;
   const rsaLength = sectionLen % 1 === 0 ? sectionLen : Math.floor(sectionLen) + 1;
   const arr: string[] = [];
@@ -189,9 +157,9 @@ export function encryptSection(input: string): string {
 }
 
 /**
- * encryptSection方法 带encodeURIComponent
- * @param content 加密内容
- */
+  //* encryptSection method with encodeURIComponent
+  * @param content encrypted content
+  */
 export function encryptSectionWithEncode(content: string | object): string {
   let result = content;
   if (typeof content === 'object') {
@@ -201,9 +169,9 @@ export function encryptSectionWithEncode(content: string | object): string {
 }
 
 /**
- * 简单的将内容转二进制
- * @param data 要转换的数据
- */
+  //* Simply convert content to binary
+  * @param data The data to be converted
+  */
 export function encryptBtoa(data: any[] | object | string): string {
   let strData;
   if (Array.isArray(data) || typeof data === 'object') {
@@ -211,15 +179,15 @@ export function encryptBtoa(data: any[] | object | string): string {
   } else {
     strData = data;
   }
-  // 处理中文问题
+  // Deal with Chinese issues
   strData = encodeURIComponent(strData);
   return btoa(strData);
 }
 
 /**
- * 将字符串内容二进制解码
- * @param data 要解码的二进制内容
- */
+  //* Binary decoding of string content
+  * @param data The binary content to be decoded
+  */
 export function decryptAtob(data: string): string {
   return decodeURIComponent(atob(data));
 }

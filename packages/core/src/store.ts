@@ -2,7 +2,7 @@ import store from 'store';
 
 const storeWithExp = {
   /**
-   * 设置缓存值
+   * Set cache value
    */
   set: (key: string, val: any, exp?: number) => {
     store.set(key, { val, exp, time: exp !== undefined ? new Date().getTime() : undefined });
@@ -13,7 +13,7 @@ const storeWithExp = {
       return null;
     }
     if (info.exp && new Date().getTime() - info.time > info.exp * 1000) {
-      // 过期 移除
+      // Expired remove
       storeWithExp.remove(key);
       return null;
     }

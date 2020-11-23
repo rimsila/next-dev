@@ -36,7 +36,6 @@ export function findRouteMenuByGroup(arr: any[], group: string): any {
     if (item.routes && item.routes.length > 0) {
       result = findRouteMenuByGroup(item.routes, group);
       if (result) {
-        // eslint-disable-next-line no-useless-return
         return;
       }
     }
@@ -45,7 +44,6 @@ export function findRouteMenuByGroup(arr: any[], group: string): any {
 }
 
 // 路由前缀
-// eslint-disable-next-line import/no-mutable-exports
 let routePrefix = '';
 
 /**
@@ -67,20 +65,16 @@ export function patchRouteBase(arr: any[]): void {
   }
   arr.forEach((item) => {
     if (item.path === '/') {
-      // eslint-disable-next-line no-param-reassign
       item.path = `${routePrefix}`;
     } else {
-      // eslint-disable-next-line no-param-reassign
       item.path = `${routePrefix}${item.path}`;
     }
 
     // 处理redirect的情况
     if (item.redirect) {
       if (item.redirect === '/') {
-        // eslint-disable-next-line no-param-reassign
         item.redirect = `${routePrefix}`;
       } else {
-        // eslint-disable-next-line no-param-reassign
         item.redirect = `${routePrefix}${item.redirect}`;
       }
     }
