@@ -1,4 +1,4 @@
-import Footer from 'rc-footer';
+import Footer from 'rc-footer/es';
 import React, { FC } from 'react';
 import { NextFooterProps } from './type';
 import css from './styles.less';
