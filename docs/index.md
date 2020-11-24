@@ -29,7 +29,7 @@ features:
     title: TypeScript
     desc: use TypeScript to develop, provide a complete type definition file
 
-footer: Open-source MIT Licensed | Copyright © 2020-present
+footer: Open-source MIT Licensed | Copyright ©Next-Dev 2020-present
 ---
 
 # Common use Library
@@ -73,5 +73,5 @@ footer: Open-source MIT Licensed | Copyright © 2020-present
 We welcome your contribution very much. You can build with us in the following ways :smiley::
 
 - Use our Library in your company or personal projects.
-- Report bugs or consult through [Issue](http://github.com/wetrial/wetrials/issues)
-- Submit a [Pull Request] (http://github.com/wetrial/wetrials/pulls) to improve the code of wetrials.
+- Report bugs or consult through [Issue](http://github.com/rimsila/next-dev/issues)
+- Submit a [Pull Request] (http://github.com/rimsila/next-dev/pulls) to improve the code of next-dev.

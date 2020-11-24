@@ -1,49 +1,19 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { IconFont, initComponent, MapItem, NextRow, NextButton } from '@wetrial/component';
 import { Select } from 'antd';
-import firebase from '../../../../firebase';
 
 export default () => {
-  const [schools, setSchools] = useState([]);
   const [schools1, setSchools1] = useState([]);
 
   const onSearch = (v: any) => {
     if (v) {
       const newData = schools1?.filter((i) => i.type === v);
       setSchools1(newData);
-    } else {
-      getSchools();
     }
   };
-  const onBlur = () => {
-    getSchools();
-  };
-
-  const refIconScript = firebase.firestore().collection('icon-script');
-  const refIconType = firebase.firestore().collection('icon-type');
-
-  function getSchools() {
-    refIconScript.onSnapshot((querySnapshot) => {
-      const items = [];
-      querySnapshot.forEach((doc) => {
-        items.push(doc.data());
-      });
-      setSchools(items);
-    });
-    refIconType.onSnapshot((querySnapshot) => {
-      const items = [];
-      querySnapshot.forEach((doc) => {
-        items.push(doc.data());
-      });
-      setSchools1(items);
-    });
-  }
-  useEffect(() => {
-    getSchools();
-  }, []);
 
   initComponent({
-    iconFontUrl: schools[0]?.icon_script,
+    iconFontUrl: [''],
   });
 
   schools1?.forEach((i: any) => {
@@ -64,7 +34,6 @@ export default () => {
             style={{ width: 240 }}
             optionFilterProp="children"
             onChange={onSearch}
-            onBlur={onBlur}
           >
             {schools1?.map((i: any, key) => (
               <Select.Option value={i.type} key={String(key)}>

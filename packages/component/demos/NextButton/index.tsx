@@ -218,7 +218,7 @@ export default () => {
               <Select.Option
                 value={i}
                 key={i}
-                className={classnames(css[i])}
+                className={classnames(css[`bg_${i}`])}
                 style={{ color: 'black' }}
               >
                 {i}
