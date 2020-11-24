@@ -6,7 +6,7 @@ group:
   path: /other
   order: 10
 nav:
-  title: Front-end best practices
+  title: front-end document
   path: /doc
   order: 100
 ---
@@ -19,7 +19,7 @@ Wetrial-Template encapsulates a set of simple and easy-to-use React unit tests a
 $ npm run test:all # execute all tests
 ```
 
-<img style="box-shadow:none; margin:0; "src="https://gw.alipayobjects.com/zos/rmsportal/EFKJzIswQgWNJzDQNpKr.png" width="700" />
+<img style="box-shadow:none; margin:0; " src="https://gw.alipayobjects.com/zos/rmsportal/EFKJzIswQgWNJzDQNpKr.png" width="700" />
 
 The following briefly introduces how to write your business test cases in the project.
 
@@ -45,7 +45,7 @@ it('renders with Result', () => {
 });
 ```
 
-[Enzyme](http://airbnb.io/enzyme/docs/api/index.html) is used here as a test library, which provides a large number of useful APIs to help us test React components. The assertion part follows jest's default [jasmine2 expect syntax](https://facebook.github.io/jest/docs/en/expect.html#content).
+Here, [enzyme](http://airbnb.io/enzyme/docs/api/index.html) is used as the test library, which provides a large number of useful APIs to help us test React components. The assertion part follows jest's default [jasmine2 expect syntax](https://facebook.github.io/jest/docs/en/expect.html#content).
 
 ### Local execution
 
@@ -58,7 +58,7 @@ $ npm test .test.js
 #### Execute a single or group of use cases
 
 ```bash
-$ npm test src/routes/Result/Success.test.js # Test Success.test.js
+$ npm test src/routes/Result/Success.test.js  # 测试 Success.test.js
 $ npm test src/routes # Test all use case files under routes
 ```
 
@@ -80,9 +80,9 @@ it('renders Dashboard', () => {
 
 ## e2e test
 
-End-to-end testing is also called smoke testing. It is used to test the flow and performance of front-end applications in a real browser environment, which is equivalent to replacing manual operation of applications.
+End-to-end testing is also called smoke testing. It is used to test the flow and performance of front-end applications in a real browser environment, which is equivalent to replacing manual operations with applications.
 
-We have introduced [puppeteer](https://github.com/googlechrome/puppeteer) as an E2E test tool. Puppeteer is the official headless Chrome tool of the Google Chrome team. It uses chrome / chromium as the browser environment to run your application by default, and provides a very semantic API to describe business logic.
+We introduced [puppeteer](https://github.com/googlechrome/puppeteer) as a tool for E2E testing. Puppeteer is the official headless Chrome tool of the Google Chrome team. It uses chrome / chromium as the browser environment to run your application by default, and provides a very semantic API to describe business logic.
 
 ### Write an e2e use case
 
@@ -121,22 +121,22 @@ $ npm test .e2e.js
 
 <img src="https://gw.alipayobjects.com/zos/rmsportal/LGCXopksUYMUhjRgdYSz.png" width="700" />
 
-> Note that the local test e2e use case needs to start `npm start`, otherwise it will report a `Failed: navigation error` error.
+> Note that the local test e2e use case needs to start `npm start`, otherwise an error of `Failed: navigation error` will be reported.
 
 ## watch mode
 
 ```
-$ npm test - --watch
+$ npm test -- --watch
 ```
 
-Add `--watch` configuration to enter watch mode, when you modify and save the file, Jest will automatically execute the corresponding application example. Jest's command line tool also provides a variety of convenient shortcut keys to perform the use cases you need.
+Add `--watch` configuration to enter watch mode. When you modify and save the file, Jest will automatically execute the corresponding application example. Jest's command line tool also provides a variety of convenient shortcut keys to perform the use cases you need.
 
 <img src="https://gw.alipayobjects.com/zos/rmsportal/MnmxiavystfcBDskyKRg.png" width="700" />
 
 ## Test coverage
 
 ```
-$ npm test - --coverage
+$ npm test -- --coverage
 ```
 
 Add `--coverage` configuration to display the test coverage of the project.
@@ -149,16 +149,16 @@ Using `xit()` instead of `it()` can temporarily ignore the use case, and `fit()`
 
 ## Access integration test service
 
-If you need to access integrated test environments such as travis, CircleCI, Gitlab CI, etc., you can refer to `.travis.yml` provided by this repository.
+If you need to access travis, CircleCI, Gitlab CI and other integrated test environments, you can refer to the `.travis.yml` provided by this repository.
 
-Note that e2e tests need to be integrated into the environment to support electron. If not, you can use `npm test .test.js` to run unit tests separately.
+Note that e2e testing requires an integrated environment to support electron. If not, you can use `npm test .test.js` to run unit tests separately.
 
 ## Reference link
 
 For more testing techniques and functions, please refer to the following link.
 
 - [create-react-app tests](https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md#running-tests)
-- [jest](https://facebook.github.io/jest/)
+- [is] (https://facebook.github.io/jest/)
 - [enzyme](http://airbnb.io/enzyme/)
 - [puppeteer](https://github.com/googlechrome/puppeteer)
 - [Using with puppeteer](https://facebook.github.io/jest/docs/en/puppeteer.html)

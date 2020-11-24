@@ -1,6 +1,6 @@
 ---
 title: typescript knowledge
-order: 3
+order: 5
 group:
   title: Tutorial
   path: /course

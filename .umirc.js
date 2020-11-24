@@ -33,7 +33,8 @@ export default {
   // https://github.com/umijs/dumi/blob/master/packages/theme-default/src/style/variables.less
   theme: {
     '@c-primary': '#ff652f',
-    '@s-content-margin': '50px',
+    '@s-site-menu-width': '270px',
+    '@s-content-margin': '30px',
   },
   base: '/next-dev',
   publicPath: '/next-dev/',

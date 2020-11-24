@@ -1,6 +1,6 @@
 ---
 title: Community Featured Components
-order: 1
+order: 8
 group:
   title: Other
   path: /other
@@ -13,7 +13,7 @@ nav:
 
 # Community Featured Components
 
-[Link address: https://ant.design/docs/react/recommendation-cn](https://ant.design/docs/react/recommendation-cn)
+[Link address: https://ant.design/docs/react/recommendation](https://ant.design/docs/react/recommendation)
 
 | Type | Recommended Components |
 | --- | --- |

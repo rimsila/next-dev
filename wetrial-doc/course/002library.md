@@ -1,6 +1,6 @@
 ---
 title: Common components
-order: 2
+order: 7
 group:
   title: Tutorial
   path: /course

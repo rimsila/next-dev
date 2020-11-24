@@ -136,7 +136,7 @@ if (condition) {
 └─typings
 ```
 
-- use useCallback attribute in the component: use onXxx
+- use callback attribute in the component: use onXxx
 
 ```tsx | pure
 <Button onClick={... }></Button>

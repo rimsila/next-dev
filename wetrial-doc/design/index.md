@@ -1,6 +1,6 @@
 ---
 title: list page
-order: 1
+order: 2
 group:
   title: Design Specification
   path: /design
