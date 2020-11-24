@@ -1,7 +1,7 @@
 /**
- * 过滤菜单项(对象中必须有 group、routes等)
- * @param arr 路由数组
- * @param groups 要过滤的group组名列表
+ * Filter menu items (group, routes, etc. must be included in the object)
+ * @param arr routing array
+ * @param groups The list of group names to be filtered
  */
 export function filterRoutesByGroups(arr: any[], groups: string[] = []) {
   const result: any[] = [];
@@ -22,9 +22,9 @@ export function filterRoutesByGroups(arr: any[], groups: string[] = []) {
 }
 
 /**
- * 从路由中查找指定gourp的路由(对象中必须有 group、routes等)
- * @param arr 路由数组
- * @param group 指定的组名
+ * Find the route of the specified gourp from the route (the object must have group, routes, etc.)
+ * @param arr routing array
+ * @param group specified group name
  */
 export function findRouteMenuByGroup(arr: any[], group: string): any {
   let result: any;
@@ -43,21 +43,21 @@ export function findRouteMenuByGroup(arr: any[], group: string): any {
   return result;
 }
 
-// 路由前缀
+// routing prefix
 let routePrefix = '';
 
 /**
- * 要配置的路由前缀
- * @param prefix 路由前缀
+ * Route prefix to be configured
+ * @param prefix routing prefix
  */
 export function configRoutePrefix(prefix: string) {
   routePrefix = prefix;
 }
 
 /**
- * 为指定路由设置前缀
- * @param arr 路由数组
- * @param prefix 要设置的前缀
+ * Set the prefix for the specified route
+ * @param arr routing array
+ * @param prefix The prefix to be set
  */
 export function patchRouteBase(arr: any[]): void {
   if (!routePrefix) {
@@ -70,7 +70,7 @@ export function patchRouteBase(arr: any[]): void {
       item.path = `${routePrefix}${item.path}`;
     }
 
-    // 处理redirect的情况
+    // Deal with the situation of redirect
     if (item.redirect) {
       if (item.redirect === '/') {
         item.redirect = `${routePrefix}`;
@@ -86,28 +86,28 @@ export function patchRouteBase(arr: any[]): void {
 }
 
 /**
- * 获取路由前缀
+ * Get routing prefix
  */
 export function getRoutePreFix() {
   return routePrefix;
 }
 
-// 平台分组
+// Platform grouping
 export const GROUP = {
   /**
-   * 平台
+   * Platform
    */
   PLATFORM: '0',
   /**
-   * 申办方
+   * Sponsor
    */
   SPONSOR: '1',
   /**
-   * 机构
+   * Institution
    */
   STUDYSITE: '2',
   /**
-   * 伦理
+   * Ethics
    */
   ETHIC: '3',
   /**

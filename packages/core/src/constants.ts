@@ -125,23 +125,3 @@ export const LAYOUT_CHECK_EIGHT = {
   xl: 4,
   xxl: 3,
 };
-
-/**
- * Display the width limit of the scroll bar
- */
-export const TABLE_SCROLL_WIDTH = 'max-content';
-
-/**
- * Default date and time format
- */
-export const DEFAULT_DATE_TIME_FORMAT = 'YYYY-MM-DD HH:mm:ss';
-
-/**
- * Default date and time
- */
-export const DEFAULT_DATE_FORMAT = 'YYYY-MM-DD';
-
-/**
- * Default page number
- */
-export const PAGE_SIZE = 10;
