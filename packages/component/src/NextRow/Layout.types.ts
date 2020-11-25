@@ -1,4 +1,7 @@
+import { NextBtnType } from '../NextButton/type';
+
 export interface LayoutProps {
+  bgColor?: NextBtnType;
   children?: React.ReactNode;
   title?: React.ReactNode;
   docs?: React.ReactNode;

@@ -5,6 +5,7 @@ export { default as NextButton } from './NextButton';
 export { default as MapItem } from './mapItem';
 export { default as NextRow } from './NextRow';
 export { default as NextFooter } from './NextFooter';
+export { default as NextCardSimple } from './NextCard/SimpleCard';
 export * as mock from '../mock';
 
 export { nextNotification } from './Notification';

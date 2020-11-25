@@ -6,6 +6,7 @@ interface CssExports {
   'cyan_8': string;
   'cyan_base': string;
   'error': string;
+  'normal_color': string;
   'pink_base': string;
   'purple_base': string;
   'success': string;

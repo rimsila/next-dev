@@ -12,6 +12,7 @@ export const btnType = {
   cyan_4: 'cyan_4',
   cyan_8: 'cyan_8',
   purple_base: 'purple_base',
+  normal_color: 'normal_color',
 };
 
 //* get object type from arr
