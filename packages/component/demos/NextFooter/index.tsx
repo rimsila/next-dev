@@ -1,7 +1,7 @@
 import { NextFooter } from '@wetrial/component';
 import { Select } from 'antd';
 import React, { useState } from 'react';
-import { NextTheme, btnTypeArr } from '../../src/NextFooter/type';
+import { NextTheme, btnTypeArr, btnType } from '../../src/NextFooter/type';
 import classnames from 'classnames';
 import css from '../../src/style/core/custom-background.less';
 
@@ -15,7 +15,7 @@ export default () => {
           nextTheme={nextTheme}
           columns={[
             {
-              title: '相关资源',
+              title: 'related resources',
               items: [
                 {
                   title: 'Ant Design Pro',
@@ -30,12 +30,12 @@ export default () => {
                 {
                   title: 'Kitchen',
                   url: 'https://kitchen.alipay.com/',
-                  description: 'Sketch 工具集',
+                  description: 'Sketch toolset',
                 },
               ],
             },
             {
-              title: '社区',
+              title: 'Community',
               items: [
                 {
                   title: 'Ant Design Pro',
@@ -50,12 +50,12 @@ export default () => {
                 {
                   title: 'Kitchen',
                   url: 'https://kitchen.alipay.com/',
-                  description: 'Sketch 工具集',
+                  description: 'Sketch toolset',
                 },
               ],
             },
             {
-              title: '帮助',
+              title: 'help',
               items: [
                 {
                   title: 'Ant Design Pro',
@@ -70,7 +70,7 @@ export default () => {
                 {
                   title: 'Kitchen',
                   url: 'https://kitchen.alipay.com/',
-                  description: 'Sketch 工具集',
+                  description: 'Sketch toolset',
                 },
               ],
             },
@@ -81,7 +81,7 @@ export default () => {
                   alt="more products"
                 />
               ),
-              title: '更多产品',
+              title: 'More products',
               items: [
                 {
                   icon: (
@@ -90,9 +90,9 @@ export default () => {
                       alt="yuque"
                     />
                   ),
-                  title: '语雀',
+                  title: 'Yu Que',
                   url: 'https://yuque.com',
-                  description: '知识创作与分享工具',
+                  description: 'Knowledge Creation and Sharing Tool',
                   openExternal: true,
                 },
                 {
@@ -104,7 +104,7 @@ export default () => {
                   ),
                   title: '云凤蝶',
                   url: 'https://yunfengdie.com',
-                  description: '中台建站平台',
+                  description: 'China-Taiwan Construction Platform',
                   openExternal: true,
                 },
                 {
@@ -114,7 +114,7 @@ export default () => {
                       style={{ width: 140 }}
                       optionFilterProp="children"
                       onChange={(v: NextTheme) => setNextTheme(v)}
-                      defaultValue="black"
+                      defaultValue={btnType.cyan_8}
                     >
                       {btnTypeArr?.map((i) => (
                         <Select.Option value={i} key={i} className={classnames(css[i])}>

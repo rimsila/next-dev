@@ -28,7 +28,7 @@ const tailPkgList = pkgList
 // const isProduction = process.env.NODE_ENV === 'production';
 
 export default {
-  title: 'NextDev',
+  title: 'Sila',
   mode: 'site',
   // https://github.com/umijs/dumi/blob/master/packages/theme-default/src/style/variables.less
   theme: {

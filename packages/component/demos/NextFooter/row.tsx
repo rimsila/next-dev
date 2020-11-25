@@ -13,7 +13,27 @@ export default () => {
         maxColumnsPerRow={4}
         columns={[
           {
-            title: '相关资源',
+            title: 'related resources',
+            items: [
+              {
+                title: 'Ant Design Pro',
+                url: 'https://pro.ant.design/',
+                openExternal: true,
+              },
+              {
+                title: 'Ant Design Mobile',
+                url: 'https://mobile.ant.design/',
+                openExternal: true,
+              },
+              {
+                title: 'Kitchen',
+                url: 'https://kitchen.alipay.com/',
+                description: 'Sketch ',
+              },
+            ],
+          },
+          {
+            title: 'community',
             items: [
               {
                 title: 'Ant Design Pro',
@@ -33,122 +53,7 @@ export default () => {
             ],
           },
           {
-            title: '社区',
-            items: [
-              {
-                title: 'Ant Design Pro',
-                url: 'https://pro.ant.design/',
-                openExternal: true,
-              },
-              {
-                title: 'Ant Design Mobile',
-                url: 'https://mobile.ant.design/',
-                openExternal: true,
-              },
-              {
-                title: 'Kitchen',
-                url: 'https://kitchen.alipay.com/',
-                description: 'Sketch 工具集',
-              },
-            ],
-          },
-          {
-            title: '帮助',
-            items: [
-              {
-                title: 'Ant Design Pro',
-                url: 'https://pro.ant.design/',
-                openExternal: true,
-              },
-              {
-                title: 'Ant Design Mobile',
-                url: 'https://mobile.ant.design/',
-                openExternal: true,
-              },
-              {
-                title: 'Kitchen',
-                url: 'https://kitchen.alipay.com/',
-                description: 'Sketch 工具集',
-              },
-            ],
-          },
-          {
-            icon: (
-              <img
-                src="https://gw.alipayobjects.com/zos/rmsportal/nBVXkrFdWHxbZlmMbsaH.svg"
-                alt="more products"
-              />
-            ),
-            title: '更多产品',
-            items: [
-              {
-                icon: (
-                  <img
-                    src="https://gw.alipayobjects.com/zos/rmsportal/XuVpGqBFxXplzvLjJBZB.svg"
-                    alt="yuque"
-                  />
-                ),
-                title: '语雀',
-                url: 'https://yuque.com',
-                description: '知识创作与分享工具',
-                openExternal: true,
-              },
-              {
-                icon: (
-                  <img
-                    src="https://gw.alipayobjects.com/zos/rmsportal/uHocHZfNWZOdsRUonZNr.png"
-                    alt="yuque"
-                  />
-                ),
-                title: '云凤蝶',
-                url: 'https://yunfengdie.com',
-                description: '中台建站平台',
-                openExternal: true,
-              },
-            ],
-          },
-          {
-            title: '相关资源',
-            items: [
-              {
-                title: 'Ant Design Pro',
-                url: 'https://pro.ant.design/',
-                openExternal: true,
-              },
-              {
-                title: 'Ant Design Mobile',
-                url: 'https://mobile.ant.design/',
-                openExternal: true,
-              },
-              {
-                title: 'Kitchen',
-                url: 'https://kitchen.alipay.com/',
-                description: 'Sketch 工具集',
-              },
-            ],
-          },
-          {
-            title: '社区',
-            items: [
-              {
-                title: 'Ant Design Pro',
-                url: 'https://pro.ant.design/',
-                openExternal: true,
-              },
-              {
-                title: 'Ant Design Mobile',
-                url: 'https://mobile.ant.design/',
-                openExternal: true,
-              },
-              {
-                title: 'Kitchen',
-                url: 'https://kitchen.alipay.com/',
-                description: 'Sketch 工具集',
-              },
-            ],
-          },
-          {
-            title: '帮助',
+            title: 'help',
             items: [
               {
                 title: 'Ant Design Pro',
@@ -183,9 +88,9 @@ export default () => {
                     alt="yuque"
                   />
                 ),
-                title: '语雀',
+                title: 'Whisper',
                 url: 'https://yuque.com',
-                description: '知识创作与分享工具',
+                description: 'Zhongtai Station Platform',
                 openExternal: true,
               },
               {
@@ -195,9 +100,104 @@ export default () => {
                     alt="yuque"
                   />
                 ),
-                title: '云凤蝶',
+                title: 'related resources',
                 url: 'https://yunfengdie.com',
-                description: '中台建站平台',
+                description: 'Zhongtai Station Platform',
+                openExternal: true,
+              },
+            ],
+          },
+          {
+            title: 'related resources',
+            items: [
+              {
+                title: 'Ant Design Pro',
+                url: 'https://pro.ant.design/',
+                openExternal: true,
+              },
+              {
+                title: 'Ant Design Mobile',
+                url: 'https://mobile.ant.design/',
+                openExternal: true,
+              },
+              {
+                title: 'Kitchen',
+                url: 'https://kitchen.alipay.com/',
+                description: 'Sketch 工具集',
+              },
+            ],
+          },
+          {
+            title: 'community',
+            items: [
+              {
+                title: 'Ant Design Pro',
+                url: 'https://pro.ant.design/',
+                openExternal: true,
+              },
+              {
+                title: 'Ant Design Mobile',
+                url: 'https://mobile.ant.design/',
+                openExternal: true,
+              },
+              {
+                title: 'Kitchen',
+                url: 'https://kitchen.alipay.com/',
+                description: 'Sketch ',
+              },
+            ],
+          },
+          {
+            title: 'help',
+            items: [
+              {
+                title: 'Ant Design Pro',
+                url: 'https://pro.ant.design/',
+                openExternal: true,
+              },
+              {
+                title: 'Ant Design Mobile',
+                url: 'https://mobile.ant.design/',
+                openExternal: true,
+              },
+              {
+                title: 'Kitchen',
+                url: 'https://kitchen.alipay.com/',
+                description: 'Sketch ',
+              },
+            ],
+          },
+          {
+            icon: (
+              <img
+                src="https://gw.alipayobjects.com/zos/rmsportal/nBVXkrFdWHxbZlmMbsaH.svg"
+                alt="more products"
+              />
+            ),
+            title: '更多产品',
+            items: [
+              {
+                icon: (
+                  <img
+                    src="https://gw.alipayobjects.com/zos/rmsportal/XuVpGqBFxXplzvLjJBZB.svg"
+                    alt="yuque"
+                  />
+                ),
+                title: 'Whisper',
+                url: 'https://yuque.com',
+                description: 'Knowledge creation and sharing tools',
+                openExternal: true,
+              },
+              {
+                icon: (
+                  <img
+                    src="https://gw.alipayobjects.com/zos/rmsportal/uHocHZfNWZOdsRUonZNr.png"
+                    alt="yuque"
+                  />
+                ),
+                title: 'related resources',
+                url: 'https://yunfengdie.com',
+                description: 'Station Platform',
                 openExternal: true,
               },
               {
