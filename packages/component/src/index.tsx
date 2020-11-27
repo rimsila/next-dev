@@ -7,7 +7,10 @@ export { default as NextRow } from './NextRow';
 export { default as NextBlogCard } from './NextCard/SimpleCard';
 export { default as NextFooter } from './NextFooter';
 export { NextCard } from './NextCard';
+export { default as NotFound1 } from './NextError/NotFound1';
+export { default as Error500 } from './NextError/Error500';
 export * as mock from '../mock';
+export * as NextStyle from './styles/index';
 
 export { nextNotification } from './Notification';
 

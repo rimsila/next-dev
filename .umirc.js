@@ -78,5 +78,11 @@ export default {
   //   : false,
   hash: true,
   dynamicImport: {},
-  styles: [`${isSite ? 'https://rimsila.github.io' : 'http://localhost:4000'}/next-dev/global.css`],
+  styles: [
+    `${
+      isSite
+        ? 'http://localhost:4000/next-dev/global.less'
+        : 'https://rimsila.github.io/next-dev/global.css'
+    }`,
+  ],
 };
