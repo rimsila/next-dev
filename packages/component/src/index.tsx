@@ -4,8 +4,9 @@ export { default as IconFont } from './IconFont';
 export { default as NextButton } from './NextButton';
 export { default as MapItem } from './mapItem';
 export { default as NextRow } from './NextRow';
+export { default as NextBlogCard } from './NextCard/SimpleCard';
 export { default as NextFooter } from './NextFooter';
-export { default as NextCardSimple } from './NextCard/SimpleCard';
+export { NextCard } from './NextCard';
 export * as mock from '../mock';
 
 export { nextNotification } from './Notification';

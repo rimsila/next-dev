@@ -20,13 +20,14 @@ export type BtnType = typeof btnType;
 export type NextTheme = keyof BtnType;
 
 interface IData {
-  title?: any;
+  title?: string;
   extra?: any;
   content?: any;
-  nextTheme?: NextTheme;
 }
 export interface SimpleCardProps extends ProCardProps {
   children?: React.ReactNode;
-  data: IData;
   width?: string | number;
+  nextTheme?: NextTheme;
+  alt?: boolean;
+  data: IData;
 }

@@ -22,4 +22,5 @@ export type NextTheme = keyof BtnType;
 export interface NextCardProps extends ProCardProps {
   children?: React.ReactNode;
   nextTheme?: NextTheme;
+  width?: string | number;
 }
