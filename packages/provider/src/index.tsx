@@ -13,6 +13,7 @@ import zhTW from './locale/zh_TW';
 import frFR from './locale/fr_FR';
 import ptBR from './locale/pt_BR';
 
+export { zhCN, enUS, viVN, itIT, esES, jaJP, ruRU, msMY, zhTW, frFR, ptBR };
 export interface IntlType {
   locale: string;
   getMessage: (id: string, defaultMessage: string) => string;
@@ -35,7 +36,7 @@ function get(source: object, path: string, defaultValue?: string): string | unde
 }
 
 /**
- * 创建一个操作函数
+ * Create an operation function
  * @param locale
  * @param localeMap
  */
@@ -97,7 +98,7 @@ const ConfigContext = React.createContext<{
   intl: IntlType;
 }>({
   intl: {
-    ...zhCNIntl,
+    ...enUSIntl,
     locale: 'default',
   },
 });
@@ -105,24 +106,24 @@ const ConfigContext = React.createContext<{
 const { Consumer: ConfigConsumer, Provider: ConfigProvider } = ConfigContext;
 
 /**
- * 根据 antd 的 key 来找到的 locale 插件的 key
+ *The key of the locale plug-in found according to the key of antd
  * @param localeKey
  */
 const findIntlKeyByAntdLocaleKey = (localeKey: string | undefined) => {
   if (!localeKey) {
-    return 'zh-CN';
+    return 'en-US';
   }
   const localeName = localeKey.toLocaleLowerCase();
   return (
     intlMapKeys.find((intlKey) => {
       const LowerCaseKey = intlKey.toLocaleLowerCase();
       return LowerCaseKey.includes(localeName);
-    }) || 'zh-CN'
+    }) || 'en-US'
   );
 };
 
 /**
- *  如果没有配置 locale，这里组件会根据 antd 的 key 来自动选择
+ *  If no locale is configured, this component will be automatically selected according to the antd key
  * @param param0
  */
 const ConfigProviderWarp: React.FC<{}> = ({ children }) => {
@@ -132,10 +133,10 @@ const ConfigProviderWarp: React.FC<{}> = ({ children }) => {
       {(value) => {
         const localeName = locale?.locale;
         const key = findIntlKeyByAntdLocaleKey(localeName);
-        // antd 的 key 存在的时候以 antd 的为主
+        // When the key of antd exists, the key of antd is the main one
         const intl =
           localeName && value.intl.locale === 'default' ? intlMap[key] : value || intlMap[key];
-        return <ConfigProvider value={intl || zhCNIntl}>{children}</ConfigProvider>;
+        return <ConfigProvider value={intl || enUSIntl}>{children}</ConfigProvider>;
       }}
     </ConfigConsumer>
   );
@@ -147,9 +148,9 @@ export function useIntl(): IntlType {
   const context = useContext(ConfigContext);
 
   if (!context.intl) {
-    return ((context as unknown) as IntlType) || zhCNIntl;
+    return ((context as unknown) as IntlType) || enUSIntl;
   }
-  return context.intl || zhCNIntl;
+  return context.intl || enUSIntl;
 }
 
 export default ConfigContext;

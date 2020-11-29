@@ -13,6 +13,9 @@ export * as mock from '../mock';
 export * as NextStyle from './styles/index';
 
 export { nextNotification } from './Notification';
+export { InjectMassage } from './utils/IntlMessages';
+export { default as ForgotPassword } from './Auth/ForgotPassword';
+export { default as NextSignIn } from './Auth/SignIn';
 
 interface IWetrialComponentProps {
   /**

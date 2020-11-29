@@ -81,8 +81,8 @@ export default {
   styles: [
     `${
       isSite
-        ? 'http://localhost:4000/next-dev/global.less'
-        : 'https://rimsila.github.io/next-dev/global.css'
+        ? 'https://rimsila.github.io/next-dev/global.less'
+        : 'http://localhost:4000/next-dev/global.css'
     }`,
   ],
 };

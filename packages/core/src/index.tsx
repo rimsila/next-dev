@@ -7,6 +7,7 @@ export { base64, debase64, encrypt, decrypt, encryptKey, encryptBtoa, decryptAto
 export type { IWithFalse, IKeyValue } from './core';
 export { httpRequest } from './axios-config';
 export { catchError } from './error-handler';
+export { default as validateMessages } from './validation';
 
 export { CryptoType } from './core';
 

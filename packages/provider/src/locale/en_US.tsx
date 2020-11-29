@@ -1,4 +1,7 @@
+import { defaultMsg } from './en_US/default';
+
 export default {
+  ...defaultMsg,
   moneySymbol: '$',
   tableForm: {
     search: 'Query',
