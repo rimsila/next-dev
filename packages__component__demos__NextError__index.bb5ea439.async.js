@@ -1,1 +1,0 @@
-(window["webpackJsonp"]=window["webpackJsonp"]||[]).push([[13],{w1xv:function(e,t,a){"use strict";a.r(t);var n=a("q1tI"),o=a.n(n),i=a("KiPk"),c=[{item:o.a.createElement(i["i"],null),copyCode:"<NotFound1 />"},{item:o.a.createElement(i["a"],null),copyCode:"<Error500 />"}];t["default"]=()=>o.a.createElement(i["c"],{data:c,antSpan:24,isDivider:!0})}}]);
