@@ -19,6 +19,9 @@ export { default as NextSignIn } from './Auth/SignIn';
 export { default as ResetPassword } from './Auth/ResetPassword';
 export { default as NextSignUp } from './Auth/SignUp';
 export { default as NextLockScreen } from './Auth/LockScreen';
+export { default as PricingTable1 } from './pricingTable/pricing1';
+export { default as PricingTable2 } from './pricingTable/pricing2';
+export { default as PricingTable3 } from './pricingTable/pricing3';
 
 interface IWetrialComponentProps {
   /**

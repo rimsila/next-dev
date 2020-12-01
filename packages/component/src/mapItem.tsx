@@ -13,6 +13,7 @@ interface IUseMapItem {
   gut2?: number;
   isDivider?: boolean;
   cssProps?: React.CSSProperties;
+  cls?: string;
 }
 
 const { Paragraph } = Typography;
@@ -25,11 +26,12 @@ export const MapItem: FC<IUseMapItem> = ({
   antSpan = 6,
   isDivider,
   cssProps,
+  cls,
 }) => {
   return (
     <>
       <ConfigProvider {...{ form: { validateMessages } }}>
-        <NextRow {...{ gut1, gut2 }}>
+        <NextRow {...{ gut1, gut2, cls }}>
           {data.map((item, key: number) => (
             <Fragment key={key}>
               {isAntCol && (

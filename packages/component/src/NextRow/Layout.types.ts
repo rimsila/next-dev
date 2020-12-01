@@ -7,4 +7,5 @@ export interface LayoutProps {
   docs?: React.ReactNode;
   gut1?: number;
   gut2?: number;
+  cls?: string;
 }
