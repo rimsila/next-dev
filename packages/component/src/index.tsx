@@ -17,6 +17,8 @@ export { InjectMassage } from './utils/IntlMessages';
 export { default as ForgotPassword } from './Auth/ForgotPassword';
 export { default as NextSignIn } from './Auth/SignIn';
 export { default as ResetPassword } from './Auth/ResetPassword';
+export { default as NextSignUp } from './Auth/SignUp';
+export { default as NextLockScreen } from './Auth/LockScreen';
 
 interface IWetrialComponentProps {
   /**

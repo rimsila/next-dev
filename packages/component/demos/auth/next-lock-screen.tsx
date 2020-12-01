@@ -1,0 +1,14 @@
+import React from 'react';
+import { MapItem, NextLockScreen } from '@wetrial/component';
+import { onFinish } from '../utils/function';
+
+const data = [
+  {
+    item: <NextLockScreen {...{ onFinish }} />,
+    copyCode: `<NextSignIn  {...{ onFinish }}/>`,
+  },
+];
+
+export default () => {
+  return <MapItem {...{ data, antSpan: 24, isDivider: true }} />;
+};
