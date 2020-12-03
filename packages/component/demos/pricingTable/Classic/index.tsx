@@ -5,10 +5,9 @@ const data = [
   {
     item: (
       <PricingTable1
-        styleName="gx-pt-default gx-package"
-        headerStyle="gx-package-header gx-bg-primary gx-text-white"
+        styleName="gx-pt-classic gx-bg-amber-light gx-package"
+        headerStyle="gx-package-header gx-bg-amber gx-text-black"
         itemStyle="gx-package-body"
-        footerStyle=""
       />
     ),
     copyCode: `<NotFound1 />`,
@@ -16,7 +15,7 @@ const data = [
   {
     item: (
       <PricingTable2
-        styleName="gx-pt-default gx-package gx-bg-primary-light gx-highlight gx-border-0"
+        styleName="gx-pt-classic gx-bg-primary-light gx-package gx-highlight"
         headerStyle="gx-package-header gx-bg-primary gx-text-white"
         itemStyle="gx-package-body gx-text-white"
         footerStyle="gx-btn-primary"
@@ -27,10 +26,9 @@ const data = [
   {
     item: (
       <PricingTable3
-        styleName="gx-pt-default gx-package"
-        headerStyle="gx-package-header gx-bg-primary gx-text-white"
+        styleName="gx-pt-classic gx-package gx-bg-green-light"
+        headerStyle="gx-package-header gx-bg-green gx-text-black"
         itemStyle="gx-package-body"
-        footerStyle=""
       />
     ),
     copyCode: `<NotFound1 />`,

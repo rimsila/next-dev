@@ -6,7 +6,7 @@ nav:
   order: 2
   path: /component
 group:
-  title: Universal
+  title: General
   order: 2
   path: /page
 ---

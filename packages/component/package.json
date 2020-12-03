@@ -53,6 +53,7 @@
     "ahooks": "^2.5.0",
     "rc-footer": "^0.6.3",
     "@ant-design/pro-card":"1.5.1"
+
   },
   "devDependencies": {
     "@types/react-custom-scrollbars": "^4.0.7"

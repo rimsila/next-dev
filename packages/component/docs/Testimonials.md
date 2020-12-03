@@ -1,8 +1,8 @@
 ---
-title: Pricing Table
+title: Testimonials
 order: 40
 nav:
-  title: General
+  title: component
   order: 3
   path: /component
 group:
@@ -19,14 +19,14 @@ group:
 
 ### Basic
 
-<code src="../demos/pricingTable/Basic" />
-
-### Circle
-
-<code src="../demos/pricingTable/Circle" />
+<code src="../demos/Testimonials/Basic" />
 
 ### Classic
 
-<code src="../demos/pricingTable/Classic" />
+<code src="../demos/Testimonials/Classic" />
+
+### Standard
+
+<code src="../demos/Testimonials/Standard" />
 
 ## API

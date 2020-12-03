@@ -9,9 +9,10 @@ interface IProp extends FormProps {
   headerStyle?: any;
   itemStyle?: any;
   footerStyle?: any;
+  customContent?: any;
 }
 
-const PriceItem1 = ({ styleName, headerStyle, itemStyle, footerStyle }: IProp) => {
+const PriceItem1 = ({ styleName, headerStyle, itemStyle, footerStyle, customContent }: IProp) => {
   const { getMessage } = useIntl();
 
   return (
@@ -27,41 +28,49 @@ const PriceItem1 = ({ styleName, headerStyle, itemStyle, footerStyle }: IProp) =
       </div>
 
       <div className={`${itemStyle}`}>
-        <ul className="gx-package-items">
-          <li>
-            <i className="icon icon-translation" />
-            <span>
-              {getMessage('pricingTable_easyTranslation', enUS.pricingTable_easyTranslation)}
-            </span>
-          </li>
-          <li>
-            <i className="icon icon-font" />
-            <span>
-              {getMessage('pricingTable_awesomeGoogleFonts', enUS.pricingTable_awesomeGoogleFonts)}
-            </span>
-          </li>
-          <li>
-            <i className="icon icon-hotel-booking" />
-            <span>
-              {getMessage('pricingTable_hotelBookingSystem', enUS.pricingTable_hotelBookingSystem)}
-            </span>
-          </li>
-          <li>
-            <i className="icon icon-sent" />
-            <span>
-              {getMessage(
-                'pricingTable_emailComposeInterface',
-                enUS.pricingTable_emailComposeInterface,
-              )}
-            </span>
-          </li>
-          <li>
-            <i className="icon icon-location" />
-            <span>
-              {getMessage('pricingTable_locationFinderApp', enUS.pricingTable_locationFinderApp)}
-            </span>
-          </li>
-        </ul>
+        {customContent || (
+          <ul className="gx-package-items">
+            <li>
+              <i className="icon icon-translation" />
+              <span>
+                {getMessage('pricingTable_easyTranslation', enUS.pricingTable_easyTranslation)}
+              </span>
+            </li>
+            <li>
+              <i className="icon icon-font" />
+              <span>
+                {getMessage(
+                  'pricingTable_awesomeGoogleFonts',
+                  enUS.pricingTable_awesomeGoogleFonts,
+                )}
+              </span>
+            </li>
+            <li>
+              <i className="icon icon-hotel-booking" />
+              <span>
+                {getMessage(
+                  'pricingTable_hotelBookingSystem',
+                  enUS.pricingTable_hotelBookingSystem,
+                )}
+              </span>
+            </li>
+            <li>
+              <i className="icon icon-sent" />
+              <span>
+                {getMessage(
+                  'pricingTable_emailComposeInterface',
+                  enUS.pricingTable_emailComposeInterface,
+                )}
+              </span>
+            </li>
+            <li>
+              <i className="icon icon-location" />
+              <span>
+                {getMessage('pricingTable_locationFinderApp', enUS.pricingTable_locationFinderApp)}
+              </span>
+            </li>
+          </ul>
+        )}
         <div className="gx-package-footer">
           <Button type="primary" className={`${footerStyle}`}>
             {getMessage('pricingTable_buyNow', enUS.pricingTable_buyNow)}

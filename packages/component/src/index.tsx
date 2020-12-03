@@ -1,5 +1,16 @@
 import { configIconUrl } from './IconFont';
 
+interface IWetrialComponentProps {
+  /**
+   * Font icon file address
+   */
+  iconFontUrl: string | string[];
+}
+
+export const initComponent = (props: IWetrialComponentProps) => {
+  configIconUrl(props.iconFontUrl);
+};
+
 export { default as IconFont } from './IconFont';
 export { default as NextButton } from './NextButton';
 export { default as MapItem } from './mapItem';
@@ -22,14 +33,8 @@ export { default as NextLockScreen } from './Auth/LockScreen';
 export { default as PricingTable1 } from './pricingTable/pricing1';
 export { default as PricingTable2 } from './pricingTable/pricing2';
 export { default as PricingTable3 } from './pricingTable/pricing3';
-
-interface IWetrialComponentProps {
-  /**
-   * Font icon file address
-   */
-  iconFontUrl: string | string[];
-}
-
-export const initComponent = (props: IWetrialComponentProps) => {
-  configIconUrl(props.iconFontUrl);
-};
+export { default as CardBox } from './NextCard/CardBox';
+export { default as TestimonialsBasic } from './Testimonials/Basic';
+export { default as TestimonialClassic } from './Testimonials/Classic';
+export { default as TestimonialStandard } from './Testimonials/Standard';
+export { default as Callouts } from './callouts';
