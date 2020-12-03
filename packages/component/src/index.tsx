@@ -38,3 +38,6 @@ export { default as TestimonialsBasic } from './Testimonials/Basic';
 export { default as TestimonialClassic } from './Testimonials/Classic';
 export { default as TestimonialStandard } from './Testimonials/Standard';
 export { default as Callouts } from './callouts';
+export { default as CardsListItem } from './listType/CardsListItem';
+export { default as PlainListItem } from './listType/PlainListItem';
+export { default as StripListItem } from './listType/StripListItem';
