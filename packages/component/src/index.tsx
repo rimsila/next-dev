@@ -41,3 +41,8 @@ export { default as Callouts } from './callouts';
 export { default as CardsListItem } from './listType/CardsListItem';
 export { default as PlainListItem } from './listType/PlainListItem';
 export { default as StripListItem } from './listType/StripListItem';
+export { default as EproductItem } from './eCommerce/EProductItem';
+export { default as AayurvedaCard } from './Widget/AayurvedaCard';
+export { default as BuildingCard } from './Widget/BuildingCard';
+export { default as DryFruit } from './Widget/DryFruit';
+export { default as FlyingBird } from './Widget/FlyingBird';
