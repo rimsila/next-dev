@@ -1,7 +1,7 @@
 import React from 'react';
-import { Button, Checkbox, Form, Icon, Input } from 'antd';
+import { Button, Checkbox, Form, Input } from 'antd';
 import { Link } from 'react-router-dom';
-import { GoogleOutlined, LockOutlined, UserOutlined } from '@ant-design/icons';
+import Icon, { GoogleOutlined, LockOutlined, UserOutlined } from '@ant-design/icons';
 import { FormProps } from 'antd/lib/form';
 
 const FormItem = Form.Item;
@@ -12,6 +12,7 @@ interface IProp extends FormProps {
     alt?: string;
     title?: string;
     titleAlign?: any;
+    isHasSocial: boolean;
   };
 }
 
@@ -64,29 +65,36 @@ const NextSignUp = ({ next, ...rest }: IProp) => {
               Forgot password
             </Link>
           </FormItem>
+          <FormItem>
+            <Link className="gx-login-form-forgot" to="/login">
+              Login Here
+            </Link>
+          </FormItem>
           <FormItem className="gx-text-center">
             <Button type="primary" htmlType="submit">
               Sign Up
             </Button>
           </FormItem>
         </Form>
-        <div className="gx-flex-row">
-          <span className="gx-mb-2 gx-mr-3">or Sign up using: </span>
-          <ul className="gx-social-link">
-            <li>
-              <GoogleOutlined />
-            </li>
-            <li>
-              <Icon type="facebook" />
-            </li>
-            <li>
-              <Icon type="github" />
-            </li>
-            <li>
-              <Icon type="twitter" />
-            </li>
-          </ul>
-        </div>
+        {next?.isHasSocial && (
+          <div className="gx-flex-row">
+            <span className="gx-mb-2 gx-mr-3">or Sign up using: </span>
+            <ul className="gx-social-link">
+              <li>
+                <GoogleOutlined />
+              </li>
+              <li>
+                <Icon type="facebook" />
+              </li>
+              <li>
+                <Icon type="github" />
+              </li>
+              <li>
+                <Icon type="twitter" />
+              </li>
+            </ul>
+          </div>
+        )}
       </div>
     </div>
   );

@@ -1,31 +1,25 @@
-# @wetrial/core
+# @next-dev/core
 
-> @wetrial/core.
+> @next-dev/core.
 
-See website [@wetrial/core](https://github.com/rimsila/core) for more information.
+See website [@next-dev/core](https://github.com/rimsila/core) for more information.
 
-## Install
+## Install Local
 
-Using npm:
-
-```bash
-$ npm install --save-dev @wetrial/core
-```
-
-or using yarn:
+using yalc:
 
 ```bash
-$ yarn add @wetrial/core --dev
+$ yalc add @next-dev/core
 ```
 
-## 文档说明
+## Document description
 
 ### nav
 
-对应顶部菜单栏，排在第三位；配置如下；
+Corresponding to the top menu bar, ranked third; the configuration is as follows;
 
-| 配置项 | 说明                   | 值    |
-| ------ | ---------------------- | ----- |
-| title  | 显示在顶部菜单中的名称 | core  |
-| order  | 在顶部菜单中的顺序     | 3     |
-| path   | 路由的基础路径         | /core |
+| Configuration item | Description                    | Value |
+| ------------------ | ------------------------------ | ----- |
+| title              | The name shown in the top menu | core  |
+| order              | Order in the top menu          | 3     |
+| path               | The base path of the route     | /core |

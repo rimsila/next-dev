@@ -1,5 +1,5 @@
 {
-  "name": "@wetrial/component",
+  "name": "@next-dev/component",
   "version": "0.6.1",
   "description": "@wetrial/component",
   "module": "es/index.js",

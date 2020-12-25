@@ -5,7 +5,6 @@ export { default as store } from './store';
 export { base64, debase64, encrypt, decrypt, encryptKey, encryptBtoa, decryptAtob } from './crypto';
 
 export type { IWithFalse, IKeyValue } from './core';
-export { httpRequest } from './axios-config';
 export { catchError } from './error-handler';
 export { default as validateMessages } from './validation';
 

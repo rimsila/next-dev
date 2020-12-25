@@ -2,7 +2,7 @@ import React, { FC, Fragment } from 'react';
 import { Col, ConfigProvider, Divider, Popover, Typography } from 'antd';
 import CodeSandboxOutlined from '@ant-design/icons/CodeSandboxOutlined';
 import { NextRow } from './NextRow';
-import { validateMessages } from '@wetrial/core';
+import validateMessages from '../../core/src/validation';
 
 interface IUseMapItem {
   data: any[];

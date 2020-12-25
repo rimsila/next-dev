@@ -21,8 +21,19 @@
     "test:update": "umi-test --updateSnapshot",
     "update:deps": "yarn upgrade-interactive --latest",
     "tsc": "lerna run tsc --stream",
-    "clean": "node ./scripts/clearBuild"
+    "clean": "node ./scripts/clearBuild",
+    "ycom": "cd packages/component && yalc publish",
+    "ycore": "cd packages/core && yalc publish",
+    "yhook": "cd packages/hooks && yalc publish",
+    "ypro": "cd packages/provider && yalc publish",
+    "yall": "yarn ycom && yarn ycore && yarn yhook && yarn ypro"
   },
+  "size-limit": [
+    {
+      "path": "dist/bundle.js",
+      "limit": "10 KB"
+    }
+  ],
   "browserslist": [
     "last 2 versions",
     "Firefox ESR",

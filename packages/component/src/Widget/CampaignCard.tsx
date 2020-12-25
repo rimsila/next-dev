@@ -1,5 +1,5 @@
 import React from 'react';
-import { Bar, BarChart, ResponsiveContainer, Tooltip } from 'recharts';
+// import { Bar, BarChart, ResponsiveContainer, Tooltip } from 'recharts';
 import { Col, Row } from 'antd';
 
 import Widget from '../components/Widget/index';
@@ -26,14 +26,14 @@ const CampaignCard = () => {
           <i className="icon icon-long-arrow-right gx-text-blue gx-fs-lg gx-pointer" />
         </Col>
         <Col xl={9} lg={9} md={9} sm={24} xs={24} className="gx-pr-md-2">
-          <ResponsiveContainer width="100%" height={50}>
+          {/* <ResponsiveContainer width="100%" height={50}>
             <BarChart data={data} margin={{ top: 0, right: 0, left: 0, bottom: 0 }}>
               <Tooltip />
               <Bar dataKey="uv" stackId="a" fill="#10316B" />
               <Bar dataKey="price" stackId="a" fill="#FE9E15" />
               <Bar dataKey="sv" stackId="a" fill="#038FDE" />
             </BarChart>
-          </ResponsiveContainer>
+          </ResponsiveContainer> */}
         </Col>
       </Row>
     </Widget>

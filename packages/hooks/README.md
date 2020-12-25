@@ -1,48 +1,42 @@
-# @wetrial/hooks
+# @next-dev/hooks
 
-> @wetrial/hooks.
+> @next-dev/hooks.
 
-See website [@wetrial/hooks](https://github.com/rimsila/hooks) for more information.
+See website [@next-dev/hooks](https://github.com/rimsila/hooks) for more information.
 
-## Install
+## Install Local
 
-Using npm:
-
-```bash
-$ npm install --save-dev @wetrial/hooks
-```
-
-or using yarn:
+or using yalc:
 
 ```bash
-$ yarn add @wetrial/hooks --dev
+$ yalc add @next-dev/hooks
 ```
 
 ## 🔨 Usage
 
 ```
-import { useFormTable } from '@wetrial/hooks';
+import { useFormTable} from'@next-dev/hooks';
 ```
 
-## 文档说明
+## Document description
 
 ### nav
 
-对应顶部菜单栏，排在第二位；配置如下；
+Corresponding to the top menu bar, ranked second; the configuration is as follows;
 
-| 配置项 | 说明                   | 值     |
-| ------ | ---------------------- | ------ |
-| title  | 显示在顶部菜单中的名称 | hooks  |
-| order  | 在顶部菜单中的顺序     | 2      |
-| path   | 路由的基础路径         | /hooks |
+| Configuration item | Description                    | Value  |
+| ------------------ | ------------------------------ | ------ |
+| title              | The name shown in the top menu | hooks  |
+| order              | Order in the top menu          | 2      |
+| path               | The base path of the route     | /hooks |
 
 ### group
 
-对应左边的左侧菜单栏分组
+Corresponding to the left menu bar group on the left
 
-| order | title | path     |
-| ----- | ----- | -------- |
-| 1     | 请求  | /ajax    |
-| 2     | 高级  | /advance |
-| 3     | Dom   | /dom     |
-| 10    | 其他  | /other   |
+| order | title    | path     |
+| ----- | -------- | -------- |
+| 1     | Request  | /ajax    |
+| 2     | Advanced | /advance |
+| 3     | Dom      | /dom     |
+| 10    | Other    | /other   |

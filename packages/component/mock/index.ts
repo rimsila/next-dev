@@ -1,2 +1,2 @@
 export { iconData } from './icon';
-export { api } from './api';
+// export { api } from './api';

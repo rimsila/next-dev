@@ -1,25 +1,25 @@
 ---
-name: '疑问或需要帮助 ❓'
-about: 对 Wetrials 使用的疑问或需要帮助
-title: '🧐[问题]'
-labels: '🧐question'
-assignees: ''
+name:'Question or need help ❓'
+about: Questions about using Wetrials or need help
+title:'🧐[Question]'
+labels:'🧐question'
+assignees:''
 ---
 
-### 🧐 问题描述
+### 🧐 Problem description
 
 <!--
-详细地描述问题，让大家都能理解
+Describe the problem in detail so that everyone can understand
 -->
 
-### 💻 示例代码
+### 💻 Sample code
 
 <!--
-如果你有解决方案，在这里清晰地阐述
+If you have a solution, state it clearly here
 -->
 
-### 🚑 其他信息
+### 🚑 Other information
 
 <!--
-如截图等其他信息可以贴在这里
+Other information such as screenshots can be posted here
 -->
