@@ -1,6 +1,6 @@
 import React, { memo, ReactNode } from 'react';
 import { Button, Checkbox, Form, Input } from 'antd';
-import { useIntl, enUS } from '../../../../provider/src';
+import { useIntl, enUS } from '../../../../provider/es';
 import { FormProps, FormItemProps } from 'antd/lib/form';
 import { NextButtonProps } from '../../NextButton/type';
 import { InputProps } from 'antd/lib/input';
@@ -25,6 +25,7 @@ interface IProp extends FormProps {
     customFooter?: ReactNode;
     emailInputProps?: InputProps;
     titleAlign?: any;
+    forgotPassPath?: string;
   };
 }
 
@@ -35,12 +36,13 @@ export const defaultProps = {
     alt: 'logo',
     title: 'Sign In',
     logo: 'https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg',
+    forgotPassPath: '/forgot-password',
   },
 };
 
 const NextSignIn = ({ next, ...rest }: IProp) => {
   const {
-    next: { logo, alt, logoWith, title },
+    next: { logo, alt, logoWith, title, forgotPassPath },
   } = defaultProps;
   return (
     <div className="gx-login-container">
@@ -74,11 +76,16 @@ const NextSignIn = ({ next, ...rest }: IProp) => {
           </FormItem>
           <FormItem>
             <Checkbox>Remember me</Checkbox>
-            <Link className="gx-login-form-forgot" to="/component/page/next-auth">
+            <Link className="gx-login-form-forgot" to={next?.forgotPassPath || forgotPassPath}>
               Forgot password
             </Link>
           </FormItem>
 
+          <FormItem>
+            <Link className="gx-login-form-forgot" to="/register">
+              Register Here
+            </Link>
+          </FormItem>
           {/* //* ---------------- isHideSubmitBtn --------------- */}
           {!next?.isHideSubmitBtn && (
             <FormItem>

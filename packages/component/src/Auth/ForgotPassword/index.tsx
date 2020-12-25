@@ -1,11 +1,12 @@
-import React, { memo, ReactNode } from 'react';
-import { Form, Input } from 'antd';
-import { useIntl, enUS } from '../../../../provider/src';
-import { FormProps, FormItemProps } from 'antd/lib/form';
-import { NextButton } from '../../NextButton';
-import { NextButtonProps } from '../../NextButton/type';
+import { LockOutlined } from '@ant-design/icons';
+import { Button, Form, Input } from 'antd';
+import { FormItemProps, FormProps } from 'antd/lib/form';
 import { InputProps } from 'antd/lib/input';
 import classnames from 'classnames';
+import React, { memo, ReactNode } from 'react';
+import { enUS, useIntl } from '../../../../provider/es';
+import { NextButton } from '../../NextButton';
+import { NextButtonProps } from '../../NextButton/type';
 
 const FormItem = Form.Item;
 
@@ -22,6 +23,11 @@ interface IProp extends FormProps {
     customFooter?: ReactNode;
     emailInputProps?: InputProps;
     logoAlign?: any;
+    customField?: ReactNode;
+    isHideEmail?: boolean;
+    isHasPasswordField?: boolean;
+    goBackProps?: NextButtonProps;
+    isHasGoBackBtn?: boolean;
   };
 }
 
@@ -61,38 +67,83 @@ const ForgotPassword = ({ next, ...rest }: IProp) => {
 
         <Form layout="vertical" className="gx-login-form gx-form-row0" {...rest}>
           {/* //* ----------------  FormItem --------------- */}
-          <FormItem
-            name="email"
-            rules={[
-              {
-                type: 'email',
-                required: true,
-              },
-            ]}
-            {...next?.emailItemProps}
-          >
-            {/* //* ----------------  Input Form --------------- */}
-            <Input
-              type="email"
-              placeholder="Email Address"
-              size="large"
-              {...next?.emailInputProps}
-            />
-          </FormItem>
-
-          {/* //* ---------------- isHideSubmitBtn --------------- */}
-          {!next?.isHideSubmitBtn && (
-            <FormItem>
-              <NextButton
-                type="primary"
-                htmlType="submit"
-                btnJustify="start"
-                {...next?.submitBtnProps}
-              >
-                {getMessage('auth.userAuth_send', enUS.auth.userAuth_send)}
-              </NextButton>
+          {!next?.isHideEmail && (
+            <FormItem
+              name="email"
+              rules={[
+                {
+                  type: 'email',
+                  required: true,
+                },
+              ]}
+              {...next?.emailItemProps}
+            >
+              {/* //* ----------------  email field --------------- */}
+              <Input
+                type="email"
+                placeholder="Email Address"
+                size="large"
+                {...next?.emailInputProps}
+              />
             </FormItem>
           )}
+          {/* //* ---------------- customField --------------- */}
+          {next?.customField && (
+            <>
+              <FormItem
+                name="email"
+                rules={[
+                  {
+                    type: 'email',
+                    required: true,
+                  },
+                ]}
+                {...next?.emailItemProps}
+              >
+                {/* //* ----------------  email field --------------- */}
+                <Input
+                  type="email"
+                  placeholder="Email Address"
+                  size="large"
+                  {...next?.emailInputProps}
+                />
+              </FormItem>
+            </>
+          )}
+
+          {/* //* ---------------- isHasPasswordField --------------- */}
+          {next?.isHasPasswordField && (
+            <>
+              <FormItem
+                name="password"
+                rules={[{ required: true, message: 'Please input your Password!' }]}
+              >
+                <Input prefix={<LockOutlined />} type="password" placeholder="Password" />
+              </FormItem>
+              <FormItem
+                name="confirm-password"
+                rules={[{ required: true, message: 'Please input your Password!' }]}
+              >
+                <Input prefix={<LockOutlined />} type="password" placeholder="Confirm Password" />
+              </FormItem>
+            </>
+          )}
+          {/* //* ---------------- customField --------------- */}
+          {next?.customField && next?.customField}
+
+          {/* //* ---------------- isHideSubmitBtn --------------- */}
+          <FormItem>
+            {next?.isHasGoBackBtn && (
+              <Button type="link" {...next?.goBackProps}>
+                Go Back
+              </Button>
+            )}
+            {!next?.isHideSubmitBtn && (
+              <Button type="primary" htmlType="submit" {...next?.submitBtnProps}>
+                {getMessage('auth.userAuth_send', enUS.auth.userAuth_send)}
+              </Button>
+            )}
+          </FormItem>
 
           {/* //* ---------------- customFooter --------------- */}
           {next?.customFooter && next?.customFooter}

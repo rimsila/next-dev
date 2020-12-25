@@ -1,7 +1,8 @@
 import React from 'react';
-import { Area, AreaChart, ResponsiveContainer, Tooltip } from 'recharts';
+// import { Area, AreaChart, ResponsiveContainer, Tooltip } from 'recharts';
 
 import Widget from '../components/Widget/index';
+
 const data = [
   { name: 'Page A', increment: 200 },
   { name: 'Page B', increment: 1000 },
@@ -21,7 +22,7 @@ const IncreamentCard = () => {
         </h2>
         <p className="gx-mb-0 gx-text-grey gx-fs-sm">Increment in Active users</p>
       </div>
-      <ResponsiveContainer width="100%" height={60}>
+      {/* <ResponsiveContainer width="100%" height={60}>
         <AreaChart data={data} margin={{ top: 0, right: 0, left: 0, bottom: 0 }}>
           <Tooltip />
           <defs>
@@ -39,7 +40,7 @@ const IncreamentCard = () => {
             fillOpacity={1}
           />
         </AreaChart>
-      </ResponsiveContainer>
+      </ResponsiveContainer> */}
     </Widget>
   );
 };

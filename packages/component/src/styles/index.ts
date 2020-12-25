@@ -1,1 +1,1 @@
-import './variables.less';
+import './wieldy.less';

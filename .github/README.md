@@ -14,7 +14,7 @@ Transform with babel and rollup.
 
 ```bash
 
-# 在开发环境中启动
+# Start in the development environment
 $ yarn start
 
 # Build
@@ -44,14 +44,14 @@ $ yarn test --coverage
 
 ## Release
 
-1. 修改对应包 package.json 中的版本号
-2. 打 tag，tag 规则为包+版本
+1. Modify the version number in the corresponding package package.json
+2. Tag, the tag rule is package + version
 
 ```bash
-# 以core包为例
+# Take core package as an example
 git tag @wetrial/core@1.0.0-beta1
 ```
 
-3. 按 git commit 规范提交(会自动发布)
+3. Submit according to the git commit specification (will be released automatically)
 
-> git submit 规范请参考 https://www.conventionalcommits.org/en/v1.0.0/
+> Please refer to https://www.conventionalcommits.org/en/v1.0.0/ for git submit specifications

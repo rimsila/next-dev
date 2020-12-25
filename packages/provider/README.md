@@ -1,19 +1,13 @@
-# @wetrial/wetrials
+# @next-dev/wetrials
 
-> @wetrial/wetrials.
+> @next-dev/wetrials.
 
-See umi's website [@wetrial/provider](https://umijs.org/plugins/configProvider) for more information.
+See umi's website [@next-dev/provider](https://umijs.org/plugins/configProvider) for more information.
 
-## Install
+## Install Local
 
-Using npm:
-
-```bash
-$ npm install --save-dev @wetrial/provider
-```
-
-or using yarn:
+using yalc:
 
 ```bash
-$ yarn add @wetrial/provider --dev
+$ yalc add @next-dev/provider
 ```
