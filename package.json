@@ -6,6 +6,7 @@
   ],
   "scripts": {
     "bootstrap": "node ./scripts/bootstrap.js",
+    "build:es": "yarn clean && father-build",
     "build": "yarn clean && father-build && webpack --progress",
     "deploy": "npm run site && gh-pages -d ./dist",
     "lint": "eslint --cache --ext .js,.jsx,.ts,.tsx --format=pretty ./packages && npm run lint:prettier",
@@ -26,7 +27,7 @@
     "ycore": "cd packages/core && yalc publish",
     "yhook": "cd packages/hooks && yalc publish",
     "ypro": "cd packages/provider && yalc publish",
-    "yall": "yarn ycom && yarn ycore && yarn yhook && yarn ypro"
+    "yall": "yarn build:es && yarn ycom && yarn ycore && yarn yhook && yarn ypro"
   },
   "size-limit": [
     {

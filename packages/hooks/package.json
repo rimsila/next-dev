@@ -6,9 +6,6 @@
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
   "files": [
-    "lib",
-    "src",
-    "dist",
     "es"
   ],
   "repository": {
@@ -35,20 +32,17 @@
   "homepage": "https://github.com/rimsila/next-dev/tree/master/packages/hooks#readme",
   "peerDependencies": {
     "@ant-design/icons": "^4.x",
-    "@wetrial/core": "^3.x",
     "ahooks": "^2.x",
     "antd": "^4.x",
     "lodash": "^4.x",
     "path-to-regexp": "^6.x",
     "react": "^16.x",
-    "redux": "^4.x",
     "umi": "^3.x"
   },
   "publishConfig": {
     "access": "public"
   },
   "dependencies": {
-    "@wetrial/core": "^3.4.5",
     "ahooks": "^2.5.0",
     "pubsub-js": "^1.9.0"
   },

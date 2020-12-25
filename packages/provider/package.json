@@ -1,13 +1,12 @@
 {
   "name": "@next-dev/provider",
   "version": "0.0.2-beta.0",
-  "description": "@wetrial/provider",
+  "description": "@next-dev/provider",
   "keywords": [
     "antd",
     "admin",
     "ant-design",
-    "ant-design-pro",
-    "wetrial"
+    "ant-design-pro"
   ],
   "homepage": "https://github.com/rimsila/next-dev/tree/master/packages/configProvider#readme",
   "bugs": "https://github.com/rimsila/next-dev/issues",

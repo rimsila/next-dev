@@ -5177,16 +5177,6 @@
     "@webassemblyjs/wast-parser" "1.9.0"
     "@xtuc/long" "4.2.2"
 
-"@wetrial/core@^3.4.5":
-  version "3.4.6"
-  resolved "https://registry.yarnpkg.com/@wetrial/core/-/core-3.4.6.tgz#1d102c425603d32aeee0f9d00be62deb022e596a"
-  integrity sha512-zbm7YYsvcb0RuSwm9akpCMsliymnl/l3R0XRophN/njwqLMoMWeXtqYpThwif5tu81nlL9n6zuWea+pn3uo/yg==
-  dependencies:
-    axios "^0.20.0"
-    crypto-js "^4.0.0"
-    jsencrypt "^3.0.0-rc.1"
-    store "^2.0.12"
-
 "@xtuc/ieee754@^1.2.0":
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/@xtuc/ieee754/-/ieee754-1.2.0.tgz#eef014a3145ae477a1cbc00cd1e552336dceb790"

@@ -3,12 +3,8 @@
   "version": "0.6.1",
   "description": "@wetrial/component",
   "module": "es/index.js",
-  "main": "lib/index.js",
   "types": "lib/index.d.ts",
   "files": [
-    "lib",
-    "src",
-    "dist",
     "es"
   ],
   "repository": {
@@ -41,7 +37,6 @@
     "lodash": "^4.x",
     "path-to-regexp": "^6.x",
     "react": "^16.x",
-    "redux": "^4.x",
     "umi": "^3.x",
     "csstype": "^3.0.5"
   },

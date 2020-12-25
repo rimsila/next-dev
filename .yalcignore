@@ -1,0 +1,5 @@
+# production
+**/dist
+**/**/lib
+**/**/src
+*.md
