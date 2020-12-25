@@ -9,7 +9,7 @@
     "build:es": "yarn clean && father-build",
     "build": "yarn clean && father-build && webpack --progress",
     "deploy": "npm run site && gh-pages -d ./dist",
-    "lint": "eslint --cache --ext .js,.jsx,.ts,.tsx --format=pretty ./packages && npm run lint:prettier",
+    "lint": "eslint --cache --ext .js,.jsx,.ts,.tsx --format=pretty && ./packages && npm run lint:prettier",
     "lint:prettier": "prettier --check \"**/**.{js,jsx,tsx,ts,md,json}\" --end-of-line auto",
     "prettier": "prettier --write \"**/**.{js,jsx,tsx,ts,md,json}\"",
     "release": "node ./scripts/release.js",

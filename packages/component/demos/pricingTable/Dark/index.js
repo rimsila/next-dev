@@ -1,8 +1,8 @@
-import React from "react";
-import {Col, Row} from "antd";
-import ItemFirst from "../ItemFirst";
-import ItemSecond from "../ItemSecond";
-import ItemThird from "../ItemThird";
+import React from 'react';
+import { Col, Row } from 'antd';
+import ItemFirst from '../ItemFirst';
+import ItemSecond from '../ItemSecond';
+import ItemThird from '../ItemThird';
 
 const Dark = () => {
   return (
@@ -36,7 +36,6 @@ const Dark = () => {
         </Col>
       </Row>
     </div>
-  )
+  );
 };
 export default Dark;
-

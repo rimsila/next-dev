@@ -23,7 +23,5 @@
     "source.fixAll.stylelint": true,
     "source.fixAll.eslint": true
   },
-  "cSpell.words": [
-    "Sila"
-  ]
+  "cSpell.words": ["Sila"]
 }
