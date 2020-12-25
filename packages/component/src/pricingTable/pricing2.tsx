@@ -1,6 +1,6 @@
 import React from 'react';
 import { Button } from 'antd';
-import { useIntl, enUS } from '../../../provider/src';
+import { useIntl, enUS } from '../../../provider/es';
 import { FormProps } from 'antd/lib/form';
 
 //* ----------------  props type --------------- */

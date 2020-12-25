@@ -1,6 +1,6 @@
 import React from 'react';
 import { Button } from 'antd';
-import { useIntl, enUS } from '../../../provider/src';
+import { useIntl, enUS } from '../../../provider/es';
 
 const Callouts = ({ styleName, callout }) => {
   const { getMessage } = useIntl();
