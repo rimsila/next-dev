@@ -2,9 +2,9 @@ import React, { FC, Fragment } from 'react';
 import { Col, ConfigProvider, Divider, Popover, Typography } from 'antd';
 import CodeSandboxOutlined from '@ant-design/icons/CodeSandboxOutlined';
 import { NextRow } from './NextRow';
-import validateMessages from '../../core/src/validation';
+import { validateMessages } from '@wetrial/core';
 
-interface IUseMapItem {
+export interface IUseMapItem {
   data: any[];
   children?: React.ReactNode;
   antSpan?: number;

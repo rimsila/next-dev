@@ -1,15 +1,18 @@
-import { reduce } from 'lodash';
+import reduce from 'lodash/reduce';
 import { parse } from 'querystring';
 import moment, { Moment } from 'moment';
 import { IKeyValue } from './core';
 
+export function sleep(ms: number) {
+  return new Promise((resolve) => setTimeout(resolve, ms));
+}
+
 /* eslint no-useless-escape:0 import/prefer-default-export:0 */
 const reg = /(((^https?:(?:\/\/)?)(?:[-;:&=\+\$,\w]+@)?[A-Za-z0-9.-]+(?::\d+)?|(?:www.|[-;:&=\+\$,\w]+@)[A-Za-z0-9.-]+)((?:\/[\+~%\/.\w-_]*)?\??(?:[-\+=&;%@.\w_]*)#?(?:[\w]*))?)$/;
-
 /**
- * 将url拆分成列表
- * @param url 要转换的url
- * @returns 拆分后的数组
+ * Split the url into a list
+ * @param url The url to be converted
+ * @returns the split array
  * @example /userinfo/2144/id => ['/userinfo','/useinfo/2144,'/userindo/2144/id']
  */
 export function urlToList(url?: string): string[] {
@@ -21,9 +24,9 @@ export function urlToList(url?: string): string[] {
 }
 
 /**
- * 判断对象是否是Promise类型
- * @param {any} obj 要判断的对象
- * @returns {boolean} 如果是 返回true，否则 false
+ * Determine whether the object is a Promise type
+ * @param {any} obj the object to be judged
+ * @returns {boolean} If yes, return true, otherwise false
  */
 export function isPromise(obj: any): boolean {
   return (
@@ -34,20 +37,20 @@ export function isPromise(obj: any): boolean {
 }
 
 /**
- * 判断给定的字符串是否是个url地址
- * @param path 地址
- * @returns {boolean} 如果是 返回 true，否则 false
+ * Determine whether the given string is a URL address
+ * @param path address
+ * @returns {boolean} If yes, return true, otherwise false
  */
 export const isUrl = (path: string): boolean => reg.test(path);
 
 /**
- * 将数组对象转换成object对象
- * @param items 要转换的数组
- * @param key 作为key的属性名 默认为 'label'
- * @param value  作为值的属性名 默认为'value'
- * @example  listToFlat([{label:'label1',value:'001'},{label:'label2',value:'002'}],'value','label')==>{'001':'label1','002':'label2'}])
+ * Convert an array object into an object object
+ * @param items the array to be converted
+ * @param key as the attribute name of the key defaults to'label'
+ * @param value as the value of the attribute name defaults to'value'
+ * @example listToFlat([{label:'label1',value:'001'},{label:'label2',value:'002'}],'value','label')==>{'001' :'label1','002':'label2'}])
  * @returns IKeyValue
- * @summary 建议配合memoize方法使用避免不必要的转换，提高性能
+ * @summary is recommended to use memoize method to avoid unnecessary conversion and improve performance
  */
 export function listToFlat<T>(items: T[], key: string | number = 'value', text: string = 'label') {
   return reduce(
@@ -62,20 +65,19 @@ export function listToFlat<T>(items: T[], key: string | number = 'value', text: 
 }
 
 /**
- * 判断是否是浏览器环境
+ * Determine whether it is a browser environment
  */
 export const isBrowser = () => typeof window !== 'undefined';
 
 /**
- * 获取查询对象
+ * Get query object
  */
 export const getPageQuery = () => parse(window.location.href.split('?')[1]);
-
 /**
  *
  * @param {object}
  * @param {Moment} param.date
- * @param {string} param.format 格式 默认为年月日
+ * @param {string} param.format format defaults to year, month, and day
  */
 export function getDateString({
   date,
@@ -101,32 +103,34 @@ export function getDateString({
 }
 
 /**
- * 补足两位数字(example:02)
- * @param val 值
+ * Make up two digits (example:02)
+ * @param val value
  */
 export function fixedZero(val: number): string {
   return val * 1 < 10 ? `0${val}` : `${val}`;
 }
 
 /**
- * 生成guid
- * @param withSplit [true|false] 是否带分隔符
+ * Generate guid
+ * @param withSplit [true|false] Whether with a separator
  */
 export function newGuid(withSplit?: boolean): string {
   const tmp = withSplit
     ? 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'
     : 'xxxxxxxxxxxx4xxxyxxxxxxxxxxxxxxx';
   return tmp.replace(/[xy]/g, (c) => {
+    // eslint-disable-next-line no-bitwise
     const r = (Math.random() * 16) | 0;
+    // eslint-disable-next-line no-bitwise
     const v = c === 'x' ? r : (r & 0x3) | 0x8;
     return v.toString(16);
   });
 }
 
 /**
- * 打码显示，ex: 18585858585==> 185*****222
- * @param text 加密前的内容
- * @param type 类型 mobile:手机   phone:电话号码    fax:传真号码    mail:邮箱   card:银行卡   identity:身份证   name:姓名
+ * Code display, ex: 18585858585==> 185*****222
+ * @param text content before encryption
+ * @param type type mobile: mobile phone: phone number fax: fax number mail: email card: bank card identity: ID card name: name
  */
 export function formatSecuredInfo(
   text: string,
@@ -182,10 +186,10 @@ export function formatSecuredInfo(
 }
 
 /**
- * 对数据源按key进行相邻行合并，返回生成的跨行对象,建议使用memoizeOne进行缓存调用
- * @param list 要进行合并的数据源列表
+ * Merge adjacent rows of the data source by key, and return the generated inter-row object. It is recommended to use memoizeOne for caching calls
+ * @param list The list of data sources to be merged
  * @param key key
- * @example mergeCells([{name:'xxg',title:'code'},{name:'刘德华',title:'code'},{name:'古天乐',title:'other'}],'title')==>{0:2,1:0,2:1}
+ * @example mergeCells([{name:'xxg',title:'code'},{name:'Andy Lau',title:'code'},{name:'古天乐',title:'other'}],' title')==>{0:2,1:0,2:1}
  */
 export function mergeCells<T>(list: T[], key: string | ((item: T) => string)): IKeyValue {
   const mergeObj = {};

@@ -34,6 +34,7 @@ export const NextButton: FC<NextButtonProps> = ({
       )}
     >
       <Button
+        disabled={Boolean(rest.loading)}
         style={{
           color: customStyle?.textColor,
           backgroundColor: customStyle?.backgroundColor,

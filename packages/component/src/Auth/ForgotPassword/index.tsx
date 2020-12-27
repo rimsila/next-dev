@@ -5,7 +5,6 @@ import { InputProps } from 'antd/lib/input';
 import classnames from 'classnames';
 import React, { memo, ReactNode } from 'react';
 import { enUS, useIntl } from '../../../../provider/es';
-import { NextButton } from '../../NextButton';
 import { NextButtonProps } from '../../NextButton/type';
 
 const FormItem = Form.Item;
