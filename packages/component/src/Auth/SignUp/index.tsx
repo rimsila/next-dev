@@ -1,8 +1,10 @@
 import React from 'react';
-import { Button, Checkbox, Form, Input } from 'antd';
+import { Button, Checkbox, Col, Form, Input } from 'antd';
 import { Link } from 'react-router-dom';
 import Icon, { GoogleOutlined, LockOutlined, UserOutlined } from '@ant-design/icons';
 import { FormProps } from 'antd/lib/form';
+import { LAYOUT_COL_TWO } from '@next-dev/core/es/constants';
+import { ColProps } from 'antd/lib/col';
 
 const FormItem = Form.Item;
 //* ----------------  props type --------------- */
@@ -13,6 +15,7 @@ interface IProp extends FormProps {
     title?: string;
     titleAlign?: any;
     isHasSocial: boolean;
+    colProps?: ColProps;
   };
 }
 
@@ -28,7 +31,7 @@ export const defaultProps = {
 
 const NextSignUp = ({ next, ...rest }: IProp) => {
   return (
-    <div className="gx-login-container">
+    <Col className="box_extend" {...LAYOUT_COL_TWO} {...next?.colProps}>
       <div className="gx-login-content">
         <div className="gx-login-header gx-text-center">
           <h1 className="gx-login-title">Sign Up</h1>
@@ -96,7 +99,7 @@ const NextSignUp = ({ next, ...rest }: IProp) => {
           </div>
         )}
       </div>
-    </div>
+    </Col>
   );
 };
 

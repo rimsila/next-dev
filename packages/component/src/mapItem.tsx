@@ -2,7 +2,7 @@ import React, { FC, Fragment } from 'react';
 import { Col, ConfigProvider, Divider, Popover, Typography } from 'antd';
 import CodeSandboxOutlined from '@ant-design/icons/CodeSandboxOutlined';
 import { NextRow } from './NextRow';
-import { validateMessages } from '@wetrial/core';
+import validateMessages from '../../core/es/validation';
 
 export interface IUseMapItem {
   data: any[];
@@ -60,7 +60,7 @@ export const MapItem: FC<IUseMapItem> = ({
                         }
                       >
                         <CodeSandboxOutlined
-                          style={{ marginLeft: 4, position: 'relative', bottom: 0, fontSize: 18 }}
+                          style={{ marginLeft: 4, position: 'relative', bottom: -4, fontSize: 18 }}
                         />
                       </Popover>
                     </span>

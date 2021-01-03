@@ -4,8 +4,30 @@ import { onFinish } from '../utils/function';
 
 const data = [
   {
-    item: <ForgotPassword {...{ onFinish }} />,
-    copyCode: `<ForgotPassword  {...{ onFinish }}/>`,
+    item: (
+      <ForgotPassword
+        {...{
+          onFinish,
+          next: {
+            submitBtnProps: {
+              btnJustify: 'flex-start',
+            },
+          },
+        }}
+      />
+    ),
+    copyCode: `
+    <ForgotPassword
+    {...{
+      onFinish,
+      next: {
+        submitBtnProps: {
+          btnJustify: 'flex-start',
+        },
+      },
+    }}
+  />
+    `,
   },
   {
     item: (
@@ -13,13 +35,23 @@ const data = [
         {...{
           onFinish,
           next: {
-            logoAlign: 'gx-justify-content-center',
-            submitBtnProps: { btnJustify: 'center' },
+            logoAlign: 'als-center',
+            title: 'next dev',
           },
         }}
       />
     ),
-    copyCode: `<ForgotPassword  {...{ onFinish }}/>`,
+    copyCode: `
+    <ForgotPassword
+    {...{
+      onFinish,
+      next: {
+        logoAlign: 'als-center',
+        title: 'next dev',
+      },
+    }}
+  />
+    `,
   },
   {
     item: (
@@ -33,7 +65,18 @@ const data = [
         }}
       />
     ),
-    copyCode: `<ForgotPassword  {...{ onFinish }}/>`,
+    copyCode: `
+    
+    <ForgotPassword
+    {...{
+      onFinish,
+      next: {
+        logoAlign: 'gx-justify-content-center',
+        submitBtnProps: { btnJustify: 'flex-end' },
+      },
+    }}
+  />
+    `,
   },
 ];
 

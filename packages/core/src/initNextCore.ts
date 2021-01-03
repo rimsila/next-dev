@@ -39,7 +39,7 @@ interface IWetrialCoreProps {
  * Initialize the configuration of the wetrial core library
  * @param props
  */
-export function initWetrialCore(props: IWetrialCoreProps) {
+export function initNextDevCore(props: IWetrialCoreProps) {
   props.RSAKey && configRSAKey(props.RSAKey);
   props.Base64MAP && configBase64Map(props.Base64MAP);
   props.routeProfix && configRoutePrefix(props.routeProfix);

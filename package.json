@@ -6,7 +6,7 @@
   ],
   "scripts": {
     "bootstrap": "node ./scripts/bootstrap.js",
-    "build:es": "yarn clean && father-build",
+    "build:es": "father-build",
     "build": "yarn clean && father-build && webpack --progress",
     "deploy": "npm run site && gh-pages -d ./dist",
     "lint": "eslint --cache --ext .js,.jsx,.ts,.tsx --format=pretty && ./packages && npm run lint:prettier",
@@ -125,7 +125,9 @@
     "webpack-cli": "^3.3.10",
     "write-pkg": "^4.0.0",
     "yorkie": "^2.0.0",
-    "firebase ": "^8.1.1"
+    "firebase ": "^8.1.1",
+    "ahooks": "^2.9.3"
+    
   },
   "checkFiles": [
     "src/**/*.js*",

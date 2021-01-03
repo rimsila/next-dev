@@ -4,7 +4,7 @@ import { message } from 'antd';
 import { get, del } from '../src/nextRequest';
 import { sleep } from '../src/utils';
 import { CoreRoot } from './util/root';
-import { useLockFn } from 'ahooks';
+import { useLockFn, useRequest } from 'ahooks';
 
 export default () => {
   const [value, setValue] = useState<{ name; id }>(null);
@@ -40,6 +40,40 @@ export default () => {
     setLoadingDel(false);
   });
 
+  //* ------------ Ahook ----------------
+  const getUserApi = async () => {
+    return await get('/users');
+  };
+
+  const { loading: loadUser, data: userData, run: getUserData, refresh: reFetchUser } = useRequest(
+    getUserApi,
+    {
+      manual: true,
+    },
+  );
+
+  const delUserApi = async (id: any) => {
+    return await del(`/users/${id}`);
+  };
+
+  const { loading: loadDelUser, run: runUserData } = useRequest(delUserApi, {
+    manual: true,
+    onSuccess: (res) => {
+      if (res?.code === 204) {
+        message.success('deleted user successfully');
+        reFetchUser();
+      }
+    },
+  });
+
+  const onDelUserData = () => {
+    if (userData?.data[0].id) {
+      runUserData(userData?.data[0].id);
+    } else {
+      message.info('please fetch user first!');
+    }
+  };
+
   const data = [
     {
       item: (
@@ -63,7 +97,49 @@ export default () => {
       ),
       copyCode: `await del(/users/12);`,
     },
+    {
+      item: (
+        <>
+          <h4>fetch name: {userData?.data[0].name || '_ _ _ _ _ _ _ _ _'} </h4>
+          <NextButton type="primary" next="cyan_base" onClick={getUserData} loading={loadUser}>
+            Fetch using Ahook
+          </NextButton>
+        </>
+      ),
+      copyCode: `
+      const getUserApi = async () => {
+        return await get('/users');
+      };
+    
+      const { loading: loadUser, data: userData, run: getUserData, refresh: reFetchUser } = useRequest(
+        getUserApi,
+        {
+          manual: true,
+        },
+      );
+      
+      `,
+    },
+    {
+      item: (
+        <>
+          <h4>fetch name: {userData?.data[0].name || '_ _ _ _ _ _ _ _ _'} </h4>
+          <NextButton type="primary" next="success" onClick={onDelUserData} loading={loadDelUser}>
+            Delete and reFetch using Ahook
+          </NextButton>
+        </>
+      ),
+      copyCode: `  
+      const delUserApi = async (id: any) => {
+        return await del("/users/"+ id);
+      };
+      const { loading: loadDelUser, run: runUserData } = useRequest(delUserApi, {
+        manual: true
+      }`,
+    },
   ];
+
+  console.log('userData', userData);
 
   return (
     <>

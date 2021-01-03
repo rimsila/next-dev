@@ -2,7 +2,7 @@ import React, { FC } from 'react';
 import { MapItem } from '@wetrial/component';
 
 import { configApp } from '../../../../config';
-import { initWetrialCore } from '../../src/initNextCore';
+import { initNextDevCore } from '../../src/initNextCore';
 import { getToken, setToken } from '../../src/authority';
 import validateMessages from '../../src/validation';
 import {
@@ -31,8 +31,8 @@ export const CoreRoot: FC<IUseMapItem> = (props) => {
     setToken({ token: configApp.TOKEN });
   }
 
-  //* initWetrialCore
-  initWetrialCore({
+  //* initNextDevCore
+  initNextDevCore({
     configInstance: {
       baseURL: configApp.BASE_PATH,
     },

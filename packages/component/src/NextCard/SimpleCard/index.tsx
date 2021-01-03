@@ -3,13 +3,7 @@ import { SimpleCardProps } from './type';
 import classnames from 'classnames';
 import './styles.less';
 
-export const NextBlogCard: FC<SimpleCardProps> = ({
-  data = {},
-  nextTheme,
-  width,
-  alt,
-  ...rest
-}) => {
+export const NextBlogCard: FC<SimpleCardProps> = ({ data = {}, nextTheme, width, alt }) => {
   const { title } = data;
   return (
     <>

@@ -43,7 +43,7 @@ export const LAYOUT_FORM_TWO = {
 };
 
 /**
- * Col two-column layout responsive (used in From)
+ * Col two-column layout responsive (used in Form)
  */
 export const LAYOUT_COL_TWO = {
   xs: 24, // <576px

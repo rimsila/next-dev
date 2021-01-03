@@ -56,8 +56,9 @@ export default {
   },
   alias: {
     // Add other modules that are not exported by index alias
-    '@wetrial/core/es': join(__dirname, 'packages', 'core/src'),
-    '@wetrial/component/es': join(__dirname, 'packages', 'component/src'),
+    '@next-dev/provider/*': join(__dirname, 'packages', 'provider/es/*'),
+    '@next-dev/component/*': join(__dirname, 'packages', 'component/es/*'),
+    '@next-dev/core/*': join(__dirname, 'packages', 'core/es/*'),
     antd: resolve(__dirname, './node_modules/antd'),
     ...alias,
   },

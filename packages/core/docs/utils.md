@@ -16,20 +16,38 @@ Provide common auxiliary methods
 
 ## How to use
 
+### Import
+
+- For next-dev-boilerplate can `@next-core/utils`;
+
 ```tsx |pure
-import { isPromise } from '@wetrial/core/es/utils';
+import { isPromise ,.....} from '@next-dev/core/es/utils';
+```
+
+### `isPromise`
+
+```tsx |pure
+import { isPromise ,sleep} from '@next-dev/core/es/utils';
 
 const isP = isPromise(()=>{
     return new Promise(resolve=>{
         resolve(1)
     });
 }));
+
+```
+
+### `sleep`
+
+```tsx |pure
+await sleep(2000);
 ```
 
 ## Methods
 
 | Name | Description | Type |
 | --- | --- | --- |
+| sleep | wait time from promise | `(ms:number)=> void` |
 | urlToList | Convert routing to list form | `(url?:string)=>string[]` |
 | isPromise | Determine whether it is a Promise object | `(obj)=>boolean` |
 | isUrl | Determine whether it is a legal url | `(path:string)=>boolean` |

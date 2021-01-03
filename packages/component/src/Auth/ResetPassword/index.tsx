@@ -1,7 +1,9 @@
 import React from 'react';
-import { Button, Form, Input } from 'antd';
+import { Button, Col, Form, Input } from 'antd';
 import { useIntl, enUS } from '../../../../provider/es';
 import { FormProps } from 'antd/lib/form';
+import { ColProps } from 'antd/lib/col';
+import { LAYOUT_COL_TWO } from '@next-dev/core/es/constants';
 
 const FormItem = Form.Item;
 
@@ -9,6 +11,7 @@ interface IProp extends FormProps {
   next?: {
     logo?: string;
     logoWidth?: string;
+    colProps?: ColProps;
   };
 }
 
@@ -26,7 +29,7 @@ const ResetPassword = ({ next, ...rest }: IProp) => {
   } = defaultProps;
 
   return (
-    <div className="gx-login-container">
+    <Col className="box_extend"  {...LAYOUT_COL_TWO} {...next?.colProps}>
       <div className="gx-login-content">
         <div className="gx-login-header">
           <img
@@ -73,7 +76,7 @@ const ResetPassword = ({ next, ...rest }: IProp) => {
           </FormItem>
         </Form>
       </div>
-    </div>
+    </Col>
   );
 };
 

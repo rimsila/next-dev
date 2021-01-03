@@ -1,17 +1,17 @@
 import { FooterProps } from 'rc-footer/es';
 
 export const btnType = {
-  light: 'light',
-  success: 'success',
-  warning: 'warning',
-  black: 'black',
-  error: 'error',
-  pink_base: 'pink_base',
-  volcano_base: 'volcano_base',
-  cyan_base: 'cyan_base',
-  cyan_4: 'cyan_4',
-  cyan_8: 'cyan_8',
-  purple_base: 'purple_base',
+  btn_light: 'btn_light',
+  btn_success: 'btn_success',
+  btn_warning: 'btn_warning',
+  btn_black: 'btn_black',
+  btn_error: 'btn_error',
+  btn_pink_base: 'btn_pink_base',
+  btn_volcano_base: 'btn_volcano_base',
+  btn_cyan_base: 'btn_cyan_base',
+  btn_cyan_4: 'btn_cyan_4',
+  btn_cyan_8: 'btn_cyan_8',
+  btn_purple_base: 'btn_purple_base',
 };
 
 export const btnTypeArr = Object.keys(btnType);
@@ -22,4 +22,5 @@ export type NextTheme = keyof BtnType;
 export interface NextFooterProps extends FooterProps {
   children?: React.ReactNode;
   nextTheme?: NextTheme;
+  className?: string;
 }

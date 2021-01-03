@@ -4,10 +4,10 @@ import { DownloadOutlined, SearchOutlined } from '@ant-design/icons';
 import { NextBtnType, btnTypeArr, btnType } from '../../src/NextButton/type';
 import { Divider, Select } from 'antd';
 import classnames from 'classnames';
-import css from '../../src/style/core/custom-background.less';
+import css from '../utils/custom-background.less';
 
 export default () => {
-  const [type, setType] = useState<NextBtnType>('success');
+  const [type, setType] = useState<NextBtnType>('btn_cyan_8');
 
   const data = [
     {
@@ -113,7 +113,7 @@ export default () => {
     {
       id: 10,
       item: (
-        <NextButton type="link" next={type}>
+        <NextButton type="link" nextTheme="btn_error">
           link warning
         </NextButton>
       ),
@@ -124,7 +124,7 @@ export default () => {
     {
       id: 11,
       item: (
-        <NextButton type="primary" next={type}>
+        <NextButton type="primary" nextTheme={type}>
           btn warning
         </NextButton>
       ),
@@ -135,7 +135,7 @@ export default () => {
     {
       id: 12,
       item: (
-        <NextButton type="dashed" next={type}>
+        <NextButton type="dashed" nextTheme={type}>
           dashed warning
         </NextButton>
       ),
@@ -146,7 +146,7 @@ export default () => {
     {
       id: 13,
       item: (
-        <NextButton type="default" next={type}>
+        <NextButton type="default" nextTheme={type}>
           default warning
         </NextButton>
       ),
@@ -157,7 +157,7 @@ export default () => {
     {
       id: 14,
       item: (
-        <NextButton type="text" next={type}>
+        <NextButton type="text" nextTheme={type}>
           text warning
         </NextButton>
       ),
@@ -168,7 +168,7 @@ export default () => {
     {
       id: 15,
       item: (
-        <NextButton next={type} shape="round">
+        <NextButton nextTheme={type} shape="round">
           round warning
         </NextButton>
       ),
@@ -179,7 +179,7 @@ export default () => {
     {
       id: 16,
       item: (
-        <NextButton type="primary" next={type} shape="round">
+        <NextButton type="primary" nextTheme={type} shape="round">
           primary round warning
         </NextButton>
       ),
@@ -190,7 +190,7 @@ export default () => {
     {
       id: 17,
       item: (
-        <NextButton next={type} loading>
+        <NextButton nextTheme={type} loading>
           loading warning
         </NextButton>
       ),
@@ -212,13 +212,13 @@ export default () => {
             style={{ width: 140 }}
             optionFilterProp="children"
             onChange={(v: NextBtnType) => setType(v)}
-            defaultValue={btnType.success}
+            defaultValue={btnType.btn_cyan_8}
           >
             {btnTypeArr?.map((i) => (
               <Select.Option
                 value={i}
                 key={i}
-                className={classnames(css[`bg_${i}`])}
+                className={classnames(css[i])}
                 style={{ color: 'black' }}
               >
                 {i}

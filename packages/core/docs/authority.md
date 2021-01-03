@@ -17,7 +17,7 @@ Provide related methods for obtaining tokens, permissions, etc.
 ## How to use
 
 ```tsx |pure
-import { setToken, getToken } from '@wetrial/core/es/authority';
+import { setToken, getToken } from '@next-dev/core/es/authority';
 
 const token = getToken();
 ```

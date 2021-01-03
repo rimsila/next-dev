@@ -12,7 +12,7 @@ const data = [
       <NextSignIn
         {...{
           onFinish,
-          next: { titleAlign: 'gx-text-center', submitBtnProps: { btnJustify: 'center' } },
+          next: { titleAlign: 'gx-text-center', submitBtnProps: { btnJustify: 'start' } },
         }}
       />
     ),
@@ -23,7 +23,7 @@ const data = [
       <NextSignIn
         {...{
           onFinish,
-          next: { titleAlign: 'gx-text-center', submitBtnProps: { btnJustify: 'center' } },
+          next: { titleAlign: 'gx-text-center' },
         }}
       />
     ),

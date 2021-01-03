@@ -2,17 +2,17 @@ import { ButtonProps } from 'antd/es/button';
 import * as CSS from 'csstype';
 
 export const btnType = {
-  success: 'success',
-  warning: 'warning',
-  black: 'black',
-  error: 'error',
-  pink_base: 'pink_base',
-  volcano_base: 'volcano_base',
-  cyan_base: 'cyan_base',
-  cyan_4: 'cyan_4',
-  cyan_8: 'cyan_8',
-  purple_base: 'purple_base',
-  normal_color: 'normal_color',
+  btn_warning: 'btn_warning',
+  btn_success: 'btn_success',
+  btn_black: 'btn_black',
+  btn_error: 'btn_error',
+  btn_pink_base: 'btn_pink_base',
+  btn_volcano_base: 'btn_volcano_base',
+  btn_cyan_base: 'btn_cyan_base',
+  btn_cyan_4: 'btn_cyan_4',
+  btn_cyan_8: 'btn_cyan_8',
+  btn_purple_base: 'btn_purple_base',
+  btn_normal_color: 'btn_normal_color',
 };
 
 //* get object type from arr
@@ -28,15 +28,11 @@ export const btnTypeArr = Object.keys(btnType);
 export type BtnType = typeof btnType;
 export type NextBtnType = keyof BtnType;
 export interface NextButtonProps extends ButtonProps {
-  next?: NextBtnType;
+  nextTheme?: NextBtnType;
   children?: React.ReactNode;
   btnDisplay?: 'flex' | 'block';
   btnJustify?: CSS.Property.AlignContent;
-  btnCls?: any;
-  mr?: number;
-  ml?: number;
-  mb?: number;
-  mt?: number;
+  btnCls?: string;
   customStyle?: {
     textColor?: CSS.Property.Color;
     backgroundColor?: CSS.Property.BackgroundColor;

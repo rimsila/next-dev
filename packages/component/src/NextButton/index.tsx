@@ -1,20 +1,15 @@
 import React, { FC, memo } from 'react';
 import { Button } from 'antd';
 import { NextButtonProps } from './type';
-import css from './styles.less';
 import classnames from 'classnames';
 
 export const NextButton: FC<NextButtonProps> = ({
-  next,
+  nextTheme,
   btnDisplay = 'flex',
   btnJustify = 'center',
   customStyle,
   btnCls,
   style,
-  mr,
-  ml,
-  mb = 2,
-  mt,
   children,
   disabled,
   ...rest
@@ -25,13 +20,7 @@ export const NextButton: FC<NextButtonProps> = ({
         display: btnDisplay,
         justifyContent: btnJustify,
       }}
-      className={classnames(
-        !disabled && next && css[`${next}`],
-        mr && css[`mr-${mr}`],
-        ml && css[`ml-${ml}`],
-        mb && css[`mb-${mb}`],
-        mt && css[`mt-${mt}`],
-      )}
+      className={classnames(!disabled && nextTheme && nextTheme, btnCls)}
     >
       <Button
         disabled={Boolean(rest.loading)}

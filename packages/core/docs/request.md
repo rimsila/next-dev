@@ -10,30 +10,64 @@ group:
   path: /
 ---
 
-## Http Request
+# request
 
-- NOTE: we can import on demand by `import httpRequest from '@next-dev/core/es/httpRequest'` or use `babel import` or `alias` to get small bundle size
+- nextRequest is customize from axios and provide global handler, crypto, refresh token etc.
+
+Provide ajax request encapsulation, including request interception, response interception, exception handling, etc. (not recommended for direct use)
+
+> Usually one layer is extracted from the project, such as: src/utils/request.ts
+
+```ts | pure
+// initNextDevCore in root app.tsx
+initNextDevCore({
+  configInstance: {
+    baseURL: configApp.BASE_PATH,
+  },
+  setGlobalHeader: () => {
+    return {
+      // Authorization: '', default Bearer xxx
+    };
+  },
+});
+
+// utils/request.ts
+import {
+  addRequestInterceptor,
+  addResponseInterceptor,
+  commonRequestInterceptor,
+  commonResponseInterceptor,
+} from '@next-core/request';
+
+// Add a request interceptor (automatically bring the Authority request header)
+addRequestInterceptor(...commonRequestInterceptor);
+// Add response interceptor (handling tip, global error, etc.)
+addResponseInterceptor(...commonResponseInterceptor);
+
+export { request, get, post, put, patch } from '@next-dev/core/es';
+```
 
 ```tsx |pure
-import { httpRequest, catchError } from '@next-dev/core'; //catchError for global err exception
+//see alias import config in next-dev-boilerplate
+import { get, del, post } from '@util/nextRequest';
 ```
 
 - Get
 
 ```tsx |pure
-const get = async () => await httpRequest('get', '/users').catch(catchError);
+const get = async () => await get('/users');
 ```
 
 - Delete
 
 ```tsx |pure
-httpRequest('delete', `/users/${id}`).catch(catchError);
+await del(`/users/${value?.id}`);
 ```
 
 - Put/Post with Param
 
 ```tsx |pure
-httpRequest('put', `/users/${id}`, { name: 'xx' }).catch(catchError),
+post(`/users`, {id:1, name: 'xx' }),
 
 ```
 

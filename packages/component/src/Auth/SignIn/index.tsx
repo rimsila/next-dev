@@ -1,6 +1,6 @@
 import React, { memo, ReactNode } from 'react';
-import { Button, Checkbox, Form, Input } from 'antd';
-import { useIntl, enUS } from '../../../../provider/es';
+import { Checkbox, Col, Form, Input } from 'antd';
+
 import { FormProps, FormItemProps } from 'antd/lib/form';
 import { NextButtonProps } from '../../NextButton/type';
 import { InputProps } from 'antd/lib/input';
@@ -8,6 +8,8 @@ import { LockOutlined, UserOutlined } from '@ant-design/icons';
 import { Link } from 'react-router-dom';
 import { NextButton } from '../../NextButton';
 import classNames from 'classnames';
+import { ColProps } from 'antd/lib/col';
+import { LAYOUT_COL_TWO } from '@next-dev/core/es/constants';
 
 const FormItem = Form.Item;
 
@@ -26,6 +28,7 @@ interface IProp extends FormProps {
     emailInputProps?: InputProps;
     titleAlign?: any;
     forgotPassPath?: string;
+    colProps?: ColProps;
   };
 }
 
@@ -42,10 +45,10 @@ export const defaultProps = {
 
 const NextSignIn = ({ next, ...rest }: IProp) => {
   const {
-    next: { logo, alt, logoWith, title, forgotPassPath },
+    next: { title, forgotPassPath },
   } = defaultProps;
   return (
-    <div className="gx-login-container">
+    <Col className="box_extend" {...LAYOUT_COL_TWO} {...next?.colProps}>
       <div className="gx-login-content">
         <div className={classNames('gx-login-header', next?.titleAlign)}>
           <h1 className="gx-login-title">{next?.title || title}</h1>
@@ -89,12 +92,7 @@ const NextSignIn = ({ next, ...rest }: IProp) => {
           {/* //* ---------------- isHideSubmitBtn --------------- */}
           {!next?.isHideSubmitBtn && (
             <FormItem>
-              <NextButton
-                type="primary"
-                htmlType="submit"
-                btnJustify="start"
-                {...next?.submitBtnProps}
-              >
+              <NextButton type="primary" htmlType="submit" {...next?.submitBtnProps}>
                 Log in
               </NextButton>
             </FormItem>
@@ -104,7 +102,7 @@ const NextSignIn = ({ next, ...rest }: IProp) => {
           {next?.customFooter && next?.customFooter}
         </Form>
       </div>
-    </div>
+    </Col>
   );
 };
 

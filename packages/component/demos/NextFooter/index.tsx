@@ -1,16 +1,16 @@
-import { NextFooter } from '@wetrial/component';
+import { NextFooter, MapItem } from '@wetrial/component';
 import { Select } from 'antd';
 import React, { useState } from 'react';
 import { NextTheme, btnTypeArr, btnType } from '../../src/NextFooter/type';
 import classnames from 'classnames';
-import css from '../../src/style/core/custom-background.less';
+import css from '../utils/custom-background.less';
 
 export default () => {
-  const [nextTheme, setNextTheme] = useState<NextTheme>('cyan_8');
-
-  return (
-    <>
-      <div>
+  const [nextTheme, setNextTheme] = useState<NextTheme>('btn_cyan_8');
+  const data = [
+    {
+      id: 1,
+      item: (
         <NextFooter
           nextTheme={nextTheme}
           columns={[
@@ -114,7 +114,7 @@ export default () => {
                       style={{ width: 140 }}
                       optionFilterProp="children"
                       onChange={(v: NextTheme) => setNextTheme(v)}
-                      defaultValue={btnType.cyan_8}
+                      defaultValue={btnType.btn_cyan_8}
                     >
                       {btnTypeArr?.map((i) => (
                         <Select.Option value={i} key={i} className={classnames(css[i])}>
@@ -129,7 +129,14 @@ export default () => {
           ]}
           bottom="Made with ❤️ by Rim Sila"
         />
-      </div>
+      ),
+      copyCode: `<NextButton type="primary">Primary Button</NextButton>`,
+    },
+  ];
+
+  return (
+    <>
+      <MapItem {...{ data, antSpan: 24 }} />
     </>
   );
 };
