@@ -1,12 +1,12 @@
 import { LockOutlined } from '@ant-design/icons';
-import { Button, Col, Form, Input, Row } from 'antd';
+import { Button, Col, Form, Input } from 'antd';
 import { FormItemProps, FormProps } from 'antd/lib/form';
 import { InputProps } from 'antd/lib/input';
 import React, { memo, ReactNode } from 'react';
 import { enUS, useIntl } from '@next-dev/provider/es';
 import { NextButtonProps } from '../../NextButton/type';
 import { ColProps } from 'antd/lib/col';
-import { LAYOUT_COL_TWO } from '@next-dev/core/es/constants';
+import { LAYOUT_COL_AUTH } from '@next-dev/core/es/constants';
 import classnames from 'classnames';
 import { NextButton } from '../../NextButton';
 
@@ -53,7 +53,7 @@ const ForgotPassword = ({ next, ...rest }: IProp) => {
   const { getMessage } = useIntl();
 
   return (
-    <Col className="box_extend" {...LAYOUT_COL_TWO} {...next?.colProps}>
+    <Col className="box_extend" {...LAYOUT_COL_AUTH} {...next?.colProps}>
       <img
         src={next?.logo || logo}
         alt={next?.alt || alt}

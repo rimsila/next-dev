@@ -1,10 +1,12 @@
 import React from 'react';
-import { Button, Checkbox, Col, Form, Input } from 'antd';
+import { Checkbox, Col, Form, Input } from 'antd';
 import { Link } from 'react-router-dom';
-import Icon, { GoogleOutlined, LockOutlined, UserOutlined } from '@ant-design/icons';
+import Icon, { GoogleOutlined, LockOutlined, MailOutlined, UserOutlined } from '@ant-design/icons';
 import { FormProps } from 'antd/lib/form';
-import { LAYOUT_COL_TWO } from '@next-dev/core/es/constants';
+import { LAYOUT_COL_AUTH } from '@next-dev/core/es/constants';
 import { ColProps } from 'antd/lib/col';
+import { NextButton } from '../../NextButton';
+import { NextButtonProps } from '../../NextButton/type';
 
 const FormItem = Form.Item;
 //* ----------------  props type --------------- */
@@ -16,6 +18,7 @@ interface IProp extends FormProps {
     titleAlign?: any;
     isHasSocial: boolean;
     colProps?: ColProps;
+    signUpBtnProps?: NextButtonProps;
   };
 }
 
@@ -30,55 +33,68 @@ export const defaultProps = {
 };
 
 const NextSignUp = ({ next, ...rest }: IProp) => {
+  const [form] = Form.useForm();
   return (
-    <Col className="box_extend" {...LAYOUT_COL_TWO} {...next?.colProps}>
+    <Col className="box_extend" {...LAYOUT_COL_AUTH} {...next?.colProps}>
       <div className="gx-login-content">
         <div className="gx-login-header gx-text-center">
           <h1 className="gx-login-title">Sign Up</h1>
         </div>
-        <Form className="gx-login-form gx-form-row0" {...rest}>
-          <FormItem
-            name="user"
-            rules={[{ required: true, message: 'Please input your username!' }]}
-          >
+        <Form scrollToFirstError name="register" form={form} {...rest}>
+          <FormItem name="user" rules={[{ required: true }]}>
             <Input prefix={<UserOutlined />} placeholder="Username" />
           </FormItem>
-          <FormItem
-            name="email"
-            rules={[{ required: true, message: 'Please input your username!' }]}
-          >
-            <Input prefix={<UserOutlined />} placeholder="Email address" />
+
+          <FormItem name="email" rules={[{ required: true }]}>
+            <Input prefix={<MailOutlined />} placeholder="Email address" />
           </FormItem>
-          <FormItem
-            name="password"
-            rules={[{ required: true, message: 'Please input your Password!' }]}
-          >
+
+          <FormItem name="password" rules={[{ required: true }]}>
             <Input prefix={<LockOutlined />} type="password" placeholder="Password" />
           </FormItem>
+
           <FormItem
+            dependencies={['password']}
+            hasFeedback
             name="confirm-password"
-            rules={[{ required: true, message: 'Please input your Password!' }]}
+            rules={[
+              {
+                required: true,
+              },
+              ({ getFieldValue }) => ({
+                validator(_, value) {
+                  if (!value || getFieldValue('password') === value) {
+                    return Promise.resolve();
+                  }
+                  // eslint-disable-next-line prefer-promise-reject-errors
+                  return Promise.reject('The two passwords that you entered do not match!');
+                },
+              }),
+            ]}
           >
             <Input prefix={<LockOutlined />} type="password" placeholder="Confirm Password" />
           </FormItem>
+
           <FormItem name="remember" initialValue valuePropName="checked">
             <Checkbox>Remember me</Checkbox>
 
-            <Link className="gx-login-form-forgot" to="component/page/next-auth">
+            <Link className="gx-login-form-forgot" to="/forgot-password">
               Forgot password
             </Link>
           </FormItem>
+
           <FormItem>
             <Link className="gx-login-form-forgot" to="/login">
               Login Here
             </Link>
           </FormItem>
-          <FormItem className="gx-text-center">
-            <Button type="primary" htmlType="submit">
+          <FormItem>
+            <NextButton type="primary" htmlType="submit" {...next?.signUpBtnProps}>
               Sign Up
-            </Button>
+            </NextButton>
           </FormItem>
         </Form>
+
         {next?.isHasSocial && (
           <div className="gx-flex-row">
             <span className="gx-mb-2 gx-mr-3">or Sign up using: </span>
