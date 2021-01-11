@@ -1,17 +1,22 @@
 import axios, { AxiosRequestConfig, Method, AxiosResponse } from 'axios';
-import omit from 'lodash/omit';
-// import { message } from 'antd';
 import { getToken, setToken } from './authority';
-// import { UnAuthorizedException, UserFriendlyException, ErrorShowType } from './exception';
 import { newGuid } from './utils';
 import { encrypt, decrypt, encryptKey } from './crypto';
 import { CryptoType, IKeyValue } from './core';
+import { message } from 'antd';
 
-export interface IRequestOption extends AxiosRequestConfig {
+export type IRequestOption = {
   /**
    * Whether the operation is successful
    */
   successTip?: boolean;
+  errorTip?: boolean;
+  fullTip?: boolean;
+  hasParam?: boolean;
+  hasParamData?: boolean;
+  hasPassByParam?: boolean;
+  debug?: boolean;
+  hasDfHandleErr?: boolean;
   /**
    * Request method
    */
@@ -20,7 +25,34 @@ export interface IRequestOption extends AxiosRequestConfig {
    * Encrypted transmission method
    */
   crypto?: CryptoType;
-}
+} & AxiosRequestConfig;
+
+/**
+ * function alert/redirect/log message base on err/succ
+ * @param configMsg
+ */
+export const handlerFunc = (configMsg: { msg?: string; isErr?: boolean } & IRequestOption) => {
+  const { errorTip, fullTip, msg, isErr, debug, method, hasDfHandleErr } = configMsg || {};
+  const showTips = errorTip ? message.error : message.success;
+  const showFullTip = fullTip && isErr ? message.error : message.success;
+
+  const showMsg =
+    (typeof msg === 'string' && msg) ||
+    (isErr ? 'something went wrong. please try gain!' : 'successfully!');
+
+  if (hasDfHandleErr === false) {
+    return null;
+  }
+
+  if (debug) {
+    console.log(`debug ${isErr ? 'err' : 'succ'}`, configMsg);
+  }
+
+  if (fullTip && method !== 'get') {
+    return showFullTip(showMsg);
+  }
+  return showTips(showMsg);
+};
 
 // eslint-disable-next-line
 let instance = axios.create({
@@ -38,10 +70,6 @@ let instance = axios.create({
 export const configInstance = (config: AxiosRequestConfig) => {
   instance = axios.create(config);
 };
-
-/**
- * Header set globally
- */
 
 /**
  * Header set globally
@@ -79,6 +107,7 @@ const commonRequestInterceptor = [
         Authorization: `Bearer ${tokenStore.token}`,
       };
     }
+
     if (config.crypto) {
       config['cryptoKey'] = newGuid();
       if (config.crypto === CryptoType.In || config.crypto === CryptoType.Both) {
@@ -89,6 +118,7 @@ const commonRequestInterceptor = [
         Triple_DES_Key: encryptKey(config['cryptoKey']),
       };
     }
+
     // Globally set request header
     if (globalHeaders) {
       const otherHeaders = globalHeaders();
@@ -109,14 +139,14 @@ const commonRequestInterceptor = [
  */
 const commonResponseInterceptor = [
   (response: AxiosResponse): any => {
-    const { data, config } = response;
+    const { data, config } = response || {};
     const requestConfig = config as IRequestOption;
     if (requestConfig.responseType && requestConfig.responseType.toLowerCase() === 'arraybuffer') {
       return Promise.resolve(data);
     }
-    // if (requestConfig.successTip) {
-    //   message.success('Operation successful', 2);
-    // }
+
+    //* handle succ message
+    handlerFunc({ ...config, data, isErr: false });
 
     if (requestConfig.crypto === CryptoType.Out || requestConfig.crypto === CryptoType.Both) {
       if (typeof data === 'string') {
@@ -127,6 +157,8 @@ const commonResponseInterceptor = [
     return Promise.resolve(data);
   },
   ({ response }: { response: AxiosResponse }) => {
+    //* handle succ message
+    handlerFunc({ ...response, isErr: true });
     return Promise.reject(response);
   },
 ];
@@ -146,9 +178,6 @@ const commonResponseWithRefreshTokenInterceptor = [
     if (requestConfig.responseType && requestConfig.responseType.toLowerCase() === 'arraybuffer') {
       return Promise.resolve(data);
     }
-    // if (requestConfig.successTip) {
-    //   message.success('successful', 2);
-    // }
 
     if (requestConfig.crypto === CryptoType.Out || requestConfig.crypto === CryptoType.Both) {
       if (typeof data === 'string') {
@@ -197,73 +226,10 @@ const commonResponseWithRefreshTokenInterceptor = [
     });
   },
 ];
+
 export async function request<TResult = any>(opt: IRequestOption) {
   const result = await instance.request<TResult>(opt);
   return (result as unknown) as TResult;
-}
-
-export async function get<TResult = any>(url: string, opt?: IRequestOption) {
-  return await request<TResult>({
-    url,
-    ...omit(opt, 'data'),
-    method: 'get',
-    params: { timespan: new Date().getTime(), ...opt?.data },
-    successTip: false,
-  });
-}
-
-export async function post<TResult = any>(url: string, opt?: IRequestOption) {
-  return await request<TResult>({
-    url,
-    successTip: true,
-    ...opt,
-    method: 'post',
-  });
-}
-
-export async function put<TResult = any>(url: string, opt?: IRequestOption) {
-  return await request<TResult>({
-    url,
-    successTip: true,
-    ...opt,
-    method: 'put',
-  });
-}
-
-export async function patch<TResult = any>(url: string, opt?: IRequestOption) {
-  return await request<TResult>({
-    url,
-    successTip: true,
-    ...opt,
-    method: 'patch',
-  });
-}
-
-export async function del<TResult = any>(url: string, opt?: IRequestOption) {
-  return await request<TResult>({
-    url,
-    successTip: true,
-    ...opt,
-    method: 'delete',
-  });
-}
-
-export async function head<TResult = any>(url: string, opt?: IRequestOption) {
-  return await request<TResult>({
-    url,
-    successTip: true,
-    ...opt,
-    method: 'HEAD',
-  });
-}
-
-export async function options<TResult = any>(url: string, opt?: IRequestOption) {
-  return await request<TResult>({
-    url,
-    successTip: true,
-    ...opt,
-    method: 'OPTIONS',
-  });
 }
 
 function addRequestInterceptor(
