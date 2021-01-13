@@ -37,4 +37,4 @@ screenshot
 .firebase
 .eslintcache
 .changelog
-config.ts
+# config.ts

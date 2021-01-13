@@ -1,6 +1,6 @@
 import React from 'react';
 import { Button, Col, Form, Input } from 'antd';
-import { useIntl } from '../../../../provider/es';
+import { useIntl } from '@next-dev/provider/es';
 import { FormProps } from 'antd/lib/form';
 import { ColProps } from 'antd/lib/col';
 import { LAYOUT_COL_AUTH } from '@next-dev/core/es/constants';

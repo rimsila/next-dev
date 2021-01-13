@@ -32,17 +32,13 @@ export type IRequestOption = {
  * @param configMsg
  */
 export const handlerFunc = (configMsg: { msg?: string; isErr?: boolean } & IRequestOption) => {
-  const { errorTip, fullTip, msg, isErr, debug, method, hasDfHandleErr } = configMsg || {};
-  const showTips = errorTip ? message.error : message.success;
+  const { errorTip, fullTip, msg, isErr, debug, method } = configMsg || {};
+  const showTips = errorTip ? message.success : message.error;
   const showFullTip = fullTip && isErr ? message.error : message.success;
 
   const showMsg =
     (typeof msg === 'string' && msg) ||
     (isErr ? 'something went wrong. please try gain!' : 'successfully!');
-
-  if (hasDfHandleErr === false) {
-    return null;
-  }
 
   if (debug) {
     console.log(`debug ${isErr ? 'err' : 'succ'}`, configMsg);
@@ -146,7 +142,7 @@ const commonResponseInterceptor = [
     }
 
     //* handle succ message
-    handlerFunc({ ...config, data, isErr: false });
+    // handlerFunc({ ...config, data, isErr: false });
 
     if (requestConfig.crypto === CryptoType.Out || requestConfig.crypto === CryptoType.Both) {
       if (typeof data === 'string') {
@@ -158,7 +154,7 @@ const commonResponseInterceptor = [
   },
   ({ response }: { response: AxiosResponse }) => {
     //* handle succ message
-    handlerFunc({ ...response, isErr: true });
+    // handlerFunc({ ...response, isErr: true });
     return Promise.reject(response);
   },
 ];
@@ -265,4 +261,7 @@ export {
   ejectRequestInterceptor,
   addResponseInterceptor,
   ejectResponseInterceptor,
+  AxiosRequestConfig,
+  Method,
+  AxiosResponse,
 };

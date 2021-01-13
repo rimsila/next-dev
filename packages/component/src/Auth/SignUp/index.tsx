@@ -84,10 +84,9 @@ const NextSignUp = ({ next, ...rest }: IProp) => {
           </FormItem>
 
           <FormItem>
-            <Link className="gx-login-form-forgot" to="/login">
-              Login Here
-            </Link>
+            <Link to="/login">Login Here</Link>
           </FormItem>
+
           <FormItem>
             <NextButton type="primary" htmlType="submit" {...next?.signUpBtnProps}>
               Sign Up

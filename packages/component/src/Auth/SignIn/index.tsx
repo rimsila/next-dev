@@ -28,24 +28,26 @@ interface IProp extends FormProps {
     emailInputProps?: InputProps;
     titleAlign?: any;
     forgotPassPath?: string;
+    registerPath?: string;
     colProps?: ColProps;
   };
 }
 
-//* ---------------- default props --------------- */
-export const defaultProps = {
-  next: {
-    logoWith: 40,
-    alt: 'logo',
-    title: 'Sign In',
-    logo: 'https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg',
-    forgotPassPath: '/forgot-password',
-  },
-};
-
 const NextSignIn = memo(({ next, ...rest }: IProp) => {
+  //* ---------------- default props --------------- */
+  const defaultProps = {
+    next: {
+      logoWith: 40,
+      alt: 'logo',
+      title: 'Sign In',
+      logo: 'https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg',
+      forgotPassPath: next?.forgotPassPath || '/forgot-password',
+      registerPath: '/register',
+    },
+  };
+
   const {
-    next: { title, forgotPassPath },
+    next: { title, forgotPassPath, registerPath },
   } = defaultProps;
   return (
     <Col className="box_extend" {...LAYOUT_COL_AUTH} {...next?.colProps}>
@@ -78,11 +80,11 @@ const NextSignIn = memo(({ next, ...rest }: IProp) => {
         </FormItem>
         <FormItem>
           <Checkbox>Remember me</Checkbox>
-          <Link to={next?.forgotPassPath || forgotPassPath}>Forgot password</Link>
+          <Link to={forgotPassPath}>Forgot password</Link>
         </FormItem>
 
         <FormItem>
-          <Link to="/register">Register Here</Link>
+          <Link to={next?.registerPath || registerPath}>Register Here</Link>
         </FormItem>
 
         {/* //* ---------------- isHideSubmitBtn --------------- */}

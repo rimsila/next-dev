@@ -1,10 +1,10 @@
 export const LAYOUT_COL_AUTH = {
-  xs: 24, // <576px
-  sm: 24, // ≥576px
-  md: 24, // ≥768px
-  lg: 7, // ≥992px
-  xl: 7, // ≥1200px
-  xxl: 7, // ≥1600px
+  xs: 24,
+  sm: 16,
+  md: 12,
+  lg: 7,
+  xl: 7,
+  xxl: 6,
 };
 
 /**
