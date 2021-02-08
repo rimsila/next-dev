@@ -37,4 +37,9 @@ export interface NextButtonProps extends ButtonProps {
     textColor?: CSS.Property.Color;
     backgroundColor?: CSS.Property.BackgroundColor;
   };
+  btnContainerProps?: CSS.Properties;
+  mt;
+  mb;
+  ml;
+  mr;
 }

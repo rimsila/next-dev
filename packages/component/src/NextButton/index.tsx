@@ -12,29 +12,39 @@ export const NextButton: FC<NextButtonProps> = ({
   style,
   children,
   disabled,
+  btnContainerProps,
+  mt,
+  mb,
+  ml,
+  mr,
   ...rest
 }) => {
   return (
-    <span
-      style={{
-        display: btnDisplay,
-        justifyContent: btnJustify,
+    <div
+      {...{
+        style: {
+          display: btnDisplay,
+          justifyContent: btnJustify,
+          ...btnContainerProps,
+        },
+        className: classnames(!disabled && nextTheme && nextTheme, btnCls),
       }}
-      className={classnames(!disabled && nextTheme && nextTheme, btnCls)}
     >
       <Button
-        disabled={Boolean(rest.loading)}
-        style={{
-          color: customStyle?.textColor,
-          backgroundColor: customStyle?.backgroundColor,
-          borderColor: customStyle?.backgroundColor,
-          ...style,
+        {...{
+          disabled: Boolean(rest.loading),
+          style: {
+            color: customStyle?.textColor,
+            backgroundColor: customStyle?.backgroundColor,
+            borderColor: customStyle?.backgroundColor,
+            ...style,
+          },
+          ...rest,
         }}
-        {...rest}
       >
         {children}
       </Button>
-    </span>
+    </div>
   );
 };
 
