@@ -45,9 +45,11 @@
     "ie >= 11"
   ],
   "devDependencies": {
-    "cross-port-killer": "^1.1.1",
+    "@ant-design/icons": "^4.4.0",
+    "@ant-design/pro-layout": "^6.14.0",
     "@babel/core": "^7.8.3",
     "@babel/plugin-proposal-object-rest-spread": "^7.8.3",
+    "@babel/plugin-syntax-export-default-from": "^7.12.1",
     "@babel/preset-env": "^7.8.3",
     "@babel/preset-react": "^7.8.3",
     "@babel/preset-typescript": "^7.8.3",
@@ -76,19 +78,23 @@
     "@umijs/test": "^3.2.10",
     "@umijs/test-utils": "^3.2.10",
     "@umijs/utils": "^3.2.11",
+    "ahooks": "^2.9.3",
     "antd": "^4.7.3",
     "babel-loader": "^8.1.0",
     "babel-plugin-import": "^1.12.2",
     "body-parser": "^1.18.2",
     "chalk": "^4.1.0",
     "cross-env": "^7.0.0",
+    "cross-port-killer": "^1.1.1",
     "css-loader": "^4.2.2",
+    "csstype": "^3.0.5",
     "del": "^5.1.0",
     "dumi": "^1.0.36",
     "enzyme": "^3.11.0",
     "enzyme-to-json": "^3.4.3",
     "eslint": "^7.2.0",
     "father-build": "^1.18.1",
+    "firebase ": "^8.1.1",
     "gh-pages": "^3.1.0",
     "glob": "^7.1.6",
     "jest": "^26.2.2",
@@ -96,6 +102,7 @@
     "jsdom": "^16.4.0",
     "jsdom-global": "^3.0.2",
     "lerna": "^3.22.1",
+    "less": "^4.1.1",
     "less-loader": "^7.0.1",
     "lint-staged": "^10.0.2",
     "lodash": "^4.17.20",
@@ -106,6 +113,7 @@
     "np": "^6.1.0",
     "npm-run-all": "^4.1.5",
     "optimize-css-assets-webpack-plugin": "^5.0.3",
+    "path-to-regexp": "^6.2.0",
     "pify": "^5.0.0",
     "prettier": "^2.0.1",
     "pretty-quick": "^3.0.0",
@@ -117,7 +125,6 @@
     "size-limit": "^4.6.0",
     "slash2": "^2.0.0",
     "style-loader": "^1.2.1",
-    "@babel/plugin-syntax-export-default-from": "^7.12.1",
     "stylelint": "^13.7.2",
     "terser-webpack-plugin": "^4.1.0",
     "typescript": "^3.9.7",
@@ -125,13 +132,11 @@
     "umi-plugin-githubpages": "^2.0.1",
     "umi-test": "^1.9.6",
     "umi-types": "^0.5.14",
+    "webpack": "^4.4.0",
     "webpack-bundle-analyzer": "^3.6.0",
     "webpack-cli": "^3.3.10",
     "write-pkg": "^4.0.0",
-    "yorkie": "^2.0.0",
-    "firebase ": "^8.1.1",
-    "ahooks": "^2.9.3"
-    
+    "yorkie": "^2.0.0"
   },
   "checkFiles": [
     "src/**/*.js*",
@@ -141,4 +146,3 @@
     "scripts/**/*.js"
   ]
 }
-
