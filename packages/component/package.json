@@ -37,7 +37,6 @@
         "lodash": "^4.x",
         "path-to-regexp": "^6.x",
         "react": "^16.x",
-        "umi": "^3.x",
         "csstype": "^3.0.5"
     },
     "publishConfig": {
@@ -50,8 +49,5 @@
         "@ant-design/pro-card": "1.5.1"
 
     },
-    "devDependencies": {
-        "@types/react-custom-scrollbars": "^4.0.7",
-        "@ant-design/pro-layout": "next"
-    }
+    "devDependencies": {}
 }
