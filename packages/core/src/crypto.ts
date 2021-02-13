@@ -1,6 +1,6 @@
 /* eslint-disable no-bitwise */
 import CryptoJS from 'crypto-js';
-import JSEncrypt from 'jsencrypt';
+import JSEncrypt from 'jsencrypt/bin/jsencrypt.min.js';
 
 /**
  * Base64 processing the content

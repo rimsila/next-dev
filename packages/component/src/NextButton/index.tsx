@@ -13,18 +13,26 @@ export const NextButton: FC<NextButtonProps> = ({
   children,
   disabled,
   btnContainerProps,
-  mt,
-  mb,
-  ml,
-  mr,
+  mt = 0,
+  mb = 0,
+  ml = 0,
+  mr = 0,
+  my = 0,
+  mx = 0,
   ...rest
 }) => {
+  const mSpacing =
+    (my && `${my}px 0 ${my}px 0`) ||
+    (my && `0 ${mx}px 0 ${mx}px`) ||
+    `${mt}px ${mr}px ${mb}px ${ml}px`;
+
   return (
     <div
       {...{
         style: {
           display: btnDisplay,
           justifyContent: btnJustify,
+          margin: mSpacing,
           ...btnContainerProps,
         },
         className: classnames(!disabled && nextTheme && nextTheme, btnCls),
