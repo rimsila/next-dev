@@ -13372,10 +13372,10 @@ jsdom@^16.4.0:
     ws "^7.2.3"
     xml-name-validator "^3.0.0"
 
-jsencrypt@^3.0.0-beta.1:
-  version "3.0.0"
-  resolved "https://registry.yarnpkg.com/jsencrypt/-/jsencrypt-3.0.0.tgz#f6b191852b0bef31d5bac30ba121d58cbbb2a397"
-  integrity sha512-2XTc8nd0BQ95eN0aEcpaXFXAOzhQL53UqOZANWFy01jkIV8rhzXoOCi9wRptnxso3aQ3/f7GHibWtn69sPzTFQ==
+jsencrypt@^3.0.0-rc.1:
+  version "3.0.1"
+  resolved "https://registry.yarnpkg.com/jsencrypt/-/jsencrypt-3.0.1.tgz#e7f2525d79fb02eea8310c3838c9db164f1ef43f"
+  integrity sha512-5PJ5I1H3bzlcsKNQasifJ7KkgLMv80JaR22o6hq41niaTvQPISbnmI+Me+1PJMi1YXu53bWi6JiVa0k+PQfyQA==
 
 jsesc@^2.5.1:
   version "2.5.2"
