@@ -38,8 +38,10 @@ export interface NextButtonProps extends ButtonProps {
     backgroundColor?: CSS.Property.BackgroundColor;
   };
   btnContainerProps?: CSS.Properties;
-  mt;
-  mb;
-  ml;
-  mr;
+  mt?: string | number;
+  mb?: string | number;
+  ml?: string | number;
+  mr?: string | number;
+  my?: string | number;
+  mx?: string | number;
 }

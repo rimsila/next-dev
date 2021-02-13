@@ -31,7 +31,6 @@
     "bugs": "https://github.com/rimsila/next-dev/issues",
     "homepage": "https://github.com/rimsila/next-dev/tree/master/packages/core#readme",
     "peerDependencies": {
-        "antd": "^4.x",
         "lodash": "^4.x",
         "path-to-regexp": "^6.x",
         "react": "^16.x"

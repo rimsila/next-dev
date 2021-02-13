@@ -2,8 +2,6 @@ export { configResponsive, useResponsive } from './useResponsive';
 
 export { useSubscribe, PubSub } from './usePubSub';
 
-export { useSelect } from './useSelect';
-
 // interface WetrialHooksProps {
 //   /**
 //    * 格式化后端返回的数据
