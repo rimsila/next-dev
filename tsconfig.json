@@ -18,7 +18,8 @@
       "@next-dev/core/*": ["./packages/core/es/*"],
       "@wetrial/component": ["./packages/component/src/index.tsx"],
       "@wetrial/hooks": ["./packages/hooks/src/index.tsx"],
-      "@next-provider/*": ["./packages/provider/es/*"]
+      "@next-provider/*": ["./packages/provider/es/*"],
+      "@next-com/*": ["./packages/component/src/*"]
     }
   },
   "include": [

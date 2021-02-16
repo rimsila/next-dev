@@ -5,6 +5,8 @@
         "packages/*"
     ],
     "scripts": {
+        "web-desktop": "yarn workspace @next-dev/web-desktop start",
+        "web-mobile": "yarn workspace @next-dev/web-mobile start",
         "bootstrap": "node ./scripts/bootstrap.js",
         "build:es": "father-build",
         "build": "yarn clean && father-build && webpack --progress",
