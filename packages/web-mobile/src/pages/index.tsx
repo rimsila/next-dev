@@ -1,13 +1,14 @@
-import { LAYOUT_COL_AUTH } from '../../../core/src/constants';
 import React from 'react';
-import styles from './index.less';
+import useCounterModel from '../../../global-state/src/useCounter';
 
 export default function IndexPage() {
-  console.log('LAYOUT_COL_AUTH', LAYOUT_COL_AUTH);
-
+  const counter = useCounterModel();
   return (
     <div>
-      <h1 className={styles.title}>{JSON.stringify(LAYOUT_COL_AUTH)}</h1>
+      <p> web-mobile {counter.count}</p>
+      <button onClick={counter.increment} type="button">
+        Increment
+      </button>
     </div>
   );
 }

@@ -1,11 +1,24 @@
-import React from 'react';
-import styles from './index.less';
-import { LAYOUT_COL_AUTH } from '../../../core/src/constants';
+import React, { useState } from 'react';
+import useCounterModel from '../../../global-state/src/useCounter';
+import sugar from 'sugar-hox-devtools';
+
+const { SugarHoxDevTools } = sugar;
 
 export default function IndexPage() {
+  const [showDevTools, setShowDevTools] = useState(false);
+
+  const counter = useCounterModel();
+  console.log('log', window.sugarHox);
+
   return (
     <div>
-      <h1 className={styles.title}>{JSON.stringify(LAYOUT_COL_AUTH)}</h1>
+      {showDevTools && (
+        <SugarHoxDevTools onClose={() => setShowDevTools(false)} />
+      )}
+      <p> web-app {counter.count}</p>
+      <button onClick={counter.increment} type="button">
+        Increment
+      </button>
     </div>
   );
 }

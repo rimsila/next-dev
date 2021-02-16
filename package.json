@@ -34,10 +34,12 @@
         "update-template": "cd ../next-dev-template && yarn yall ",
         "yall": "yarn kill4000 && yarn build:es && yarn ycom && yarn ycore && yarn yhook && yarn ypro && yarn update-template && yarn start"
     },
-    "size-limit": [{
-        "path": "dist/bundle.js",
-        "limit": "10 KB"
-    }],
+    "size-limit": [
+        {
+            "path": "dist/bundle.js",
+            "limit": "10 KB"
+        }
+    ],
     "browserslist": [
         "last 2 versions",
         "Firefox ESR",
@@ -91,6 +93,7 @@
         "father-build": "^1.18.1",
         "gh-pages": "^3.1.0",
         "glob": "^7.1.6",
+        "hox": "^1.1.2",
         "jest": "^26.2.2",
         "jest-fetch-mock": "^3.0.3",
         "jsdom": "^16.4.0",
@@ -118,6 +121,7 @@
         "slash2": "^2.0.0",
         "style-loader": "^1.2.1",
         "stylelint": "^13.7.2",
+        "sugar-hox-devtools": "^1.0.4",
         "terser-webpack-plugin": "^4.1.0",
         "typescript": "^3.9.7",
         "umi": "^3.2.28",
