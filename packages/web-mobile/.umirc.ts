@@ -6,4 +6,9 @@ export default defineConfig({
     type: 'none',
   },
   routes: [{ path: '/', component: '@/pages/index' }],
+  chainWebpack(memo) {
+    memo.module.rule('ts-in-node_modules').include.clear();
+    return memo;
+  },
+  fastRefresh: {},
 });

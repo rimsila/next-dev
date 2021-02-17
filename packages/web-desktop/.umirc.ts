@@ -4,8 +4,12 @@ export default defineConfig({
   nodeModulesTransform: {
     type: 'none',
   },
-  routes: [
-    { path: '/', component: '@/pages/index' },
-  ],
+  routes: [{ path: '/', component: '@/pages/index' }],
   fastRefresh: {},
+  lessLoader: {},
+  chainWebpack(memo) {
+    memo.module.rule('ts-in-node_modules').include.clear();
+    return memo;
+  },
+
 });

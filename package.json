@@ -5,19 +5,17 @@
         "packages/*"
     ],
     "scripts": {
+
+
+
+        "========================= Package Dev ========================": "",
         "web-desktop": "yarn workspace @next-dev/web-desktop start",
+        "build-web-desktop": "yarn workspace @next-dev/web-desktop build",
         "web-mobile": "yarn workspace @next-dev/web-mobile start",
+        "build-web-mobile": "yarn workspace @next-dev/web-mobile build",
+
+        "========================= Tool Dev ========================": "",
         "bootstrap": "node ./scripts/bootstrap.js",
-        "build:es": "father-build",
-        "build": "yarn clean && father-build && webpack --progress",
-        "deploy": "yarn site && gh-pages -d ./dist",
-        "lint": "eslint --cache --ext .js,.jsx,.ts,.tsx --format=pretty && ./packages && yarn lint:prettier",
-        "lint:prettier": "prettier --check \"**/**.{js,jsx,tsx,ts,md,json}\" --end-of-line auto",
-        "prettier": "prettier --write \"**/**.{js,jsx,tsx,ts,md,json}\"",
-        "release": "node ./scripts/release.js",
-        "site": "dumi build",
-        "size": "yarn build && size-limit",
-        "start": "cross-env NODE_OPTIONS='--max-old-space-size=8192' dumi dev",
         "sync:tnpm": "node -e 'require(\"./scripts/syncTNPM\")()'",
         "test": "umi-test",
         "test:coverage": "umi-test --coverage",
@@ -26,20 +24,24 @@
         "tsc": "lerna run tsc --stream",
         "clean": "node ./scripts/clearBuild",
         "kill4000": "npx cross-port-killer 4000",
-        "ycom": "cd packages/component && yalc publish",
-        "ycore": "cd packages/core && yalc publish",
-        "yhook": "cd packages/hooks && yalc publish",
-        "ypro": "cd packages/provider && yalc publish",
-        "restartLibrary": "echo //restart >> .umirc.js",
-        "update-template": "cd ../next-dev-template && yarn yall ",
-        "yall": "yarn kill4000 && yarn build:es && yarn ycom && yarn ycore && yarn yhook && yarn ypro && yarn update-template && yarn start"
+
+        "========================= Doc Dev ========================": "",
+        "site": "dumi build",
+        "start:doc": "cross-env NODE_OPTIONS='--max-old-space-size=8192' dumi dev",
+        "build:es": "father-build",
+        "build": "yarn clean && father-build && webpack --progress",
+        "deploy": "yarn site && gh-pages -d ./dist",
+        "lint": "eslint --cache --ext .js,.jsx,.ts,.tsx --format=pretty && ./packages && yarn lint:prettier",
+        "lint:prettier": "prettier --check \"**/**.{js,jsx,tsx,ts,md,json}\" --end-of-line auto",
+        "prettier": "prettier --write \"**/**.{js,jsx,tsx,ts,md,json}\"",
+        "release": "node ./scripts/release.js",
+        "size": "yarn build && size-limit"
+
     },
-    "size-limit": [
-        {
-            "path": "dist/bundle.js",
-            "limit": "10 KB"
-        }
-    ],
+    "size-limit": [{
+        "path": "dist/bundle.js",
+        "limit": "10 KB"
+    }],
     "browserslist": [
         "last 2 versions",
         "Firefox ESR",
@@ -82,6 +84,7 @@
         "babel-plugin-import": "^1.12.2",
         "body-parser": "^1.18.2",
         "chalk": "^4.1.0",
+        "classnames": "^2.2.6",
         "cross-env": "^7.0.0",
         "cross-port-killer": "^1.1.1",
         "css-loader": "^4.2.2",
@@ -99,6 +102,7 @@
         "jsdom": "^16.4.0",
         "jsdom-global": "^3.0.2",
         "lerna": "^3.22.1",
+        "less": "^4.1.1",
         "less-loader": "^7.0.1",
         "lint-staged": "^10.0.2",
         "lodash": "^4.17.20",
@@ -117,6 +121,7 @@
         "react-dom": "^16.13.1",
         "react-markdown": "^4.3.1",
         "react-test-renderer": "^16.13.1",
+        "serve": "^11.3.2",
         "size-limit": "^4.6.0",
         "slash2": "^2.0.0",
         "style-loader": "^1.2.1",

@@ -1,14 +1,40 @@
-import React from 'react';
+import React, { useState } from 'react';
 import useCounterModel from '../../../global-state/src/useCounter';
+import { NextButton } from '../../../component/src/NextButton';
+import sugar from 'sugar-hox-devtools';
+import { Space } from 'antd';
+
+const { SugarHoxDevTools } = sugar;
 
 export default function IndexPage() {
+  const [showDevTools, setShowDevTools] = useState(false);
+
   const counter = useCounterModel();
+  // @ts-ignore
+  console.log('log', window.sugarHox);
+
   return (
-    <div>
-      <p> web-mobile {counter.count}</p>
-      <button onClick={counter.increment} type="button">
-        Increment
-      </button>
+    <div
+      style={{
+        width: 300,
+        margin: '60px auto',
+        border: '1px solid ',
+        height: 500,
+        display: 'flex',
+        justifyContent: 'center',
+      }}
+    >
+      {showDevTools && (
+        <SugarHoxDevTools onClose={() => setShowDevTools(false)} />
+      )}
+
+      <Space align="center">
+        <p style={{ margin: 0 }}> web-mobile {counter.count}</p>
+
+        <NextButton onClick={counter.increment} danger>
+          Increment +
+        </NextButton>
+      </Space>
     </div>
   );
 }
