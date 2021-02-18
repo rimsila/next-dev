@@ -24,7 +24,8 @@
     "dependencies": {
         "@ant-design/pro-layout": "^6.5.0",
         "@umijs/preset-react": "1.x",
-        "umi": "^3.3.7"
+        "umi": "^3.3.7",
+        "@next-dev/global-state":"*"
     },
     "devDependencies": {
         "@types/react": "^16.9.0",

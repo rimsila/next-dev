@@ -1,17 +1,10 @@
 import React, { useState } from 'react';
-import useCounterModel from '../../../global-state/src/useCounter';
 import { NextButton } from '../../../component/src/NextButton';
-import sugar from 'sugar-hox-devtools';
 import { Space } from 'antd';
+import useCounter from '../../../global-state/src/useCounter';
 
-const { SugarHoxDevTools } = sugar;
-
-export default function IndexPage() {
-  const [showDevTools, setShowDevTools] = useState(false);
-
-  const counter = useCounterModel();
-  // @ts-ignore
-  console.log('log', window.sugarHox);
+export const IndexPage = () => {
+  const counter = useCounter();
 
   return (
     <div
@@ -24,12 +17,8 @@ export default function IndexPage() {
         justifyContent: 'center',
       }}
     >
-      {showDevTools && (
-        <SugarHoxDevTools onClose={() => setShowDevTools(false)} />
-      )}
-
       <Space align="center">
-        <p style={{ margin: 0 }}> web-app {counter.count}</p>
+        <p style={{ margin: 0 }}> web {counter.count}</p>
 
         <NextButton onClick={counter.increment} type="primary">
           Increment +
@@ -37,4 +26,6 @@ export default function IndexPage() {
       </Space>
     </div>
   );
-}
+};
+
+export default IndexPage;
