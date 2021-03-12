@@ -12,7 +12,11 @@ export default () => {
   const data = [
     {
       id: 1,
-      item: <NextButton type="primary">Primary Button</NextButton>,
+      item: (
+        <NextButton type="primary" nextTheme="btn_cyan_4">
+          Primary Button
+        </NextButton>
+      ),
       copyCode: `<NextButton type="primary">Primary Button</NextButton>`,
     },
     {

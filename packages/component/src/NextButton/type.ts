@@ -1,5 +1,6 @@
 import { ButtonProps } from 'antd/es/button';
 import * as CSS from 'csstype';
+import { DetailedHTMLProps, HTMLAttributes, ReactElement } from 'react';
 
 export const btnType = {
   btn_warning: 'btn_warning',
@@ -32,12 +33,12 @@ export interface NextButtonProps extends ButtonProps {
   children?: React.ReactNode;
   btnDisplay?: 'flex' | 'block';
   btnJustify?: CSS.Property.AlignContent;
-  btnCls?: string;
+  btnContainerCls?: string;
   customStyle?: {
     textColor?: CSS.Property.Color;
     backgroundColor?: CSS.Property.BackgroundColor;
   };
-  btnContainerProps?: CSS.Properties;
+  btnContainerProps?: React.HTMLAttributes<HTMLDivElement>;
   mt?: string | number;
   mb?: string | number;
   ml?: string | number;

@@ -8,8 +8,7 @@ export const NextButton: FC<NextButtonProps> = ({
   btnDisplay = 'flex',
   btnJustify = 'center',
   customStyle,
-  btnCls,
-  style,
+  btnContainerCls,
   children,
   disabled,
   btnContainerProps,
@@ -33,9 +32,10 @@ export const NextButton: FC<NextButtonProps> = ({
           display: btnDisplay,
           justifyContent: btnJustify,
           margin: mSpacing,
-          ...btnContainerProps,
+          ...btnContainerProps?.style,
         },
-        className: classnames(!disabled && nextTheme && nextTheme, btnCls),
+        ...btnContainerProps,
+        className: classnames(!disabled && nextTheme, btnContainerCls),
       }}
     >
       <Button
@@ -45,7 +45,7 @@ export const NextButton: FC<NextButtonProps> = ({
             color: customStyle?.textColor,
             backgroundColor: customStyle?.backgroundColor,
             borderColor: customStyle?.backgroundColor,
-            ...style,
+            ...rest?.style,
           },
           ...rest,
         }}

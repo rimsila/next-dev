@@ -52,7 +52,7 @@ const NextSignIn = memo(({ next, ...rest }: IProp) => {
     next: { title, forgotPassPath, registerPath },
   } = defaultProps;
   return (
-    <Col className="box_extend" {...LAYOUT_COL_AUTH} {...next?.colProps}>
+    <Col className="box_shadow" {...LAYOUT_COL_AUTH} {...next?.colProps}>
       <div className={classNames('gx-login-header', next?.titleAlign)}>
         <h1>{next?.title || title}</h1>
       </div>
