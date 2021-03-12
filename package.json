@@ -30,7 +30,7 @@
         "ypro": "cd packages/provider && yalc publish",
         "restartLibrary": "echo //restart >> .umirc.js",
         "update-template": "cd ../next-dev-template && yarn yall ",
-        "yall": "yarn kill4000 && yarn build:es && yarn ycom && yarn ycore && yarn yhook && yarn ypro && yarn update-template && yarn start"
+        "yall": "yarn kill4000 && yarn build:es && yarn ycom && yarn ycore && yarn yhook && yarn ypro && yarn start"
     },
     "size-limit": [{
         "path": "dist/bundle.js",

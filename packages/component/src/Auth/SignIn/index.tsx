@@ -30,6 +30,8 @@ interface IProp extends FormProps {
     forgotPassPath?: string;
     registerPath?: string;
     colProps?: ColProps;
+    isWithoutEmail?: boolean;
+    isHasRemember?: boolean;
   };
 }
 
@@ -41,8 +43,8 @@ const NextSignIn = memo(({ next, ...rest }: IProp) => {
       alt: 'logo',
       title: 'Sign In',
       logo: 'https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg',
-      forgotPassPath: next?.forgotPassPath || '/forgot-password',
-      registerPath: '/register',
+      forgotPassPath: next?.forgotPassPath,
+      registerPath: '',
     },
   };
 
@@ -52,20 +54,23 @@ const NextSignIn = memo(({ next, ...rest }: IProp) => {
   return (
     <Col className="box_extend" {...LAYOUT_COL_AUTH} {...next?.colProps}>
       <div className={classNames('gx-login-header', next?.titleAlign)}>
-        <h1 className="gx-login-title">{next?.title || title}</h1>
+        <h1>{next?.title || title}</h1>
       </div>
-      <Form className="gx-login-form gx-form-row0" {...rest}>
+      <Form {...rest}>
         <FormItem
           name="email"
           rules={[
             {
-              type: 'email',
+              type: next?.isWithoutEmail ? 'string' : 'email',
               required: true,
             },
           ]}
           {...next?.emailItemProps}
         >
-          <Input prefix={<UserOutlined />} placeholder="Email" />
+          <Input
+            prefix={<UserOutlined />}
+            placeholder={next?.isWithoutEmail ? 'User Name' : 'Email'}
+          />
         </FormItem>
         <FormItem
           name="password"
@@ -78,20 +83,24 @@ const NextSignIn = memo(({ next, ...rest }: IProp) => {
         >
           <Input prefix={<LockOutlined />} type="password" placeholder="Password" />
         </FormItem>
-        <FormItem>
-          <Checkbox>Remember me</Checkbox>
-          <Link to={forgotPassPath}>Forgot password</Link>
-        </FormItem>
+        {(next?.isHasRemember || forgotPassPath) && (
+          <FormItem>
+            {next?.isHasRemember && <Checkbox>Remember me</Checkbox>}
+            {forgotPassPath && <Link to={forgotPassPath}>Forgot Password</Link>}
+          </FormItem>
+        )}
 
-        <FormItem>
-          <Link to={next?.registerPath || registerPath}>Register Here</Link>
-        </FormItem>
+        {registerPath && (
+          <FormItem>
+            <Link to={next?.registerPath || registerPath}>Register Here</Link>
+          </FormItem>
+        )}
 
         {/* //* ---------------- isHideSubmitBtn --------------- */}
         {!next?.isHideSubmitBtn && (
           <FormItem>
-            <NextButton type="primary" htmlType="submit" {...next?.submitBtnProps}>
-              Log in
+            <NextButton type="primary" block htmlType="submit" {...next?.submitBtnProps}>
+              Log In
             </NextButton>
           </FormItem>
         )}

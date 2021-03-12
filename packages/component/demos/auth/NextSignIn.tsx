@@ -4,15 +4,54 @@ import { onFinish } from '../utils/function';
 
 const data = [
   {
-    item: <NextSignIn {...{ onFinish }} />,
-    copyCode: `<NextSignIn  {...{ onFinish }}/>`,
+    item: (
+      <NextSignIn
+        {...{
+          onFinish,
+          next: {
+            title: 'SignIn validate email',
+            isWithoutEmail: true,
+            colProps: {
+              style: {
+                minWidth: 400,
+              },
+            },
+          },
+        }}
+      />
+    ),
+    copyCode: `
+    <NextSignIn
+        {...{
+          onFinish,
+          next: {
+            title: 'SignIn validate email',
+            isWithoutEmail: true,
+            colProps: {
+              style: {
+                minWidth: 400,
+              },
+            },
+          },
+        }}
+      />
+    `,
   },
   {
     item: (
       <NextSignIn
         {...{
           onFinish,
-          next: { titleAlign: 'gx-text-center', submitBtnProps: { btnJustify: 'start' } },
+          next: {
+            isHasRemember: true,
+            isWithoutEmail: false,
+            forgotPassPath: '/forgot-password',
+            colProps: {
+              style: {
+                minWidth: 400,
+              },
+            },
+          },
         }}
       />
     ),
@@ -23,7 +62,33 @@ const data = [
       <NextSignIn
         {...{
           onFinish,
-          next: { titleAlign: 'gx-text-center' },
+          next: {
+            colProps: {
+              style: {
+                minWidth: 400,
+              },
+            },
+            titleAlign: 'gx-text-center',
+            submitBtnProps: { btnJustify: 'start' },
+          },
+        }}
+      />
+    ),
+    copyCode: `<NextSignIn  {...{ onFinish }}/>`,
+  },
+  {
+    item: (
+      <NextSignIn
+        {...{
+          onFinish,
+          next: {
+            colProps: {
+              style: {
+                minWidth: 400,
+              },
+            },
+            titleAlign: 'gx-text-center',
+          },
         }}
       />
     ),
