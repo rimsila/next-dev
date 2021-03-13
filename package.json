@@ -15,7 +15,7 @@
         "release": "node ./scripts/release.js",
         "site": "dumi build",
         "size": "yarn build && size-limit",
-        "start": "cross-env NODE_OPTIONS='--max-old-space-size=8192' dumi dev",
+        "start": "cross-env  dumi dev",
         "sync:tnpm": "node -e 'require(\"./scripts/syncTNPM\")()'",
         "test": "umi-test",
         "test:coverage": "umi-test --coverage",

@@ -169,6 +169,8 @@ let requests: Function[] = [];
  */
 const commonResponseWithRefreshTokenInterceptor = [
   (response: AxiosResponse): any => {
+    console.log('ffs', response);
+
     const { data, config } = response;
     const requestConfig = config as IRequestOption;
     if (requestConfig.responseType && requestConfig.responseType.toLowerCase() === 'arraybuffer') {
@@ -181,9 +183,56 @@ const commonResponseWithRefreshTokenInterceptor = [
         return Promise.resolve(JSON.parse(decryptData));
       }
     }
+    if (data?.errors) {
+      const error = data?.errors[0].message;
+      const statusCode = error?.statusCode;
+
+      if (!response || statusCode !== 401) {
+        return Promise.reject(response);
+      }
+      const token = getToken();
+      if (!token) {
+        return Promise.reject(response);
+      }
+
+      // 401 And there is a local token indicating that the token expires and needs to be swiped
+      if (!isRefreshing) {
+        isRefreshing = true;
+
+        return refreshToken()
+          .then((result) => {
+            console.log('result', result);
+
+            if (!result?.apiKey) {
+              throw new Error(' refreshToken failed, no new refreshToken was obtained');
+            }
+
+            setToken({
+              token: getToken()?.token,
+              refreshToken: result?.apiKey,
+            });
+            // Token has been refreshed, retry all requests in the queue
+            requests.forEach((cb) => cb());
+            requests = [];
+            return request(config);
+          })
+          .finally(() => {
+            isRefreshing = false;
+          });
+      }
+      // The token is being refreshed, and a promise that has not been resolved will be returned
+      return new Promise((resolve) => {
+        requests.push(() => {
+          resolve(request(config));
+        });
+      });
+    }
+
     return Promise.resolve(data);
   },
   ({ response }: { response: AxiosResponse }) => {
+    console.log('response', response);
+
     if (!response || response.status !== 401) {
       return Promise.reject(response);
     }
@@ -195,15 +244,16 @@ const commonResponseWithRefreshTokenInterceptor = [
     // 401 And there is a local token indicating that the token expires and needs to be swiped
     if (!isRefreshing) {
       isRefreshing = true;
-
       return refreshToken()
         .then((result) => {
           if (!result || !result.token) {
             throw new Error('Refresh token failed, no new token was obtained');
           }
+          console.log('result', result);
+
           setToken({
-            token: result.token,
-            refreshToken: result.refreshToken,
+            token: result?.token,
+            refreshToken: result?.apiKey || result?.refreshToken,
           });
           // Token has been refreshed, retry all requests in the queue
           requests.forEach((cb) => cb());

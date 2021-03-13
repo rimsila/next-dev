@@ -1,70 +1,60 @@
-import type { IRequestOption } from '../../src/nextRequest';
 import {
   addRequestInterceptor,
   addResponseInterceptor,
+  axios,
   commonRequestInterceptor,
-  commonResponseInterceptor,
+  commonResponseWithRefreshTokenInterceptor,
   configGlobalHeader,
   configInstance,
+  configRefreshToken,
+  IRequestOption,
   request,
 } from '../../src/nextRequest';
 import { getToken } from '../../src/authority';
-import { message } from 'antd';
 
-export const handlerGlobalErr = (configMsg: { msg?: string; isErr?: boolean } & IRequestOption) => {
-  const { errorTip, fullTip, msg, isErr, debug, method } = configMsg || {};
-  const showTips = errorTip ? message.error : message.success;
-  const showFullTip = fullTip && isErr ? message.error : message.success;
+export const BASE_API_Graph_URL = 'https://powerful-chamber-29893.herokuapp.com/graphql';
+export const AUTH_KEY = '2aee142b-1853-4263-a3a3-a4a1d919b9dd-1613235477420';
 
-  // console.log('method', method);
-
-  const showMsg =
-    (typeof msg === 'string' && msg) ||
-    (isErr ? 'something went wrong. please try gain!' : 'successfully!');
-
-  if (debug) {
-    console.log(`debug ${isErr ? 'err' : 'succ'}`, configMsg);
-  }
-
-  if (method === 'GET' || method === 'get') {
-    return null;
-  }
-
-  if (fullTip) {
-    return showFullTip(showMsg);
-  }
-
-  return showTips(showMsg);
-};
-
-export async function nextRequest<TResult = any>(
-  method: MethodType,
-  url: string,
-  opt?: IRequestOption,
-) {
-  const { hasParam, hasParamData, hasPassByParam } = opt || {};
-  const defaultParam = hasParam ? { accessKey: getToken()?.token } : {};
+export async function nextRequest<TResult = any>(opt?: IRequestOption) {
+  const { hasParamData } = opt || {};
   const dfPramData = hasParamData ? { accessKey: getToken()?.token } : {};
-
-  /**
-   * @isPassByParam true url will have default
-   */
-  url = hasPassByParam ? `${url}/${getToken()?.token}` : url;
-
+  const variables = opt?.data?.variables
+    ? {
+        variables: {
+          ...dfPramData,
+          ...opt?.data?.variables,
+        },
+      }
+    : {};
   /**
    * @configInstance
    */
+  configRefreshToken(async () => {
+    const resApi = await axios.post(BASE_API_Graph_URL, {
+      query: `
+          mutation RequestApiKey{
+            requestApiKey(authKey: "${AUTH_KEY}"){
+              apiKey
+            }
+          }
+      `,
+    });
+
+    return resApi?.data?.data?.requestApiKey;
+  });
+
   configInstance({
-    baseURL: 'https://gorest.co.in/public-api' || 'https://obscure-shore-42367.herokuapp.com/api',
-    params: defaultParam,
+    baseURL: BASE_API_Graph_URL,
   });
 
   /**
    * @configGlobalHeader set header default id Bearer auth
    */
+
   configGlobalHeader(() => {
     return {
-      Authorization: '', //  remove Bearer auth
+      'api-key': getToken()?.refreshToken as string,
+      Authorization: `Bearer ${getToken()?.token}`,
     };
   });
 
@@ -72,22 +62,31 @@ export async function nextRequest<TResult = any>(
    * @axiosInterceptor handle global res and req
    */
   addRequestInterceptor(...commonRequestInterceptor);
-  addResponseInterceptor(...commonResponseInterceptor);
-
-  const response = await request<TResult>({
-    url,
-    successTip: true,
-    hasDfHandleErr: false,
-    ...opt,
-    data: { ...dfPramData, ...opt?.data }, // has default data
-    method,
-  });
+  addResponseInterceptor(...commonResponseWithRefreshTokenInterceptor);
 
   /**
-   * @handlerGlobalError show msg success/err/redirect
+   * @return_data to client ui
    */
+  try {
+    const response: any = await request<TResult>({
+      fullTip: true,
+      ...opt,
+      data: {
+        ...variables,
+        ...opt?.data,
+      }, // has default data
+      method: 'POST',
+    });
 
-  handlerGlobalErr({ ...response, method });
+    /**
+     * @handlerGlobalError show msg success/err/redirect
+     */
 
-  return response;
+    //* set success
+    return response?.data;
+  } catch (catchAxiosError) {
+    //* catchError error
+
+    return catchAxiosError;
+  }
 }

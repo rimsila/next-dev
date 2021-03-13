@@ -27,25 +27,9 @@ export interface IUseMapItem {
 
 export const CoreRoot: FC<IUseMapItem> = (props) => {
   //* set token
-  if (!getToken()?.token) {
-    setToken({ token: configApp.TOKEN });
-  }
-
-  //* initNextDevCore
-  initNextDevCore({
-    configInstance: {
-      baseURL: configApp.BASE_PATH,
-    },
-    setGlobalHeader: () => {
-      return {
-        // Authorization: '', default Bearer xxx
-      };
-    },
-  });
-
-  //* axios Interceptor
-  addRequestInterceptor(...commonRequestInterceptor);
-  addResponseInterceptor(...commonResponseInterceptor);
+  // if (!getToken()?.token) {
+  //   setToken({ token: configApp.TOKEN });
+  // }
 
   return (
     <>
