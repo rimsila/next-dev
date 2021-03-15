@@ -49,7 +49,7 @@ $ yarn test --coverage
 
 ```bash
 # Take core package as an example
-git tag @wetrial/core@1.0.0-beta1
+git tag @next-dev/core@1.0.0-beta1
 ```
 
 3. Submit according to the git commit specification (will be released automatically)
