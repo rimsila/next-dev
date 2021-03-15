@@ -208,7 +208,7 @@ const commonResponseWithRefreshTokenInterceptor = [
             }
 
             setToken({
-              token: getToken()?.token,
+              ...getToken(),
               refreshToken: result?.apiKey,
             });
             // Token has been refreshed, retry all requests in the queue

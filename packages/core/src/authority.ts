@@ -11,6 +11,10 @@ export interface ITokenProps {
    * Refresh token value
    */
   refreshToken?: string;
+  /**
+   * accessKey value
+   */
+  accessKey?: string;
 }
 
 export const configTokenName = (tokenName: string) => {
