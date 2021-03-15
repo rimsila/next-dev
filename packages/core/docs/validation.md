@@ -1,14 +1,15 @@
 ---
 title: antd default validation
-order: 1
+order: 3
 nav:
-  path: /core
-  order: 3
   title: Core library
+  order: 3
+  path: /core
 group:
   title: 'Core library'
-  path: /core
+  path: /
 ---
+
 
 # validation antd form
 

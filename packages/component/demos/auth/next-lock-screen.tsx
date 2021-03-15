@@ -4,7 +4,20 @@ import { onFinish } from '../utils/function';
 
 const data = [
   {
-    item: <NextLockScreen {...{ onFinish }} />,
+    item: (
+      <NextLockScreen
+        {...{
+          onFinish,
+          next: {
+            colProps: {
+              style: {
+                maxWidth: 400,
+              },
+            },
+          },
+        }}
+      />
+    ),
     copyCode: `<NextSignIn  {...{ onFinish }}/>`,
   },
 ];

@@ -4,7 +4,20 @@ import { onFinish } from '../utils/function';
 
 const data = [
   {
-    item: <ResetPassword {...{ onFinish }} />,
+    item: (
+      <ResetPassword
+        {...{
+          onFinish,
+          next: {
+            colProps: {
+              style: {
+                minWidth: 400,
+              },
+            },
+          },
+        }}
+      />
+    ),
     copyCode: `<NextSignIn  {...{ onFinish }}/>`,
   },
 ];

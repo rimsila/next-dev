@@ -53,7 +53,7 @@ const ForgotPassword = ({ next, ...rest }: IProp) => {
   const { getMessage } = useIntl();
 
   return (
-    <Col className="box_extend" {...LAYOUT_COL_AUTH} {...next?.colProps}>
+    <Col className="box_shadow" {...LAYOUT_COL_AUTH} {...next?.colProps}>
       <img
         src={next?.logo || logo}
         alt={next?.alt || alt}

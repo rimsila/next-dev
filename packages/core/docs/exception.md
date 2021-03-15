@@ -1,5 +1,5 @@
 ---
-title: Global exception
+title: 'no data'
 order: 16
 nav:
   title: Core library
@@ -15,12 +15,3 @@ group:
 Provide basic exception base class
 
 ## How to use
-
-```tsx |pure
-import catchError from '@next-dev/core/es/catchError';
-```
-
-```tsx |pure
-const get = async () => await httpRequest('get', '/users').catch(catchError);
-// catchError Global exception
-```

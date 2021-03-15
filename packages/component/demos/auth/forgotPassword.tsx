@@ -12,6 +12,11 @@ const data = [
             submitBtnProps: {
               btnJustify: 'flex-start',
             },
+            colProps: {
+              style: {
+                minWidth: 400,
+              },
+            },
           },
         }}
       />
@@ -37,6 +42,11 @@ const data = [
           next: {
             logoAlign: 'als-center',
             title: 'next dev',
+            colProps: {
+              style: {
+                minWidth: 400,
+              },
+            },
           },
         }}
       />
@@ -59,8 +69,12 @@ const data = [
         {...{
           onFinish,
           next: {
-            logoAlign: 'gx-justify-content-center',
             submitBtnProps: { btnJustify: 'flex-end' },
+            colProps: {
+              style: {
+                minWidth: 400,
+              },
+            },
           },
         }}
       />

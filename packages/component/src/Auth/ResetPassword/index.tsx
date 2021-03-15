@@ -29,7 +29,7 @@ const ResetPassword = ({ next, ...rest }: IProp) => {
   } = defaultProps;
 
   return (
-    <Col className="box_extend" {...LAYOUT_COL_AUTH} {...next?.colProps}>
+    <Col className="box_shadow" {...LAYOUT_COL_AUTH} {...next?.colProps}>
       <div className="gx-login-content">
         <div className="gx-login-header">
           <img
@@ -49,7 +49,6 @@ const ResetPassword = ({ next, ...rest }: IProp) => {
             rules={[
               {
                 required: true,
-                message: 'Please input your password!',
               },
             ]}
             name="password"
@@ -62,7 +61,6 @@ const ResetPassword = ({ next, ...rest }: IProp) => {
             rules={[
               {
                 required: true,
-                message: 'Please confirm your password!',
               },
             ]}
           >

@@ -11,9 +11,7 @@ import {
   request,
 } from '../../src/nextRequest';
 import { getToken } from '../../src/authority';
-
-export const BASE_API_Graph_URL = 'https://powerful-chamber-29893.herokuapp.com/graphql';
-export const AUTH_KEY = '2aee142b-1853-4263-a3a3-a4a1d919b9dd-1613235477420';
+import { configApp } from '../../../../config';
 
 export async function nextRequest<TResult = any>(opt?: IRequestOption) {
   const { hasParamData } = opt || {};
@@ -26,37 +24,39 @@ export async function nextRequest<TResult = any>(opt?: IRequestOption) {
         },
       }
     : {};
+
   /**
    * @configInstance
    */
-  configRefreshToken(async () => {
-    const resApi = await axios.post(BASE_API_Graph_URL, {
-      query: `
-          mutation RequestApiKey{
-            requestApiKey(authKey: "${AUTH_KEY}"){
-              apiKey
-            }
-          }
-      `,
-    });
 
-    return resApi?.data?.data?.requestApiKey;
-  });
+  // configRefreshToken(async () => {
+  //   const resApi = await axios.post(BASE_API_Graph_URL, {
+  //     query: `
+  //         mutation RequestApiKey{
+  //           requestApiKey(authKey: "${AUTH_KEY}"){
+  //             apiKey
+  //           }
+  //         }
+  //     `,
+  //   });
+
+  //   return resApi?.data?.data?.requestApiKey;
+  // });
 
   configInstance({
-    baseURL: BASE_API_Graph_URL,
+    baseURL: configApp?.BASE_GRAPH,
   });
 
   /**
    * @configGlobalHeader set header default id Bearer auth
    */
 
-  configGlobalHeader(() => {
-    return {
-      'api-key': getToken()?.refreshToken as string,
-      Authorization: `Bearer ${getToken()?.token}`,
-    };
-  });
+  // configGlobalHeader(() => {
+  //   return {
+  //     'api-key': getToken()?.refreshToken as string,
+  //     Authorization: `Bearer ${getToken()?.token}`,
+  //   };
+  // });
 
   /**
    * @axiosInterceptor handle global res and req
@@ -86,7 +86,6 @@ export async function nextRequest<TResult = any>(opt?: IRequestOption) {
     return response?.data;
   } catch (catchAxiosError) {
     //* catchError error
-
     return catchAxiosError;
   }
 }

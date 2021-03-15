@@ -2,10 +2,15 @@ import React from 'react';
 import { Avatar, Button, Form, Input } from 'antd';
 import { useIntl, enUS } from '@next-dev/provider/es';
 import { FormProps } from 'antd/lib/form';
+import { Col, ColProps } from 'antd/lib/grid';
 
 const FormItem = Form.Item;
 
-type IProp = FormProps;
+type IProp = {
+  next: {
+    colProps?: ColProps;
+  };
+} & FormProps;
 
 //* ---------------- default props --------------- */
 export const defaultProps = {
@@ -17,11 +22,11 @@ export const defaultProps = {
   },
 };
 
-const NextLockScreen = ({ ...rest }: IProp) => {
+const NextLockScreen = ({ next, ...rest }: IProp) => {
   const { getMessage } = useIntl();
 
   return (
-    <div className="gx-login-container">
+    <Col className="box_shadow" {...next?.colProps}>
       <div className="gx-login-content gx-text-center">
         <div className="gx-login-header">
           <Avatar
@@ -50,7 +55,7 @@ const NextLockScreen = ({ ...rest }: IProp) => {
           </FormItem>
         </Form>
       </div>
-    </div>
+    </Col>
   );
 };
 

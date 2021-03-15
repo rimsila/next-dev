@@ -45,15 +45,17 @@ const NextSignIn = memo(({ next, ...rest }: IProp) => {
       logo: 'https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg',
       forgotPassPath: next?.forgotPassPath,
       registerPath: '',
+      titleAlign: 'text-center',
     },
   };
 
   const {
-    next: { title, forgotPassPath, registerPath },
+    next: { title, forgotPassPath, registerPath, logo, titleAlign },
   } = defaultProps;
   return (
     <Col className="box_shadow" {...LAYOUT_COL_AUTH} {...next?.colProps}>
-      <div className={classNames('gx-login-header', next?.titleAlign)}>
+      <div className={classNames(next?.titleAlign || titleAlign)}>
+        <img src={next?.logo || logo} alt="logo" title="logo" width={50} />
         <h1>{next?.title || title}</h1>
       </div>
       <Form {...rest}>

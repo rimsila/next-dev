@@ -1,81 +1,73 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { NextButton } from '@wetrial/component';
-import { AUTH_KEY, BASE_API_Graph_URL, nextRequest } from './util/request';
+import { nextRequest } from './util/request';
 import { CoreRoot } from './util/root';
-import { axios } from '../src/nextRequest';
-import { getToken, setToken } from '../src/authority';
 
 export default () => {
-  const userRequestApiKey = async () => {
-    const res = axios.post(BASE_API_Graph_URL, {
-      query: `
-          mutation RequestApiKey{
-            requestApiKey(authKey: "${AUTH_KEY}"){
-              apiKey
-            }
-          }
-      `,
-    });
-    return res;
-  };
+  const [data, setData] = useState<any>({});
 
-  const userLogin = async (variables: any) => {
+  const FetchPost = async (variables: { id?: string }) => {
     return await nextRequest({
       data: {
         variables,
         query: `
-        mutation UserLogin($password: String!, $username: String!){
-          login(password: $password , username: $username){
-           token
+        query FetchPost($id: ID!){
+          post(id: $id){
+           id
+           title
+           body
           }
         }
         `,
       },
+    }).then((res) => {
+      console.log('res1', res);
+      setData(res?.post);
     });
   };
 
-  useEffect(() => {
-    userRequestApiKey().then((res) => {
-      setToken({
-        refreshToken: res?.data?.data?.requestApiKey?.apiKey,
-        token: getToken()?.token,
-      });
-    });
-  }, []);
-
-  const data = [
+  const data1 = [
     {
       item: (
         <>
-          <NextButton type="primary">Fetch User Name</NextButton>
-
           <NextButton
             mt={4}
             type="primary"
-            onClick={() => {
-              userLogin({
-                username: 'admin',
-                password: 'admin',
-              }).then((res) => {
-                console.log('444', res);
-                setToken({
-                  token: res?.login?.token,
-                  refreshToken: getToken()?.refreshToken,
-                });
-              });
-            }}
+            nextTheme="btn_cyan_8"
+            onClick={() =>
+              FetchPost({
+                id: '1',
+              })
+            }
           >
-            login
+            Fetch Title: {data?.title ? data?.title?.substring(0, 15) : '______'}
           </NextButton>
         </>
       ),
-      copyCode: `await get('/users');`,
+      copyCode: `const FetchPost = async (variables: { id?: string }) => {
+        return await nextRequest({
+          data: {
+            variables,
+            query: 'query FetchPost($id: ID!){
+              post(id: $id){
+               id
+               title
+               body
+              }
+            }
+            ' // change it to template string
+          },
+        }).then((res) => {
+          console.log('res1', res);
+          setData(res?.post);
+        })
+      }`,
     },
   ];
 
   return (
     <>
-      <CoreRoot data={data} />
+      <CoreRoot data={data1} />
     </>
   );
 };
