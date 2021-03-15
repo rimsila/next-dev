@@ -7,7 +7,6 @@ export const NextButton: FC<NextButtonProps> = ({
   nextTheme,
   btnDisplay = 'flex',
   btnJustify = 'center',
-  customStyle,
   btnContainerCls,
   children,
   disabled,
@@ -28,25 +27,19 @@ export const NextButton: FC<NextButtonProps> = ({
   return (
     <div
       {...{
+        className: classnames(!disabled && nextTheme, btnContainerCls),
+        ...btnContainerProps,
         style: {
           display: btnDisplay,
           justifyContent: btnJustify,
           margin: mSpacing,
           ...btnContainerProps?.style,
         },
-        ...btnContainerProps,
-        className: classnames(!disabled && nextTheme, btnContainerCls),
       }}
     >
       <Button
         {...{
           disabled: Boolean(rest.loading),
-          style: {
-            color: customStyle?.textColor,
-            backgroundColor: customStyle?.backgroundColor,
-            borderColor: customStyle?.backgroundColor,
-            ...rest?.style,
-          },
           ...rest,
         }}
       >

@@ -15,10 +15,16 @@ group:
 
 <code src="../demos/icon-font/base.tsx" />
 
-## IconFont
+## Usage 
 
 - small icon bundle size by just add icon you want into collection it will include only icons that you add here: http://www.iconfont.cn
-- See the introduction bellow
+  
+```tsx |pure
+import IconFont from'@next-dev/component/es/IconFont'; 
+
+<IconFont type="icon-list-icon-github" />
+```
+
 
 ## API
 

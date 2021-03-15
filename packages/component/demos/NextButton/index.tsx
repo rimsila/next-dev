@@ -1,15 +1,23 @@
 import React, { useState } from 'react';
-import { NextButton, MapItem, NextRow } from '@wetrial/component';
+import { NextButton, MapItem, NextRow, IconFont } from '@wetrial/component';
 import { DownloadOutlined, SearchOutlined } from '@ant-design/icons';
 import { NextBtnType, btnTypeArr, btnType } from '../../src/NextButton/type';
 import { Divider, Select } from 'antd';
 import classnames from 'classnames';
-import css from '../utils/custom-background.less';
 
 export default () => {
   const [type, setType] = useState<NextBtnType>('btn_cyan_8');
 
   const data = [
+    {
+      id: -1,
+      item: (
+        <NextButton type="primary" nextTheme="btn_warning" icon={<IconFont type="icon-cambodia" />}>
+          NextIcon
+        </NextButton>
+      ),
+      copyCode: `<NextButton type="primary">Primary Button</NextButton>`,
+    },
     {
       id: 1,
       item: (
@@ -46,7 +54,7 @@ export default () => {
       id: 4,
       item: (
         <NextButton type="primary" danger shape="round">
-          Primary danger round
+          Primary round
         </NextButton>
       ),
       copyCode: `<NextButton type="primary" danger shape="round">
@@ -118,44 +126,44 @@ export default () => {
       id: 10,
       item: (
         <NextButton type="link" nextTheme="btn_error">
-          link warning
+          link
         </NextButton>
       ),
-      copyCode: `<NextButton type="link" next="${type}">
-      link warning
+      copyCode: `<NextButton type="link" nextTheme="${type}">
+      link 
     </NextButton>`,
     },
     {
       id: 11,
       item: (
         <NextButton type="primary" nextTheme={type}>
-          btn warning
+          btn
         </NextButton>
       ),
-      copyCode: `   <NextButton type="link" next="${type}">
-      link warning
+      copyCode: `   <NextButton type="link" nextTheme="${type}">
+      link 
     </NextButton>`,
     },
     {
       id: 12,
       item: (
         <NextButton type="dashed" nextTheme={type}>
-          dashed warning
+          dashed
         </NextButton>
       ),
-      copyCode: `   <NextButton type="dashed" next="${type}">
-      dashed warning
+      copyCode: `   <NextButton type="dashed" nextTheme="${type}">
+      dashed 
     </NextButton>`,
     },
     {
       id: 13,
       item: (
         <NextButton type="default" nextTheme={type}>
-          default warning
+          default
         </NextButton>
       ),
-      copyCode: `<NextButton type="default" next="${type}">
-      default warning
+      copyCode: `<NextButton type="default" nextTheme="${type}">
+      default 
     </NextButton>`,
     },
     {
@@ -165,7 +173,7 @@ export default () => {
           text warning
         </NextButton>
       ),
-      copyCode: `<NextButton type="text" next="${type}">
+      copyCode: `<NextButton type="text" nextTheme="${type}">
       text warning
     </NextButton>`,
     },
@@ -176,7 +184,7 @@ export default () => {
           round warning
         </NextButton>
       ),
-      copyCode: `  <NextButton next="${type}" shape="round">
+      copyCode: `  <NextButton nextTheme="${type}" shape="round">
       round warning
     </NextButton>`,
     },
@@ -187,7 +195,7 @@ export default () => {
           primary round warning
         </NextButton>
       ),
-      copyCode: `  <NextButton next="${type}" shape="round">
+      copyCode: `  <NextButton nextTheme="${type}" shape="round">
       round warning
     </NextButton>`,
     },
@@ -198,7 +206,7 @@ export default () => {
           loading warning
         </NextButton>
       ),
-      copyCode: ` <NextButton next="${type}" loading>
+      copyCode: ` <NextButton nextTheme="${type}" loading>
       loading warning
    </NextButton>`,
     },
@@ -222,7 +230,7 @@ export default () => {
               <Select.Option
                 value={i}
                 key={i}
-                className={classnames(css[i])}
+                className={classnames([i])}
                 style={{ color: 'black' }}
               >
                 {i}

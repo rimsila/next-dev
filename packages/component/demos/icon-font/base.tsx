@@ -33,7 +33,7 @@ export default () => {
   });
   return (
     <>
-      <NextRow>
+      {/* <NextRow>
         <NextButton type="link" danger>
           Search Color:
         </NextButton>
@@ -55,7 +55,7 @@ export default () => {
             ))}
           </Select>
         </span>
-      </NextRow>
+      </NextRow> */}
       <MapItem {...{ data: schools1, antSpan: 2, width: 20 }} />
     </>
   );

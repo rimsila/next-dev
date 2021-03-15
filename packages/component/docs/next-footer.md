@@ -11,15 +11,19 @@ group:
   path: /common
 ---
 
-## Next Notification
+## Usage NextFooter
 
-`import { NextFooter } from'@wetrial/component'; `
+```tsx |pure
+import  NextFooter from'@next-dev/component/es/NextFooter'; 
 
-## Demo Footer NextTheme
+
+```
+
+## Demo 1 normal
 
 <code src="../demos/NextFooter" />
 
-## Demo Footer rc-theme
+## Demo 2: Row
 
 <code src="../demos/NextFooter/row.tsx" />
 
