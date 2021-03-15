@@ -17,7 +17,7 @@ This document mainly introduces how to use and plan style files in projects. If 
 
 ## less
 
-Wetrial-Template uses less as the style language by default. It is recommended to learn the relevant features of [less](http://lesscss.org/) before using it or when in doubt.
+next-dev uses less as the style language by default. It is recommended to learn the relevant features of [less](http://lesscss.org/) before using it or when in doubt.
 
 ## CSS Modules
 

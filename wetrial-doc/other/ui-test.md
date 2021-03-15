@@ -13,7 +13,7 @@ nav:
 
 UI testing is an important part of the project development process. Effective test cases can sort out business requirements, ensure the quality and progress of research and development, and allow engineers to refactor code and add new features with confidence.
 
-Wetrial-Template encapsulates a set of simple and easy-to-use React unit tests and E2E test solutions. Run the following commands in the project root directory to run the test cases.
+next-dev encapsulates a set of simple and easy-to-use React unit tests and E2E test solutions. Run the following commands in the project root directory to run the test cases.
 
 ```bash
 $ npm run test:all # execute all tests

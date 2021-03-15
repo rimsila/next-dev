@@ -15,11 +15,11 @@ nav:
 
 ### FC(Hook)
 
-Functional Components(FC) vs Class: There are three different ways to create React Component, `React.createClass` is ES5 not hard to code, then React release new `class` and `Stateless Functional Component` to ues With Es6 it more easier. But for now class component become rarely use instead by `Stateless Functional Component`. because of React release new feature call hook. What is different between `Class and Stateless`. Notice that `Stateless Functional Component` is not a Object, it's functional programming, a pure function, `without state` but after release hook we can use `state inside it`, but still no use for `this` keyword.
+Functional Components(FC) vs Class: There are three different ways to create React Component, `React.createClass` is ES5 it's hard to code, then React release new `class` and `Stateless Functional Component` to use With Es6 it more easier. But for now class component become rarely use instead by `Stateless Functional Component`. because of React release new feature call hook. What is different between `Class and Stateless`. Notice that `Stateless Functional Component` is not a Object, it's functional programming, a pure function, `without state` but after release hook we can use `state inside it`, but still no use `this` keyword and something relate with class.
 
-To define App Component for instance:
+To define `App Component` for instance:
 
-- Functional Component with state hook (it have style type in FC component)
+- Functional Component with state hook (it have many style type in FC component)
 
 - `function JS style`
 
@@ -76,14 +76,14 @@ Similar to HTML tag, Components can be nested in JSX.
 </App>
 ```
 
-#### Note: React Component support only only one html element
+#### Note: React Component support only one html element
 
 - `Error case`
 
 ```javascript
 const App = () => {
   return (
-    //it have two element div cause the error jsx
+    //it have two element div cause the error in jsx
     <div>Hello FC ES6</div>;
     <div>Hello FC ES6</div>;
   )
@@ -109,7 +109,7 @@ const App = () => {
 ```javascript
 const App = () => {
   return (
-    <> //<> it Fragment shorthand of <React.Fragment>
+    <> //<> it's Fragment shorthand of <React.Fragment> also can use key in full Fragment
       <div>Hello FC ES6</div>;
       <div>Hello FC ES6</div>;
     </>
@@ -122,9 +122,8 @@ const App = () => {
 Please beware using `className` instead of `class` for JSX styling, as `class` is preserved in JavaScript.
 
 ```html
-<h1 className="fancy">Hello dva</h1>
+<h1 className="fancy">Hello React</h1>
 ```
-
 #### JavaScript Expressions
 
 JavaScript expressions are wrapped inside pairs of curly brackets`{}` for JSX, it will execute and return.
@@ -194,12 +193,12 @@ const attrs = {
 
 ### Props
 
-Data handling is a key concept in React and it can be overwhelming for beginners. Data handles through `props`, `state` or `context` in React. But when using dva.js, all you need is just `props`, one of strengths that dva.js provides over React.
+Data handling is a key concept in React and it can be overwhelming for beginners. Data handles through `props`, `state` or `context` in React. But when using `redux`, all you need is just `props`, one of strengths that redux provides over React.
 
 ```javascript
 //component function
 function App(props) {
-  const { name="Jonh" } = props; // Destructing from props
+  const { name="Jonh" } = props || {}; // Destructing from props and || for prevent empty data cause error
   // Jonh is Default value of props name
   return <div>Hello {name}</div>;
 }
@@ -298,8 +297,6 @@ Thus will create different `className` when passing different types to App Compo
 <App type="submit" /> // btn btnLarge
 <App type="edit" />   // btn btnSmall
 ```
-
-## tsx syntax
 
 ## The life cycle
 
