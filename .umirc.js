@@ -63,7 +63,7 @@ export default {
         antd: resolve(__dirname, './node_modules/antd'),
         ...alias,
     },
-    resolve: { includes: [...tailPkgList, 'docs', 'wetrial-doc'] },
+    resolve: { includes: [...tailPkgList, 'docs', 'next-dev-doc'] },
     // locales: [['en-Us', '中文']],
     navs: [
         null,
