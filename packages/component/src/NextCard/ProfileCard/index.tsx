@@ -1,4 +1,4 @@
-import { IconFont } from '@wetrial/component';
+import IconFont from '../../IconFont/index';
 import { Space } from 'antd';
 import classNames from 'classnames';
 import isEmpty from 'lodash/isEmpty';
