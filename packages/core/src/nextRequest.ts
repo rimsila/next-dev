@@ -169,9 +169,9 @@ let requests: Function[] = [];
  */
 const commonResponseWithRefreshTokenInterceptor = [
   (response: AxiosResponse): any => {
-    console.log('ffs', response);
-
     const { data, config } = response;
+    console.log('ffs', data);
+
     const requestConfig = config as IRequestOption;
     if (requestConfig.responseType && requestConfig.responseType.toLowerCase() === 'arraybuffer') {
       return Promise.resolve(data);
@@ -184,8 +184,7 @@ const commonResponseWithRefreshTokenInterceptor = [
       }
     }
     if (data?.errors) {
-      const error = data?.errors[0].message;
-      const statusCode = error?.statusCode;
+      const statusCode = data?.errors[0].statusCode;
 
       if (!response || statusCode !== 401) {
         return Promise.reject(response);
