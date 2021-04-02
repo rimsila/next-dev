@@ -3,7 +3,6 @@ import { getToken, setToken } from './authority';
 import { newGuid } from './utils';
 import { encrypt, decrypt, encryptKey } from './crypto';
 import { CryptoType, IKeyValue } from './core';
-import { message } from 'antd';
 
 export type IRequestOption = {
   /**
@@ -31,24 +30,24 @@ export type IRequestOption = {
  * function alert/redirect/log message base on err/succ
  * @param configMsg
  */
-export const handlerFunc = (configMsg: { msg?: string; isErr?: boolean } & IRequestOption) => {
-  const { errorTip, fullTip, msg, isErr, debug, method } = configMsg || {};
-  const showTips = errorTip ? message.success : message.error;
-  const showFullTip = fullTip && isErr ? message.error : message.success;
+// export const handlerFunc = (configMsg: { msg?: string; isErr?: boolean } & IRequestOption) => {
+//   const { errorTip, fullTip, msg, isErr, debug, method } = configMsg || {};
+//   const showTips = errorTip ? message.success : message.error;
+//   const showFullTip = fullTip && isErr ? message.error : message.success;
 
-  const showMsg =
-    (typeof msg === 'string' && msg) ||
-    (isErr ? 'something went wrong. please try gain!' : 'successfully!');
+//   const showMsg =
+//     (typeof msg === 'string' && msg) ||
+//     (isErr ? 'something went wrong. please try gain!' : 'successfully!');
 
-  if (debug) {
-    console.log(`debug ${isErr ? 'err' : 'succ'}`, configMsg);
-  }
+//   if (debug) {
+//     console.log(`debug ${isErr ? 'err' : 'succ'}`, configMsg);
+//   }
 
-  if (fullTip && method !== 'get') {
-    return showFullTip(showMsg);
-  }
-  return showTips(showMsg);
-};
+//   if (fullTip && method !== 'get') {
+//     return showFullTip(showMsg);
+//   }
+//   return showTips(showMsg);
+// };
 
 // eslint-disable-next-line
 let instance = axios.create({
