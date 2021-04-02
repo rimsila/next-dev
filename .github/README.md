@@ -1,4 +1,4 @@
-# Contributing to wetrials
+# Contributing to Next Dev
 
 ## Set up
 
