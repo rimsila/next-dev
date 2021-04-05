@@ -32,6 +32,7 @@ interface IProp extends FormProps {
     colProps?: ColProps;
     isWithoutEmail?: boolean;
     isHasRemember?: boolean;
+    showRegister?: boolean;
   };
 }
 
@@ -44,14 +45,16 @@ const NextSignIn = memo(({ next, ...rest }: IProp) => {
       title: 'Sign In',
       logo: 'https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg',
       forgotPassPath: next?.forgotPassPath,
-      registerPath: '',
+      registerPath: '/register',
       titleAlign: 'text-center',
+      showRegister: next?.showRegister,
     },
   };
 
   const {
-    next: { title, forgotPassPath, registerPath, logo, titleAlign },
+    next: { title, forgotPassPath, registerPath, logo, titleAlign, showRegister },
   } = defaultProps;
+
   return (
     <Col className="box_shadow" {...LAYOUT_COL_AUTH} {...next?.colProps}>
       <div className={classNames(next?.titleAlign || titleAlign)}>
@@ -85,6 +88,7 @@ const NextSignIn = memo(({ next, ...rest }: IProp) => {
         >
           <Input prefix={<LockOutlined />} type="password" placeholder="Password" />
         </FormItem>
+
         {(next?.isHasRemember || forgotPassPath) && (
           <FormItem>
             {next?.isHasRemember && <Checkbox>Remember me</Checkbox>}
@@ -92,7 +96,7 @@ const NextSignIn = memo(({ next, ...rest }: IProp) => {
           </FormItem>
         )}
 
-        {registerPath && (
+        {showRegister && (
           <FormItem>
             <Link to={next?.registerPath || registerPath}>Register Here</Link>
           </FormItem>

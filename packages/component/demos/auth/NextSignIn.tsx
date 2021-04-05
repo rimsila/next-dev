@@ -9,11 +9,13 @@ const data = [
         {...{
           onFinish,
           next: {
-            title: 'SignIn validate email',
+            title: 'SignIn without validate email',
             isWithoutEmail: true,
+            registerPath: '#',
+            showRegister: true,
             colProps: {
               style: {
-                minWidth: 400,
+                minWidth: 450,
               },
             },
           },

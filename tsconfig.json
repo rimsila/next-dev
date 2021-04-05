@@ -13,6 +13,7 @@
     "declaration": true,
     "skipLibCheck": true,
     "noImplicitAny": false,
+    "resolveJsonModule": true,
     "removeComments": true,
     "paths": {
       "@next-dev/core/*": ["./packages/core/es/*"],

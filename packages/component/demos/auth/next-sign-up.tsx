@@ -9,6 +9,11 @@ const data = [
         {...{
           onFinish,
           next: {
+            firstNameField: true,
+            lastNameField: true,
+            emailFiled: true,
+            phoneCodeFiled: true,
+            genderField: true,
             colProps: {
               style: {
                 minWidth: 400,
@@ -18,7 +23,54 @@ const data = [
         }}
       />
     ),
-    copyCode: `<NextSignIn  {...{ onFinish }}/>`,
+    copyCode: `
+    <NextSignUp
+        {...{
+          onFinish,
+          next: {
+            colProps: {
+              style: {
+                minWidth: 400,
+              },
+            },
+          },
+        }}
+      />
+    `,
+  },
+  {
+    item: (
+      <NextSignUp
+        {...{
+          onFinish,
+          next: {
+            confirmPasswordFiled: true,
+            passwordFiled: true,
+            colProps: {
+              style: {
+                minWidth: 400,
+              },
+            },
+          },
+        }}
+      />
+    ),
+    copyCode: `
+    <NextSignUp
+        {...{
+          onFinish,
+          next: {
+            hideConfirmPassword: true,
+            hidePassword: true,
+            colProps: {
+              style: {
+                minWidth: 400,
+              },
+            },
+          },
+        }}
+      />
+    `,
   },
 ];
 
