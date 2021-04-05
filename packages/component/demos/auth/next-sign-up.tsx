@@ -8,6 +8,9 @@ const data = [
       <NextSignUp
         {...{
           onFinish,
+          initialValues: {
+            countryCode: '+855',
+          },
           next: {
             firstNameField: true,
             lastNameField: true,

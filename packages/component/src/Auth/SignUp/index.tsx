@@ -30,6 +30,7 @@ interface IProp extends FormProps {
     lastNameField?: boolean;
     userNameField?: boolean;
     emailFiled?: boolean;
+    emailFiledType: 'string' | 'email';
     genderField?: boolean;
     phoneCodeFiled?: boolean;
     rememberField?: boolean;
@@ -86,7 +87,10 @@ const NextSignUp = ({ next, ...rest }: IProp) => {
 
         {/* //*--------------- email --------------- */}
         {next?.emailFiled && (
-          <FormItem name="email" rules={[{ required: true }]}>
+          <FormItem
+            name="email"
+            rules={[{ required: true, type: next?.emailFiledType || 'email' }]}
+          >
             <Input prefix={<MailOutlined />} placeholder="Email address" />
           </FormItem>
         )}
@@ -116,7 +120,7 @@ const NextSignUp = ({ next, ...rest }: IProp) => {
             <Input
               addonBefore={
                 <Form.Item name="countryCode" noStyle>
-                  <Select style={{ width: 90 }} defaultValue="+855" showSearch>
+                  <Select style={{ width: 90 }} showSearch>
                     {countryCode?.map((v) => {
                       return (
                         <Option key={v?.dial_code} value={v?.dial_code}>
