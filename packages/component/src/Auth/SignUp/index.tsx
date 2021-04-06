@@ -30,7 +30,7 @@ interface IProp extends FormProps {
     lastNameField?: boolean;
     userNameField?: boolean;
     emailFiled?: boolean;
-    emailFiledType: 'string' | 'email';
+    emailFiledType?: 'string' | 'email';
     genderField?: boolean;
     phoneCodeFiled?: boolean;
     rememberField?: boolean;

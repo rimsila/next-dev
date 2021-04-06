@@ -9,9 +9,6 @@ const data = [
         {...{
           onFinish,
           next: {
-            submitBtnProps: {
-              btnJustify: 'flex-start',
-            },
             colProps: {
               style: {
                 minWidth: 400,

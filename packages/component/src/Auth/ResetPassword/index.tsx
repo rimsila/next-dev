@@ -4,6 +4,7 @@ import { useIntl } from '@next-dev/provider/es';
 import { FormProps } from 'antd/lib/form';
 import { ColProps } from 'antd/lib/col';
 import { LAYOUT_COL_AUTH } from '@next-dev/core/es/constants';
+import classNames from 'classnames';
 
 const FormItem = Form.Item;
 
@@ -12,39 +13,65 @@ interface IProp extends FormProps {
     logo?: string;
     logoWidth?: string;
     colProps?: ColProps;
+    titleAlign?: string;
+    title?: string;
+    type?: 'reset' | 'verify';
+    verifyCodeField?: boolean;
   };
 }
 
-//* ---------------- default props --------------- */
-export const defaultProps = {
-  next: {
-    logo: 'https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg',
-    logoWidth: 40,
-  },
-};
 const ResetPassword = ({ next, ...rest }: IProp) => {
   const { getMessage } = useIntl();
   const {
-    next: { logo, logoWidth },
-  } = defaultProps;
+    logo = 'https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg',
+    logoWidth = 40,
+    type = 'reset',
+    verifyCodeField,
+  } = next;
+
+  //* ---------------- default props --------------- */
 
   return (
     <Col className="box_shadow" {...LAYOUT_COL_AUTH} {...next?.colProps}>
-      <div className="gx-login-content">
-        <div className="gx-login-header">
+      <>
+        <div className={classNames(next?.titleAlign || 'text-center')}>
           <img
             src={next?.logo || logo}
             width={next?.logoWidth || logoWidth}
-            alt="wieldy"
-            title="wieldy"
+            alt="logo"
+            title="logo"
           />
         </div>
-        <div className="gx-mb-4">
-          <h2>Reset Password</h2>
-          <p> {getMessage('appModule_enterPasswordReset', '')}</p>
+        <div>
+          {type === 'reset' && (
+            <>
+              <h2>Reset Password</h2>
+              <p> {getMessage('appModule_enterPasswordReset', '')}</p>
+            </>
+          )}
+
+          {/* //* --------------- Verify -------------- */}
+          {type === 'verify' && (
+            <>
+              <h2>Verify Account</h2>
+              <p> {getMessage('app_userAuth_verify', '')}</p>
+            </>
+          )}
         </div>
 
-        <Form className="gx-login-form gx-form-row0" {...rest}>
+        <Form {...rest}>
+          {verifyCodeField && (
+            <FormItem
+              rules={[
+                {
+                  required: true,
+                },
+              ]}
+              name="verifyCode"
+            >
+              <Input type="password" placeholder="Verify Code" />
+            </FormItem>
+          )}
           <FormItem
             rules={[
               {
@@ -68,12 +95,13 @@ const ResetPassword = ({ next, ...rest }: IProp) => {
           </FormItem>
 
           <FormItem>
-            <Button type="primary" htmlType="submit">
-              {getMessage('app_userAuth_reset', '')}
+            <Button type="primary" htmlType="submit" block>
+              {type === 'verify' && getMessage('app_userAuth_btn_verify', '')}
+              {type === 'reset' && getMessage('app_userAuth_reset', '')}
             </Button>
           </FormItem>
         </Form>
-      </div>
+      </>
     </Col>
   );
 };

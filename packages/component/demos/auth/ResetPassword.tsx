@@ -9,6 +9,8 @@ const data = [
         {...{
           onFinish,
           next: {
+            type: 'verify',
+            verifyCodeField: true,
             colProps: {
               style: {
                 minWidth: 400,
