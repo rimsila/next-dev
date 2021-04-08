@@ -11,6 +11,8 @@ const data = [
           next: {
             type: 'verify',
             verifyCodeField: true,
+            confirmPasswordFiled: true,
+            passwordFiled: true,
             colProps: {
               style: {
                 minWidth: 400,

@@ -33,6 +33,7 @@ interface IProp extends FormProps {
     isWithoutEmail?: boolean;
     isHasRemember?: boolean;
     showRegister?: boolean;
+    verifyLink?: string;
   };
 }
 
@@ -96,11 +97,21 @@ const NextSignIn = memo(({ next, ...rest }: IProp) => {
           </FormItem>
         )}
 
-        {showRegister && (
-          <FormItem>
-            <Link to={next?.registerPath || registerPath}>Register Here</Link>
-          </FormItem>
-        )}
+        <FormItem>
+          {showRegister && (
+            <>
+              <span>Don&apos;t have account yet? </span>
+              <Link to={next?.registerPath || registerPath}> Register Here</Link>
+            </>
+          )}
+          <br />
+          {next?.verifyLink && (
+            <>
+              <span>Your account not yet verify? </span>
+              <Link to={next?.verifyLink || registerPath}>Verify Here</Link>
+            </>
+          )}
+        </FormItem>
 
         {/* //* ---------------- isHideSubmitBtn --------------- */}
         {!next?.isHideSubmitBtn && (

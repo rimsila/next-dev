@@ -13,6 +13,7 @@ const data = [
             isWithoutEmail: true,
             registerPath: '#',
             showRegister: true,
+            verifyLink: '#',
             colProps: {
               style: {
                 minWidth: 450,

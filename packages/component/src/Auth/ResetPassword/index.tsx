@@ -5,6 +5,7 @@ import { FormProps } from 'antd/lib/form';
 import { ColProps } from 'antd/lib/col';
 import { LAYOUT_COL_AUTH } from '@next-dev/core/es/constants';
 import classNames from 'classnames';
+import { LockOutlined } from '@ant-design/icons';
 
 const FormItem = Form.Item;
 
@@ -17,6 +18,8 @@ interface IProp extends FormProps {
     title?: string;
     type?: 'reset' | 'verify';
     verifyCodeField?: boolean;
+    passwordFiled?: boolean;
+    confirmPasswordFiled?: boolean;
   };
 }
 
@@ -69,30 +72,40 @@ const ResetPassword = ({ next, ...rest }: IProp) => {
               ]}
               name="verifyCode"
             >
-              <Input type="password" placeholder="Verify Code" />
+              <Input prefix={<LockOutlined />} type="text" placeholder="Verify Code" />
             </FormItem>
           )}
-          <FormItem
-            rules={[
-              {
-                required: true,
-              },
-            ]}
-            name="password"
-          >
-            <Input type="password" placeholder="New Password" />
-          </FormItem>
+          {/* //*--------------- password --------------- */}
+          {next?.passwordFiled && (
+            <FormItem name="password" rules={[{ required: true }]}>
+              <Input prefix={<LockOutlined />} type="password" placeholder="Password" />
+            </FormItem>
+          )}
 
-          <FormItem
-            name="confirm"
-            rules={[
-              {
-                required: true,
-              },
-            ]}
-          >
-            <Input placeholder="Retype New Password" type="password" />
-          </FormItem>
+          {/* //*--------------- confirm-password --------------- */}
+          {next?.confirmPasswordFiled && (
+            <FormItem
+              dependencies={['password']}
+              hasFeedback
+              name="confirm-password"
+              rules={[
+                {
+                  required: true,
+                },
+                ({ getFieldValue }) => ({
+                  validator(_, value) {
+                    if (!value || getFieldValue('password') === value) {
+                      return Promise.resolve();
+                    }
+                    // eslint-disable-next-line prefer-promise-reject-errors
+                    return Promise.reject('The two passwords that you entered do not match!');
+                  },
+                }),
+              ]}
+            >
+              <Input prefix={<LockOutlined />} type="password" placeholder="Confirm Password" />
+            </FormItem>
+          )}
 
           <FormItem>
             <Button type="primary" htmlType="submit" block>
