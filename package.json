@@ -33,10 +33,12 @@
         "yall": "yarn kill4000 && yarn build:es && yarn ycom && yarn ycore && yarn yhook && yarn ypro && yarn start",
         "yall1": " yarn build:es && yarn ycom && yarn ycore && yarn yhook && yarn ypro "
     },
-    "size-limit": [{
-        "path": "dist/bundle.js",
-        "limit": "10 KB"
-    }],
+    "size-limit": [
+        {
+            "path": "dist/bundle.js",
+            "limit": "10 KB"
+        }
+    ],
     "browserslist": [
         "last 2 versions",
         "Firefox ESR",
@@ -115,8 +117,13 @@
         "prettier": "^2.0.1",
         "pretty-quick": "^3.0.0",
         "query-string": "^6.11.1",
+        "rc-banner-anim": "^2.4.5",
+        "rc-queue-anim": "^1.8.5",
+        "rc-scroll-anim": "^2.7.6",
+        "rc-tween-one": "^3.0.0-beta.7",
         "react": "^16.13.1",
         "react-dom": "^16.13.1",
+        "react-lifecycles-compat": "^3.0.4",
         "react-markdown": "^4.3.1",
         "react-test-renderer": "^16.13.1",
         "size-limit": "^4.6.0",
@@ -139,5 +146,6 @@
         "src/**/*.less",
         "config/**/*.js*",
         "scripts/**/*.js"
-    ]
+    ],
+    "dependencies": {}
 }

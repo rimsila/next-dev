@@ -31,7 +31,6 @@
     "homepage": "https://github.com/rimsila/next-dev/tree/master/packages/component#readme",
     "peerDependencies": {
         "@ant-design/icons": "^4.x",
-        "ahooks": "^2.x",
         "antd": "^4.x",
         "path-to-regexp": "^6.x",
         "react": "^16.x"
@@ -40,13 +39,11 @@
         "access": "public"
     },
     "dependencies": {
-        "ahooks": "^2.5.0",
-        "rc-footer": "^0.6.3",
+        "rc-footer": "^0.6.6",
         "@ant-design/pro-card": "1.5.1"
 
     },
     "devDependencies": {
         "csstype": "^3.0.5"
-
     }
 }

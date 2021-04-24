@@ -3,12 +3,12 @@ title: NextFooter
 order: 40
 nav:
   title: Component
-  order: 4
+  order: 1
   path: /component
 group:
-  title: General
-  order: 4
-  path: /common
+  title: Footer
+  order: 1
+  path: /footer
 ---
 
 ## Usage NextFooter
@@ -21,11 +21,11 @@ import  NextFooter from'@next-dev/component/es/NextFooter';
 
 ## Demo 1 normal
 
-<code src="../demos/NextFooter" />
+<code src="../../demos/NextFooter" />
 
 ## Demo 2: Row
 
-<code src="../demos/NextFooter/row.tsx" />
+<code src="../../demos/NextFooter/row.tsx" />
 
 ## API
 
