@@ -27,12 +27,13 @@ class Teams1 extends React.PureComponent {
     });
 
   render() {
-    const { ...props } = this.props;
+    const { ...props } = this.props as any;
     const titleWrapper = {
       className: 'title-wrapper',
       children: [
         {
           name: 'title',
+          // @ts-ignore
           children: this.props.sectionTitle,
         },
       ],

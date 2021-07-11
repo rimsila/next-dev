@@ -32,7 +32,6 @@
     "peerDependencies": {
         "@ant-design/icons": "^4.x",
         "antd": "^4.x",
-        "path-to-regexp": "^6.x",
         "react": "^16.x"
     },
     "publishConfig": {
@@ -40,8 +39,12 @@
     },
     "dependencies": {
         "rc-footer": "^0.6.6",
-        "@ant-design/pro-card": "1.5.1"
-
+        "@ant-design/pro-card": "1.5.1",
+        "rc-banner-anim": "^2.4.5",
+        "rc-queue-anim": "^1.8.5",
+        "rc-scroll-anim": "^2.7.6",
+        "rc-texty": "^0.2.0",
+        "rc-tween-one": "^3.0.0-beta.7"
     },
     "devDependencies": {
         "csstype": "^3.0.5"

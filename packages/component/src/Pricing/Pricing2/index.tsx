@@ -6,7 +6,7 @@ import { getChildrenToRender } from '../../utils/common';
 
 import './index.less';
 
-const getBlock = (name, children = {}) => ({
+const getBlock = (name, children: any = {}) => ({
   name,
   className: 'pricing1-block',
   md: 8,
@@ -110,7 +110,7 @@ class Pricing1 extends React.PureComponent {
   };
 
   render() {
-    const { ...props } = this.props;
+    const { ...props } = this.props as any;
     const {
       dataSource = {
         wrapper: {

@@ -429,7 +429,7 @@ class Pricing3 extends React.PureComponent {
       },
       isMobile,
       ...props
-    } = this.props;
+    } = this.props as any;
     const { Table: table, wrapper, page, titleWrapper } = dataSource;
     const { columns, dataSource: tableData, ...$table } = table;
     const tableProps = {

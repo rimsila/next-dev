@@ -20,7 +20,7 @@ class Banner extends React.PureComponent {
   /* replace-start */
   static getDerivedStateFromProps(props, { prevProps, $self, current: prevCurrent }) {
     const { func } = props;
-    const nextState = {
+    const nextState: any = {
       prevProps: props,
     };
     if (prevProps && props !== prevProps) {
@@ -49,7 +49,7 @@ class Banner extends React.PureComponent {
 
   /* replace-end */
   render() {
-    const { ...props } = this.props;
+    const { ...props } = this.props as any;
     const {
       dataSource = {
         wrapper: {
@@ -196,7 +196,9 @@ class Banner extends React.PureComponent {
         {...props}
         {...dataSource.wrapper}
         /* replace-start */
+
         data-comp={[
+          // @ts-ignore
           `banner-switch={ "current": ${this.state.current}, "total": ${dataSource.BannerAnim.children.length} ,"childRoute": ["BannerAnim"] }`,
         ]}
         /* replace-end */
@@ -213,8 +215,10 @@ class Banner extends React.PureComponent {
               {...dataSource.BannerAnim}
               /* replace-start */
               ref={(c) => {
+                // @ts-ignore
                 this.banner = c;
               }}
+              // @ts-ignore
               initShow={this.state.current - 1}
               /* replace-end */
             >

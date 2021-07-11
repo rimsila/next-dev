@@ -297,7 +297,7 @@ const editionDisplayNameMergeCell = memoizeOne(mergeCells);
   render: (name, _, index) => {
     const {
       pagedData: {items },
-    } = this.props;
+    } = this.props as any;
     // Because render will be called frequently, the data source calculated here is basically fixed, so use the cache and repeat the call to get it from the cache.
     const rowSpanMap = editionDisplayNameMergeCell(items,'editionDisplayName');
 

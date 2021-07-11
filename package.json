@@ -28,17 +28,13 @@
         "ycore": "cd packages/core && yalc publish",
         "yhook": "cd packages/hooks && yalc publish",
         "ypro": "cd packages/provider && yalc publish",
-        "restartLibrary": "echo //restart >> .umirc.js",
-        "update-template": "cd ../next-dev-template && yarn yall ",
         "yall": "yarn kill4000 && yarn build:es && yarn ycom && yarn ycore && yarn yhook && yarn ypro && yarn start",
         "yall1": " yarn build:es && yarn ycom && yarn ycore && yarn yhook && yarn ypro "
     },
-    "size-limit": [
-        {
-            "path": "dist/bundle.js",
-            "limit": "10 KB"
-        }
-    ],
+    "size-limit": [{
+        "path": "dist/bundle.js",
+        "limit": "10 KB"
+    }],
     "browserslist": [
         "last 2 versions",
         "Firefox ESR",
@@ -117,11 +113,7 @@
         "prettier": "^2.0.1",
         "pretty-quick": "^3.0.0",
         "query-string": "^6.11.1",
-        "rc-banner-anim": "^2.4.5",
-        "rc-queue-anim": "^1.8.5",
-        "rc-scroll-anim": "^2.7.6",
-        "rc-texty": "^0.2.0",
-        "rc-tween-one": "^3.0.0-beta.7",
+
         "react": "^16.13.1",
         "react-dom": "^16.13.1",
         "react-lifecycles-compat": "^3.0.4",

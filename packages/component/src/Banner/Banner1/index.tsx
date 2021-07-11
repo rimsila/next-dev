@@ -8,7 +8,7 @@ import './index.less';
 
 class Banner1 extends React.PureComponent {
   render() {
-    const { ...currentProps } = this.props;
+    const { ...currentProps } = this.props as any;
     const {
       dataSource = {
         wrapper: {

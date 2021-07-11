@@ -2,7 +2,7 @@ import React, { memo } from 'react';
 import TweenOne from 'rc-tween-one';
 import OverPack from 'rc-scroll-anim/lib/ScrollOverPack';
 /* replace-start-value = import { isImg } from './utils'; */
-import { Regex } from '../../../../core/src/regexp';
+import { Regex } from '@next-dev/core/es/regexp';
 /* replace-end-value */
 /* replace-start */
 import './index.less';
